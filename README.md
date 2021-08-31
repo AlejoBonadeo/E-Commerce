@@ -7,4 +7,4 @@ Paginas que se tomaron como referencia:
 - Amazon
 - BookDepository
 
-# Todos los derechos reservados 2021
+ * Todos los derechos reservados 2021 *
