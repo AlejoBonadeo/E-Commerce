@@ -1,3 +1,10 @@
-# MercadoLibros
-# eCommerce donde los usuarios pueden comprar y vender libros académicos.
+# 📖 MercadoLibros 📖
+Es una plataforma eCommerce donde los usuarios pueden comprar y vender libros, resumenes y apuntes académicos.
+Esta plataforma tiene como objetivo reunir estudiantes 👨‍🎓 (Egresados o en curso), docentes 👨‍🏫 y academicos 🧙‍♂️ y brindarles un espacio donde puedan comprar, vender o intercambiar libros 📚(Nuevos o usados) o apuntes 📑, todos ellos categorizados tanto en niveles educativos (Primaria, secundaria, universidad, posgrado, etc.) como asi tambien en especialidades y/o materias.
+Paginas que se tomaron como referencia:
+- MercadoLibre
+- OLX
+- Amazon
+- BookDepository
+
 # Todos los derechos reservados 2021
