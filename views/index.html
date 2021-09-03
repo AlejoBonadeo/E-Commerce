@@ -4,14 +4,239 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
     <title>MercadoLibros</title>
-    <link rel="stylesheet" href="/static/css/stylesheet.css">
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
-    <section>
-        <!--Mensaje de bienvenida de test -->
-        <img src="/static/img/logo.png" alt="Logo MercadoLibros"></img>
-        <h1>Bienvenidos a MercadoLibros!!!</h1>
+
+    <!-- Nav Bar -->
+
+    <nav class="nav-bar-top">
+        <div class="nav-bar-content-top">
+            <img src="/img/dummy-logo.png" alt="MercadoLibros" class="logo">
+            <div class="search-bar">
+                <input type="search" name="" class="search" placeholder="Buscá un libro...">
+                <button class="search-btn">
+                    <i class="fas fa-search fa-2x"></i>
+                </button>
+            </div>
+            <div class="ingresar">
+                <h2 class="ingresar-item"><a href="login"class="login">Iniciar Sesión</a></h2>
+                <h2 class="ingresar-item"><a href="register"class="register">Registrarse</a></h2>
+            </div>
+        </div>
+    </nav>
+    <nav class="nav-bar-bottom">
+        <div class="nav-bar-content-bottom">
+            <h2 class="nav-bot-item categorias-btn">Categorías</h2>
+            <h2 class="nav-bot-item"><a href="login" class="historial">Historial</a></h2>
+            <h2 class="nav-bot-item"><a href="login" class="vender">Vender</a></h2>
+            <h2 class="nav-bot-item"><a href="#" class="faqs">Preguntas frecuentes</a></h2>
+        </div>
+    </nav>
+
+    <!-- Categories -->
+    <div class="categorias-container">
+        <div class="categorias">
+            <div class="categoria">Arquitectura</div>
+            <div class="categoria">Arte</div>
+            <div class="categoria">Ciencia</div>
+            <div class="categoria">Derecho</div>
+            <div class="categoria">Diseño</div>
+            <div class="categoria">Economía</div>
+            <div class="categoria ">Fiolosofía</div>
+            <div class="break"></div>
+            <div class="categoria">Goegrafía</div>
+            <div class="categoria">Historia</div>
+            <div class="categoria">Ingeniería</div>
+            <div class="categoria">Inglés</div>
+            <div class="categoria">Lengua</div>
+            <div class="categoria">Literatura</div>
+            <div class="categoria">Matemática</div>
+            <div class="break"></div>
+            <div class="categoria">Medicina</div>
+            <div class="categoria">Música</div>
+            <div class="categoria">Psicología</div>
+            <div class="categoria">Sociales</div>
+            <div class="categoria">Tecnología</div>
+            <div class="categoria">Otros Idiomas</div>
+            <div class="categoria">Otros</div>
+        </div>
+    </div>
+
+    <!-- Slideshow -->
+    <div class="slideshow-container">
+        <button class="prev-btn"><</button>
+        <div class="slideshow">
+            <div class="top-img"></div>
+            <div class="bottom-img"></div>
+        </div>
+        <button class="next-btn">></button>
+    </div>
+
+    <!-- Books -->
+    <div class="productos-texto-container">
+        <h3 class="productos-texto">Productos destacados</h3>
+        <p class="ver-mas">Ver más</p>
+    </div>
+
+    <section class="productos-container">
+        <div class="productos">
+            <article class="libro">
+                <img src="/img/dummy-book.jpg" alt="">
+                <i class="fas fa-heart fa-2x"></i>
+                <div class="libro-info">
+                    <h3 class="libro-precio">$11.500</h3>
+                    <h4 class="libro-titulo">The C Programming Language 2nd Edition. Brian  W. Kernighan and Dennis M. Ritchie</h4>
+                </div>
+            </article>
+            <article class="libro">
+                <img src="/img/dummy-book.jpg" alt="">
+                <i class="fas fa-heart fa-2x"></i>
+                <div class="libro-info">
+                    <h3 class="libro-precio">$11.500</h3>
+                    <h4 class="libro-titulo">The C Programming Language 2nd Edition. Brian  W. Kernighan and Dennis M. Ritchie</h4>
+                </div>
+            </article>
+            <article class="libro">
+                <img src="/img/dummy-book.jpg" alt="">
+                <i class="fas fa-heart fa-2x"></i>
+                <div class="libro-info">
+                    <h3 class="libro-precio">$11.500</h3>
+                    <h4 class="libro-titulo">The C Programming Language 2nd Edition. Brian  W. Kernighan and Dennis M. Ritchie</h4>
+                </div>
+            </article>
+            <article class="libro">
+                <img src="/img/dummy-book.jpg" alt="">
+                <i class="fas fa-heart fa-2x"></i>
+                <div class="libro-info">
+                    <h3 class="libro-precio">$11.500</h3>
+                    <h4 class="libro-titulo">The C Programming Language 2nd Edition. Brian  W. Kernighan and Dennis M. Ritchie</h4>
+                </div>
+            </article>
+            <article class="libro">
+                <img src="/img/dummy-book.jpg" alt="">
+                <i class="fas fa-heart fa-2x"></i>
+                <div class="libro-info">
+                    <h3 class="libro-precio">$11.500</h3>
+                    <h4 class="libro-titulo">The C Programming Language 2nd Edition. Brian  W. Kernighan and Dennis M. Ritchie</h4>
+                </div>
+            </article>
+            <article class="libro">
+                <img src="/img/dummy-book.jpg" alt="">
+                <i class="fas fa-heart fa-2x"></i>
+                <div class="libro-info">
+                    <h3 class="libro-precio">$11.500</h3>
+                    <h4 class="libro-titulo">The C Programming Language 2nd Edition. Brian  W. Kernighan and Dennis M. Ritchie</h4>
+                </div>
+            </article>
+            <!-- Break -->
+            <div class="break"></div>
+            <article class="libro">
+                <img src="/img/dummy-book.jpg" alt="">
+                <i class="fas fa-heart fa-2x"></i>
+                <div class="libro-info">
+                    <h3 class="libro-precio">$11.500</h3>
+                    <h4 class="libro-titulo">The C Programming Language 2nd Edition. Brian  W. Kernighan and Dennis M. Ritchie</h4>
+                </div>
+            </article>
+            <article class="libro">
+                <img src="/img/dummy-book.jpg" alt="">
+                <i class="fas fa-heart fa-2x"></i>
+                <div class="libro-info">
+                    <h3 class="libro-precio">$11.500</h3>
+                    <h4 class="libro-titulo">The C Programming Language 2nd Edition. Brian  W. Kernighan and Dennis M. Ritchie</h4>
+                </div>
+            </article>
+            <article class="libro">
+                <img src="/img/dummy-book.jpg" alt="">
+                <i class="fas fa-heart fa-2x"></i>
+                <div class="libro-info">
+                    <h3 class="libro-precio">$11.500</h3>
+                    <h4 class="libro-titulo">The C Programming Language 2nd Edition. Brian  W. Kernighan and Dennis M. Ritchie</h4>
+                </div>
+            </article>
+            <article class="libro">
+                <img src="/img/dummy-book.jpg" alt="">
+                <i class="fas fa-heart fa-2x"></i>
+                <div class="libro-info">
+                    <h3 class="libro-precio">$11.500</h3>
+                    <h4 class="libro-titulo">The C Programming Language 2nd Edition. Brian  W. Kernighan and Dennis M. Ritchie</h4>
+                </div>
+            </article>
+            <article class="libro">
+                <img src="/img/dummy-book.jpg" alt="">
+                <i class="fas fa-heart fa-2x"></i>
+                <div class="libro-info">
+                    <h3 class="libro-precio">$11.500</h3>
+                    <h4 class="libro-titulo">The C Programming Language 2nd Edition. Brian  W. Kernighan and Dennis M. Ritchie</h4>
+                </div>
+            </article>
+            <article class="libro">
+                <img src="/img/dummy-book.jpg" alt="">
+                <i class="fas fa-heart fa-2x"></i>
+                <div class="libro-info">
+                    <h3 class="libro-precio">$11.500</h3>
+                    <h4 class="libro-titulo">The C Programming Language 2nd Edition. Brian  W. Kernighan and Dennis M. Ritchie</h4>
+                </div>
+            </article>
+            <div class="break"></div>
+            <article class="libro">
+                <img src="/img/dummy-book.jpg" alt="">
+                <i class="fas fa-heart fa-2x"></i>
+                <div class="libro-info">
+                    <h3 class="libro-precio">$11.500</h3>
+                    <h4 class="libro-titulo">The C Programming Language 2nd Edition. Brian  W. Kernighan and Dennis M. Ritchie</h4>
+                </div>
+            </article>
+            <article class="libro">
+                <img src="/img/dummy-book.jpg" alt="">
+                <i class="fas fa-heart fa-2x"></i>
+                <div class="libro-info">
+                    <h3 class="libro-precio">$11.500</h3>
+                    <h4 class="libro-titulo">The C Programming Language 2nd Edition. Brian  W. Kernighan and Dennis M. Ritchie</h4>
+                </div>
+            </article>
+            <article class="libro">
+                <img src="/img/dummy-book.jpg" alt="">
+                <i class="fas fa-heart fa-2x"></i>
+                <div class="libro-info">
+                    <h3 class="libro-precio">$11.500</h3>
+                    <h4 class="libro-titulo">The C Programming Language 2nd Edition. Brian  W. Kernighan and Dennis M. Ritchie</h4>
+                </div>
+            </article>
+            <article class="libro">
+                <img src="/img/dummy-book.jpg" alt="">
+                <i class="fas fa-heart fa-2x"></i>
+                <div class="libro-info">
+                    <h3 class="libro-precio">$11.500</h3>
+                    <h4 class="libro-titulo">The C Programming Language 2nd Edition. Brian  W. Kernighan and Dennis M. Ritchie</h4>
+                </div>
+            </article>
+            <article class="libro">
+                <img src="/img/dummy-book.jpg" alt="">
+                <i class="fas fa-heart fa-2x"></i>
+                <div class="libro-info">
+                    <h3 class="libro-precio">$11.500</h3>
+                    <h4 class="libro-titulo">The C Programming Language 2nd Edition. Brian  W. Kernighan and Dennis M. Ritchie</h4>
+                </div>
+            </article>
+            <article class="libro">
+                <img src="/img/dummy-book.jpg" alt="">
+                <i class="fas fa-heart fa-2x"></i>
+                <div class="libro-info">
+                    <h3 class="libro-precio">$11.500</h3>
+                    <h4 class="libro-titulo">The C Programming Language 2nd Edition. Brian  W. Kernighan and Dennis M. Ritchie</h4>
+                </div>
+            </article>
+        </div>
     </section>
+
+    <footer>
+        <p>Todos los derechos reservados 2021 - MercadoLibros®</p>
+    </footer>
+    <script src="/src/categories.js"></script>
+    <script src="/src/slideshow.js"></script>
 </body>
 </html>
