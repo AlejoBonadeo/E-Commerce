@@ -4,10 +4,10 @@ Esta plataforma tiene como objetivo reunir estudiantes 👨‍🎓 (Egresados o 
 ___________________________________________________________________________________________________________________________________________________________________________________
 
 ## Desarrolladores 💻:
-- Eduardo Difermo
 - Alejo Bonadeo
 - Felipe Englebienne
 - Javier Menendez
+- Eduardo Difermo
 ___________________________________________________________________________________________________________________________________________________________________________________
 
 ## Paginas que se tomaron como inspiracion 💭:
