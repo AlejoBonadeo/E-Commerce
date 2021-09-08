@@ -387,9 +387,5 @@ footer p {
     .productos article:first-child, .productos article:nth-child(2){
         margin-top: 25px;
     }
-
-    footer p {
-        width: 90%;
-    }
 }
 
