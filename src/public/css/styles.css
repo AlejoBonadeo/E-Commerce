@@ -205,6 +205,14 @@ a:hover, .nav-bot-item:hover{
     color: var(--white-1);
 }
 
+/* Categories mobile */
+
+.categorias-container-mobile, .mobile{
+    height: 0;
+    overflow: hidden;
+}
+
+
 /* Slideshow */
 
 .slideshow-container{
@@ -307,6 +315,7 @@ a:hover, .nav-bot-item:hover{
     text-transform: none;
     margin: 1.2em 0 1em 2%;
     font-size: 20px;
+    font-weight: bold;
     height: 21px;
     color: var(--link);
     transition: color 0.3s ease-out;
@@ -338,6 +347,7 @@ a:hover, .nav-bot-item:hover{
 .libro, .libro img, .libro-info {
     border-radius:15px;
     width: 170px;
+
 }
 
 
@@ -357,10 +367,7 @@ a:hover, .nav-bot-item:hover{
     margin: 0;
     height: 36px;
     transition: all .3s linear;
-}
-
-.libro-precio {
-    margin-top:5px;
+    width: 100%;
 }
 
 .libro:hover .libro-info {
@@ -381,6 +388,7 @@ a:hover, .nav-bot-item:hover{
 
 .libro img{
     position: relative;
+    width: 100%;
     bottom: 1px;
 }
 
@@ -393,6 +401,7 @@ a:hover, .nav-bot-item:hover{
 }
 
 .libro-precio {
+    margin-top:5px;
     font-size: 25px;
     margin: 4px 0 6px 0;
 }
@@ -417,3 +426,137 @@ footer p {
     font-weight: bold;
     color: var(--dark-3)
 }
+
+@media (max-width: 414px){
+
+    .nav-bar-bottom, .slideshow-container button{
+        height: 0;
+        overflow: hidden;
+        position: absolute;
+    }
+
+    body {
+        background-color: var(--primary-3);
+
+    }
+
+    .productos {
+        border: none;
+        width: 100%;
+    }
+
+    .slideshow-container {
+        margin-bottom: 10px;
+        width: 100vw;
+    }
+
+    .slideshow-container, .slideshow, .slideshow img {
+        max-width: 100vw;
+        height: 170px;
+    }
+    
+    .productos-texto {
+        font-size: 20px;
+        width: 100px;
+    }
+
+
+    .libro {
+        width: 130px;
+        height: 165px;
+        margin-bottom: 0;
+        transition: all .3s linear;
+    }
+
+    .categorias-container-mobile{
+        display: flex;
+        height: 70px;
+        flex-wrap: nowrap;
+        overflow: auto;
+        width: 100vw;
+        flex-direction: row;
+        justify-content: space-between;
+        margin: 15px 0;
+}
+
+    .categoria {
+        width: max-content;
+        height: 50px;
+        margin-left: 8px;
+        margin-right: 8px;
+        border-radius: 10px;
+        padding: 0 4px;
+    }
+
+    .productos-texto-container {
+        height: 40px;
+        display: flex;
+        justify-content: space-between;
+        margin-right: 11.17%;
+    }
+
+    .productos-texto, .ver-mas{
+        margin: 0;
+    }
+
+    .fa-heart, .search-btn{
+        width: 0;
+        overflow: hidden;
+        padding: 0;
+        border: none;
+    }
+
+    .libro:hover .libro-info {
+        height: 36px;
+    }
+
+    .libro:hover {
+        transform: scale(1.02);
+    }
+
+    .nav-bar-top {
+        height: 140px;
+    }
+
+    .nav-bar-content-top {
+        height: 100%;
+        width: 100%;
+        align-items: flex-start
+    }
+
+    .search-bar {
+        align-self: flex-end;
+        position: absolute;
+    }
+
+    .logo{
+        margin-top:20px;
+    }
+
+    .ingresar {
+        font-size: 15px;
+        height: 80px;
+        width: 200px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .ingresar-item {
+        text-align: center;
+    }
+    
+    .login {
+        text-align: center;
+        margin-left: 0;
+    }
+
+    .register{
+        margin-right: 5px;
+    }
+
+    .productos article:first-child, .productos article:nth-child(2){
+        margin-top: 25px;
+    }
+}
+
