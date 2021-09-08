@@ -424,7 +424,8 @@ footer{
 
 footer p {
     font-weight: bold;
-    color: var(--dark-3)
+    color: var(--dark-3);
+    text-align: center;
 }
 
 @media (max-width: 414px){
@@ -560,6 +561,10 @@ footer p {
 
     .productos article:first-child, .productos article:nth-child(2){
         margin-top: 25px;
+    }
+
+    footer p {
+        width: 90%;
     }
 }
 
