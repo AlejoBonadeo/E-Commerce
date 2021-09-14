@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MercadoLibros</title>
+</head>
+<body>
+    
+
+<form action="./register" method="POST">
+ 
+    <div>
+        <label for="nombreDeUsuario">"Nombre:"</label>
+        <input type="text" name="nombreDeUsuario" id="nombreDeUsuario" required>
+    </div>
+    <div>
+        <label for="apellidoDeUsuario">"Apellido:"</label>
+        <input type="text" name="apellidoDeUsuario" id="apellidoDeUsuario" required>
+    </div>
+    <div>
+        <label for="emailUsuario">"Correo electrónico:"</label>
+        <input type="email" name="emailUsuario" id="emailUsuario" required>
+    </div>  
+    <div>
+        <label for="telUsuario">"Teléfono:"</label>
+        <input type="tel" name="telUsuario" id="telUsuario">
+    </div>
+
+    <div>
+        <label for="passUsuario">"Contraseña:"</label>
+        <input type="password" name="passUsuario" id="passUsuario" required>
+    </div>
+
+<button type="reset"> Borrar formulario</button>
+<button type="submit">Confirmar</button>
+
+
+</form>
+
+
+</body>
+</html>
