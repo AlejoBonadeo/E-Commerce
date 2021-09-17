@@ -1,17 +1,23 @@
-const express = require('express');
+const express = require("express");
 const app = express();
-const path = require('path');
+const path = require("path");
 
-const public = path.join(__dirname,"../web/public")
+const public = path.join(__dirname, "../web/public");
 
 app.use(express.static(public));
 
-app.get('/', (req, res) => {
-    res.sendFile(path.join(public, '/views/index.html'))
+app.get("/", (req, res) => {
+  res.sendFile(path.join(public, "/views/index.html"));
 });
 
-app.get('/carrito', (req, res) => {
-    res.sendFile(path.join(public, '/views/carrito.html'))
+app.get("/carrito", (req, res) => {
+  res.sendFile(path.join(public, "/views/carrito.html"));
 });
 
-app.listen(8080, ()=>console.log("Servidor iniciado - escuchando en puerto 8080"));
+app.get("/producto", (req, res) => {
+  res.sendFile(path.join(public, "/views/producto.html"));
+});
+
+app.listen(8080, () =>
+  console.log("Servidor iniciado - escuchando en puerto 8080")
+);
