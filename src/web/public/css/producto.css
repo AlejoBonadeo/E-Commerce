@@ -60,11 +60,95 @@ button {
 }
 
 @media (min-width: 414px) {
+  .producto-wrapper {
+    display: grid;
+    grid-template-areas:
+      "img titulo"
+      "img precio"
+      "img desc"
+      "img botones ";
+    gap: 5px;
+    align-content: center;
+    border: solid black 2px;
+    border-radius: 10px;
+    width: 60%;
+    height: 600px;
+    margin: 20px auto 75px auto;
+  }
+
+  .producto-wrapper h1 {
+    font-size: 40px;
+    grid-area: titulo;
+    align-self: center;
+    border-bottom: lightslategray solid 1px;
+    margin: 0px 5px 0px;
+  }
+  .imagen-producto-wrapper {
+    padding: 10px;
+    grid-area: img;
+    align-self: center;
+    margin-left: 5px;
+    width: 100%;
+  }
+
+  .precio {
+    grid-area: precio;
+    font-size: 40px;
+    font-weight: bold;
+    align-self: center;
+    margin: 0px 5px 0px;
+  }
+
+  .descripcion {
+    display: flex;
+    grid-area: desc;
+    align-self: center;
+    justify-content: space-around;
+    margin: 0px 5px 0px;
+  }
+
+  .descripcion article {
+    padding: 5px;
+  }
+
+  .descripcion article h3 {
+    font-size: 20px;
+  }
+
+  .descripcion-vendedor {
+    border-top: solid lightslategray 1px;
+    border-left: solid lightslategray 1px;
+  }
+
+  .botones-wrapper {
+    grid-area: botones;
+    align-self: center;
+    border-top: lightslategray solid 1px;
+    padding-top: 5px;
+    margin: 0px 5px 0px;
+  }
+
   .nav-bar-pagina {
     text-align: right;
-    width: 50%;
-    margin: 5px auto;
+    width: 60%;
+    margin: 30px auto;
   }
+
+  .nav-bar-pagina a {
+    font-size: 20px;
+  }
+
+  button {
+    transition-property: background-color;
+    transition-duration: 0.5s;
+  }
+
+  button:hover {
+    cursor: pointer;
+    background-color: rgb(175, 131, 218);
+  }
+
+  /*
   .producto-wrapper {
     width: 50%;
     height: 100%;
@@ -119,5 +203,5 @@ button {
   .botones-wrapper button{
     width: 100%;
     margin-bottom: 6px;
-  }
+  } */
 }
