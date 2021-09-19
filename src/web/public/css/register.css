@@ -1,0 +1,82 @@
+
+:root {
+    /* Primaries */ 
+    --primary-1: rgb(174,62,222);
+    --primary-2: rgb(205,135,234);
+    --primary-3: rgb(248,231,255);
+    /* Blue Link */ 
+    --link: rgb(41,122,243);
+    --link-hover: rgb(14,86,193);
+    /* Dark text */ 
+    --dark-1: rgb(0,0,0);
+    --dark-2: rgb(51,51,51);
+    --dark-3: rgb(97, 97, 97);
+    --dark-4: rgb(116, 116, 116);
+    /* White */ 
+    --white-1: rgb(225,225,225);
+    --white-2: rgb(204,204,204);
+} 
+
+
+.container {
+    display: flex;
+    justify-content: center;
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--primary-3);
+}
+
+.titulo {
+    display: flex;
+    flex-direction: column;
+    padding-left: 10px;
+}
+
+.register {
+    border: solid 3px var(--primary-2);
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px
+}
+
+.form-inputs {
+    display: flex;
+    flex-direction:row;
+
+}
+
+.form-inputs-left, .form-inputs-right {
+    display: flex;
+    flex-direction: column;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+input{
+    border: 1px solid;
+    border-radius: 5px
+}
+
+input:focus { 
+    border-color:var(--primary-2);
+    background-color:rgb(230, 196, 240) ;
+ }
+
+button:hover {
+    cursor: pointer;
+    background-color: var(--primary-1);
+  }
+
+.aceptaTerminos{
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      padding: 10px ;
+      font-size: small;
+  }
+
+.button-form{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 10px ;
+}
