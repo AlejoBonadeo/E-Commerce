@@ -5,51 +5,59 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MercadoLibros</title>
-    <link rel="stylesheet" href="/css/home.css" />
-    <link rel="stylesheet" href="/css/nav-bar.css" />
     <link rel="stylesheet" href="/css/footer.css" />
-    <link rel="stylesheet" href="/css/producto.css" />
     <link rel="stylesheet" href="/css/register.css"/>
 
 </head>
 
 <body>
     <header>
-        <img src="" alt="" class="logo">
+        <img src="/img/dummy-logo.png" alt="" class="logo">
     </header>
     <div class="container">
         <div class="register">
             <div class="titulo">
-                <h4>Rgistrarse</h4>
+                <h4>Registrarse</h4>
+                <div class="login-mobile">
+                    <p>Ya tenes una cuenta?</p>
+                    <a href="/login">Inicia Sesion</a>
+                </div>
             </div>
             
             <form action="/register" method="POST">
                 <div class="form-inputs">
-                    <div class="form-inputs-right">
-
-                        <label for="nombreDeUsuario">Nombre :</label>
-                        <input type="text" name="nombreDeUsuario" id="nombreDeUsuario" required>
-                        <br>
-                        <label for="DNIDeUsuario">DNI :</label>
-                        <input type="text" name="DNIDeUsuario" id="DNIDeUsuario" required>
-                        <br>
-                        <label for="passUsuario">Contraseña:</label>
-                        <input type="password" name="passUsuario" id="passUsuario" required>
-                        <br>
+                    <div>
+                        <article>
+                            <label for="nombreDeUsuario">Nombre :</label>
+                            <input type="text" name="nombreDeUsuario" id="nombreDeUsuario" required>
+                        </article>
+                        <article>
+                            <label for="apellidoDeUsuario">Apellido:</label>
+                            <input type="text" name="apellidoDeUsuario" id="apellidoDeUsuario" required>
+                        </article>
                     </div>
 
-                    <div class="form-inputs-left">
-
-                        <label for="apellidoDeUsuario">Apellido:</label>
-                        <input type="text" name="apellidoDeUsuario" id="apellidoDeUsuario" required>
-                        <br>
-                        <label for="emailUsuario">Correo electrónico:</label>
-                        <input type="email" name="emailUsuario" id="emailUsuario" required>
-                        <br>
-                        <label for="repeatpassUsuario">Repetir:</label>
-                        <input type="repeatpassword" name="repeatpassUsuario" id="repeatpassUsuario" required>
-                        <br>
+                    <div>
+                        <article>
+                            <label for="DNIDeUsuario">DNI :</label>
+                            <input type="text" name="DNIDeUsuario" id="DNIDeUsuario" required>
+                        </article>
+                        <article>
+                            <label for="emailUsuario">Correo electrónico:</label>
+                            <input type="email" name="emailUsuario" id="emailUsuario" required>
+                        </article>
                     </div>
+                    <div>
+                        <article>
+                            <label for="passUsuario">Contraseña:</label>
+                            <input type="password" name="passUsuario" id="passUsuario" required>
+                        </article>
+                        <article>
+                            <label for="repeatpassUsuario">Repetir Contraseña:</label>
+                            <input type="repeatpassword" name="repeatpassUsuario" id="repeatpassUsuario" required>
+                        </article>
+                    </div>
+
                     
                 </div>
 
@@ -59,14 +67,20 @@
                 </div>
 
                 <div class="button-form">
-                    <button type="reset">Borrar formulario</button>
                     <button type="submit">Crear Cuenta</button>
                 </div>
 
             </form>
+            <div class="login">
+                <p>Ya tenes una cuenta?</p>
+                <a href="/login">Inicia Sesion</a>
+            </div>
         </div>
     </div>
 
+    <footer>
+        <p>Todos los derechos reservados 2021 - Grupo 11 - MercadoLibros®</p>
+    </footer>
 </body>
 </html>            
  
