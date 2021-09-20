@@ -21,6 +21,7 @@ ________________________________________________________________________________
 - La paleta de colores está en el archivo styles.css.
 ___________________________________________________________________________________________________________________________________________________________________________________
 
-## Trello : [https://trello.com/b/FaSj3XrZ/ecommerce]
+## Trello 📋: 
+- [https://trello.com/b/FaSj3XrZ/ecommerce]
 
 Todos los derechos reservados 2021 - MercadoLibros®
