@@ -93,6 +93,7 @@ input[type="search"]::-webkit-search-results-decoration {
     width: 20%;
     margin-right: 10px;
     min-width: 145px;
+    max-height: 100%
 }
 
 .fa-search {
