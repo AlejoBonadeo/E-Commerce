@@ -5,40 +5,115 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MercadoLibros</title>
+    <link rel="stylesheet" href="/css/footer.css" />
+    <link rel="stylesheet" href="/css/register.css"/>
+
 </head>
+
 <body>
-    
+    <header>
+        <img src="/img/dummy-logo.png" alt="" class="logo">
+    </header>
+    <div class="container">
+        <div class="register">
+            <div class="titulo">
+                <h4>Registrarse</h4>
+                <div class="login-mobile">
+                    <p>Ya tenes una cuenta?</p>
+                    <a href="/login">Inicia Sesion</a>
+                </div>
+            </div>
+            
+            <form action="/register" method="POST">
+                <div class="form-inputs">
+                    <div>
+                        <article>
+                            <label for="nombreDeUsuario">Nombre :</label>
+                            <input type="text" name="nombreDeUsuario" id="nombreDeUsuario" required>
+                        </article>
+                        <article>
+                            <label for="apellidoDeUsuario">Apellido:</label>
+                            <input type="text" name="apellidoDeUsuario" id="apellidoDeUsuario" required>
+                        </article>
+                    </div>
 
-<form action="./register" method="POST">
- 
-    <div>
-        <label for="nombreDeUsuario">"Nombre:"</label>
-        <input type="text" name="nombreDeUsuario" id="nombreDeUsuario" required>
+                    <div>
+                        <article>
+                            <label for="DNIDeUsuario">DNI :</label>
+                            <input type="text" name="DNIDeUsuario" id="DNIDeUsuario" required>
+                        </article>
+                        <article>
+                            <label for="emailUsuario">Correo electrónico:</label>
+                            <input type="email" name="emailUsuario" id="emailUsuario" required>
+                        </article>
+                    </div>
+                    <div>
+                        <article>
+                            <label for="passUsuario">Contraseña:</label>
+                            <input type="password" name="passUsuario" id="passUsuario" required>
+                        </article>
+                        <article>
+                            <label for="repeatpassUsuario">Repetir Contraseña:</label>
+                            <input type="repeatpassword" name="repeatpassUsuario" id="repeatpassUsuario" required>
+                        </article>
+                    </div>
+
+                    
+                </div>
+
+                <div class="aceptaTerminos">
+                    <input type="checkbox" name="aceptaTerminos" id="aceptaTerminos" required>
+                    <label for="aceptaTerminos">Acepto terminos y condiciones</label>
+                </div>
+
+                <div class="button-form">
+                    <button type="submit">Crear Cuenta</button>
+                </div>
+
+            </form>
+            <div class="login">
+                <p>Ya tenes una cuenta?</p>
+                <a href="/login">Inicia Sesion</a>
+            </div>
+        </div>
     </div>
-    <div>
-        <label for="apellidoDeUsuario">"Apellido:"</label>
-        <input type="text" name="apellidoDeUsuario" id="apellidoDeUsuario" required>
-    </div>
-    <div>
-        <label for="emailUsuario">"Correo electrónico:"</label>
-        <input type="email" name="emailUsuario" id="emailUsuario" required>
-    </div>  
-    <div>
-        <label for="telUsuario">"Teléfono:"</label>
-        <input type="tel" name="telUsuario" id="telUsuario">
-    </div>
 
-    <div>
-        <label for="passUsuario">"Contraseña:"</label>
-        <input type="password" name="passUsuario" id="passUsuario" required>
-    </div>
-
-<button type="reset"> Borrar formulario</button>
-<button type="submit">Confirmar</button>
-
-
-</form>
-
-
+    <footer>
+        <p>Todos los derechos reservados 2021 - Grupo 11 - MercadoLibros®</p>
+    </footer>
 </body>
-</html>
+</html>            
+ 
+
+
+<!--
+
+Registro de Usuario (register.html ):
+OK ■ Nombre y apellido
+OK ■ Nombre de usuari@
+■ Fecha de nacimiento
+■ Domicilio
+■ Perfil del usuario (consultar a l@s usuari@s si quieren comprar o vender)
+■ Categorías de interés (puede elegir más de una)
+● Electro
+● Moda
+● Hogar
+● Juguetería
+● Vida sana
+
+■ Foto de usuario
+
+■ Contraseña
+■ Confirmar contraseña
+
+■ Botón de enviar que nos lleve a la página principal
+■ Botón de borrar todos los datos del formulario
+
+
+Micro desafío - Paso 3
+Es necesario indicarle al usuario, con un mensaje de error, cuando un dato solicitado no
+cumple con el formato permitido. Por ejemplo, si el usuario ingresa un nombre con un
+solo carácter deberíamos indicar el error, ¿verdad? ¿Cómo podríamos mostrar ese
+mensaje al usuario?
+
+-->
