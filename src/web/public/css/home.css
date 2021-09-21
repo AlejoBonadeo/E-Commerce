@@ -90,6 +90,7 @@ body, html {
 /* Slideshow */
 
 .slideshow-container{
+    width: 100vw;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -97,12 +98,9 @@ body, html {
     margin-bottom: 40px;
 }
 
-.slideshow, .slideshow img {
-    max-height: 288px;
-}
-
 .slideshow {
-    max-width: 77.65%;
+    width: 77.65%;
+    height: 100%;
 }
 
 .slideshow-container button {
@@ -132,8 +130,9 @@ body, html {
     cursor: pointer;
 }
 
-.top-img {
+.top-img img, .top-img, .bottom-img img, .bottom-img{
     position: absolute;
+    max-width: 77.65vw;
 }
 
 /* Slideshow Animations */

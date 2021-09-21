@@ -1,8 +1,8 @@
 let images = ["/img/Slideshow-dummy.webp","/img/Slideshow-dummy-2.webp","/img/Slideshow-dummy-3.webp"]
 
 let i = 0
-const slider1 = document.querySelector(".top-img")
-const slider2 = document.querySelector(".bottom-img")
+const slider1 = document.querySelector(".bottom-img")
+const slider2 = document.querySelector(".top-img")
 const nextBtn = document.querySelector(".next-btn")
 const prevBtn = document.querySelector(".prev-btn")
 let nextInterval = false
