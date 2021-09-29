@@ -7,7 +7,7 @@
 
 ___________________________________________________________________________________________________________________________________________________________________________________
 
-‼ ** Para mejor control y revision, recordar actualizar las tarjetas del tablero con el avance/ trabajo realizado en cada actividad. **
+‼ **Para mejor control y revision, recordar actualizar las tarjetas del tablero con el avance/ trabajo realizado en cada actividad.**‼
 
 
 
