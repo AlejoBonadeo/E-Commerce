@@ -5,13 +5,12 @@
 * Actualizacion de tablero en Trello.
 * Asignacion de tareas del **Sprint Nº3**.
 
-### PRESENTES 📢✔
-- Alejo Bonadeo
-- Javier Menendez
-- Eduardo Difermo
+### PRESENTES 📢
+- Alejo Bonadeo ✔
+- Javier Menendez ✔
+- Eduardo Difermo ✔
+- Felipe Englebienne ❌
 
-###AUSENTES 📢❌
-- Felipe Englebienne
 ___________________________________________________________________________________________________________________________________________________________________________________
 
 ‼ ***Para mejor control y revision, recordar actualizar las tarjetas del tablero con el avance/ trabajo realizado en cada actividad.*** ‼
