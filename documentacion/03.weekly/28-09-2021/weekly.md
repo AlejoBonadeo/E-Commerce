@@ -1,7 +1,5 @@
 # WEEKLY MEETING 📅 - **28/09/2021**
 
-<video src="https://media.giphy.com/media/3ndAvMC5LFPNMCzq7m/giphy.mp4" controls></video>
-
 ## PRESENTES 📢✔
 - Alejo Bonadeo
 - Javier Menendez
