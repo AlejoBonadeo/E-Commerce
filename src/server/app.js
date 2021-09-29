@@ -26,6 +26,10 @@ app.get("/login", (req, res) => {
   res.sendFile(path.join(public, "/views/login.html"));
 });
 
+app.get("/crearproducto", (req, res) => {
+  res.sendFile(path.join(public, "/views/crearproducto.html"));
+});
+
 app.listen(8080, () =>
   console.log("Servidor iniciado - escuchando en puerto 8080")
 );
