@@ -33,3 +33,4 @@ app.get("/crearproducto", (req, res) => {
 app.listen(8080, () =>
   console.log("Servidor iniciado - escuchando en puerto 8080")
 );
+
