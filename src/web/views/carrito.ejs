@@ -18,18 +18,19 @@
         <!-- Carrito -->
         <div class="carrito-container">
             <section class="carrito">
-                <div class="carrito-texto">
-                    <h3 class="title">Carrito</h3>
-                    <p class="cantidad">x productos</p>
-                </div>
+                <h3 class="title"><span><i class="fas fa-shopping-cart"></i></span>Carrito</h3>
                 <div class="productos-container">
-                    <% for(let i = 0; i < 6; i++){ %>
+                    <% for(let i = 0; i < 3; i++){ %>
                         <%- include("./partials/libro-carrito.ejs") %> 
                     <% } %> 
                 </div>
+                <div class="total-precio">
+                    <div class="total">Total</div>
+                    <div class="precio-final">$23.000</div>
+                </div>
                 <div class="comprar">
-                    <div class=" total precio">Total: $23.000</div>
-                    <button class="comprar-btn">Comprar</button>
+                    <button class="seguir-btn">Seguir comprando</button>
+                    <button class="pagar-btn">Pagar</button>
                 </div>
             </div>
         </section>

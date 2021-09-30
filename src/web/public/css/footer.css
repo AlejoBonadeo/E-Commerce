@@ -5,12 +5,14 @@ footer{
     align-items: center;
     height: 100px;
     width: 100%;
-    background-color: var(--primary-2);
+    background: rgb(59,69,116);
+    background: linear-gradient(90deg, rgba(59,69,116,1) 0%,
+    rgba(113,114,166,1) 100%);
 }
 
 footer p {
     font-weight: bold;
-    color: var(--dark-3);
+    color: white;
     text-align: center;
     width: 90%;
 }
