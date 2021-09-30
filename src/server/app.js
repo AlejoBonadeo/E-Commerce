@@ -7,6 +7,8 @@ const public = path.join(__dirname, "../web/public");
 
 app.use(express.static(public));
 
+app.set('view engine', 'ejs')
+
 app.get("/", index);
 
 app.get("/carrito", carrito);

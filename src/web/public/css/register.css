@@ -52,7 +52,7 @@ form {width: 100%;}
 
 .register {
     border: solid 5px var(--dark-1);
-    background-color: var(--primary-2);
+    background-color: var(--primary-3);
     display: flex;
     flex-direction: column;
     border-radius: 8px;
