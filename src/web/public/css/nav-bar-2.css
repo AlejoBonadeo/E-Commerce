@@ -1,0 +1,95 @@
+nav {
+    background: url(../img/img-biblio.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    font-size: 20px;
+    height: 200px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 50%;
+}
+
+.logo {
+    width: 100px;
+
+}
+
+nav img {
+    width: 100%;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+    width: 23vw;
+}
+
+.mobile {
+    display: none;
+}
+
+form{
+    align-items: center;
+    background-color: white;
+    border: 1px solid grey;
+    border-radius: 30px;
+    display: flex;
+    height: 30px;
+    margin: 15px 0;
+    padding: 10px;
+    width: 45vw;
+}
+
+form input {
+    border: none;
+    height: 100%;
+    outline: none;
+    width: 100%;
+}
+
+form button{
+    background-color: rgba(0,0,0,0);
+    border: none;
+    height: 100%;
+    transition: color 300ms ease-out;
+}
+
+.nav-links a, #categories {
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: 2px 0px 10px black;
+    transition: color 300ms ease-out;
+}
+
+
+#categories:hover, li a:hover, form button:hover {
+    color: rgb(116, 116, 116);
+    cursor: pointer;
+}
+
+/* .register {
+    background: rgb(25,15,185);
+    background: linear-gradient(90deg, rgba(25,15,185,1) 0%, rgba(94,94,232,1) 100%);
+    border-radius: 30px;
+}
+
+.nav-links li {
+    padding: 15px;
+    transition: all 500ms ease-in-out;
+}
+
+.nav-links li:hover {
+    transform: scale(1.02);
+    cursor: pointer;
+} */
