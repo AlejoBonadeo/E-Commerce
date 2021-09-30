@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <title>MercadoLibros</title>
+    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="/css/nav-bar.css">
+    <link rel="stylesheet" href="/css/footer.css">
+</head>
+<body>
+
+    <!-- Nav-bar & Categories -->
+    <%- include("./partials/nav-bar.ejs") %>
+
+    <!-- Slideshow -->
+    <div class="slideshow-container">
+        <button class="prev-btn"><</button>
+        <div class="slideshow">
+            <div class="top-img"></div>
+            <div class="bottom-img"></div>
+        </div>
+        <button class="next-btn">></button>
+    </div>
+
+    <!-- Categories mobile -->
+    <div class="productos-texto-container mobile">
+        <h3 class="productos-texto">Categorías</h3>
+        <p class="ver-mas">Vender</p>
+    </div>
+
+    <div class="categorias-container-mobile">
+        <div class="categoria">Arquitectura</div>
+        <div class="categoria">Arte</div>
+        <div class="categoria">Ciencia</div>
+        <div class="categoria">Derecho</div>
+        <div class="categoria">Diseño</div>
+        <div class="categoria">Economía</div>
+        <div class="categoria ">Fiolosofía</div>
+        <div class="categoria">Goegrafía</div>
+        <div class="categoria">Historia</div>
+        <div class="categoria">Ingeniería</div>
+        <div class="categoria">Inglés</div>
+        <div class="categoria">Lengua</div>
+        <div class="categoria">Literatura</div>
+        <div class="categoria">Matemática</div>
+        <div class="categoria">Medicina</div>
+        <div class="categoria">Música</div>
+        <div class="categoria">Psicología</div>
+        <div class="categoria">Sociales</div>
+        <div class="categoria">Tecnología</div>
+        <div class="categoria">Otros Idiomas</div>
+        <div class="categoria">Otros</div>
+    </div>
+
+    <!-- Books -->
+    <div class="productos-texto-container">
+        <h3 class="productos-texto">Productos destacados</h3>
+        <p class="ver-mas">Ver más</p>
+    </div>
+
+    <section class="productos-container">
+        <div class="productos">
+            <% for(let i = 1; i <= 18; i++){ %>
+                <%- include("./partials/libro.ejs") %>
+                <% if(!(i % 6)){ %>
+                    <div class="break"></div>
+                <% } %>
+            <% } %> 
+        </div>
+    </section>
+
+    <footer>
+        <p>Todos los derechos reservados 2021 - Grupo 11 - MercadoLibros®</p>
+    </footer>
+    <script src="/components/nav-bar.js"></script>
+    <script src="/front-js/slideshow.js"></script>
+</body>
+</html>

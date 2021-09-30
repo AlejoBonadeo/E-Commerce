@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+        <title>MercadoLibros</title>
+        <link rel="stylesheet" href="/css/carrito.css">
+        <link rel="stylesheet" href="/css/nav-bar.css">
+        <link rel="stylesheet" href="/css/footer.css">
+    </head>
+
+    <body>
+        <!-- Nav-bar & Categories -->
+        <%- include('./partials/nav-bar.ejs') %> 
+        
+        <!-- Carrito -->
+        <div class="carrito-container">
+            <section class="carrito">
+                <div class="carrito-texto">
+                    <h3 class="title">Carrito</h3>
+                    <p class="cantidad">x productos</p>
+                </div>
+                <div class="productos-container">
+                    <% for(let i = 0; i < 6; i++){ %>
+                        <%- include("./partials/libro-carrito.ejs") %> 
+                    <% } %> 
+                </div>
+                <div class="comprar">
+                    <div class=" total precio">Total: $23.000</div>
+                    <button class="comprar-btn">Comprar</button>
+                </div>
+            </div>
+        </section>
+
+        <script src="/components/nav-bar.js"></script>
+    </body>
+
+    <footer>
+        <p>Todos los derechos reservados 2021 - Grupo 11 - MercadoLibros®</p>
+    </footer>
+</html>
