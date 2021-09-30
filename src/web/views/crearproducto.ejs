@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,27 +11,20 @@
 
 </head>
 
-<!--
-Un buen punto de partida para los campos de estos formularios puede ser el siguiente:
-● Nombre del producto ( name )
-● Descripción ( description )
-● Imagen ( image )
-● Categoría ( category )
-● Colores (o cualquier otro campo similar como: tamaños, talles, etc)
-● Precio ( price )
--->
-
 <body>
     <header>
         <img src="/img/dummy-logo.png" alt="" class="logo">
     </header>
+
     <div class="container">
-        <div class="crearproducto">    <!--//register//-->
+        <div class="crearproducto"> 
+
             <div class="titulo">
                 <h4>Alta/Baja/Modificacion de Productos</h4>
             </div>
             
             <form action="/creaproducto" method="POST">
+
                 <div class="form-inputs">
                     
                         <article>
@@ -40,7 +34,7 @@ Un buen punto de partida para los campos de estos formularios puede ser el sigui
 
                         <article>
                             <label for="descripcionProducto">Descripción:</label>
-                            <textarea name="descripcionProducto" id="descripcionProducto" ></textarea>
+                            <textarea name="descripcionProducto" id="descripcionProducto" rows="5" cols="50" ></textarea>
                         </article>
 
                         <article>
@@ -50,7 +44,7 @@ Un buen punto de partida para los campos de estos formularios puede ser el sigui
 
                         <article>
                             <label for="categoriaProducto">Categorias:</label>
-                            <select name="categoriaProducto" id="categoriaProducto">
+                            <select name="categoriaProducto" id="categoriaProducto" >
                                 <option value="catHistoria">Historia</option>
                                 <option value="catFiccion">Ciencia Ficcion</option>
                                 <option value="catCiencia">Ciencia</option>
@@ -73,9 +67,17 @@ Un buen punto de partida para los campos de estos formularios puede ser el sigui
                             <label for="precioProducto">Precio:</label>
                             <input type="number" name="precioProducto" id="precioProducto">
                         </article>
-                    
 
+                 
+                            <article>
+                                <label for="condicionProducto">Condicion:</label>
+                                <label for="nuevo">Nuevo</label>
+                                <input type="radio" name="condicionProducto" id="nuevo">
+                                <label for="usado">Usado</label>
+                                <input type="radio" name="condicionProducto" id="usado">
+                            </article>
                     
+                                      
                 </div>
 
                 <div class="publicarProducto">
