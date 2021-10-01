@@ -61,10 +61,6 @@ section:not(:last-child){
     transition: all 300ms linear;
 }
 
-.productos-texto-container a:hover {
-    background: rgba(59,69,116,1);
-    box-shadow: 0 0 10px #676294;
-}
 
 .libros {
     display: flex;
@@ -92,10 +88,16 @@ section:not(:last-child){
 }
 
 .libro i {
+    color: #676294;
     opacity: 0;
     position: absolute;
     right: 8px;
     top: 8px;
+    transition: all 300ms linear;
+}
+
+.libro:not(:last-child) i{
+    right: 38px;
 }
 
 .libro p {
@@ -114,6 +116,19 @@ section:not(:last-child){
     color: black;
 }
 
+.libro:hover i {
+    opacity: 1;
+}
+
+i:hover {
+    color:#FF7AA5;
+}
+
+.productos-texto-container a:hover {
+    background: #676294;
+    box-shadow: 0 0 10px #676294;
+}
+
 @media (max-width: 414px){
 
     .productos {
@@ -124,6 +139,4 @@ section:not(:last-child){
     .productos-texto {
         font-size: 20px;
     }
-
 }
-
