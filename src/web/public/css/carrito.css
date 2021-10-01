@@ -19,10 +19,11 @@
 } 
 
 body, html {
-    margin: 0;
-    font-family: 'Roboto', sans-serif;
-    text-transform: capitalize;
     background-color: #f6f6f6;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    text-transform: capitalize;
 }
 
 /* Carrito */
@@ -44,13 +45,13 @@ body, html {
 }
 
 .carrito {
-    box-shadow: 0px 0px 30px #C0ABE6;
-    width: 77.56%;
     background: rgb(59,69,116);
     background: linear-gradient(90deg, rgba(59,69,116,1) 0%, rgba(113,114,166,1) 100%);
-    margin: 100px 0;
     border-radius: 15px;
+    box-shadow: 0px 0px 30px #C0ABE6;
     color: white;
+    margin: 100px 0;
+    width: 77.56%;
 }
 
 .productos-container {
@@ -63,15 +64,16 @@ body, html {
 }
 
 .producto {
-    display: flex;
-    justify-content: space-between;
-    height: 150px;
     align-items: center;
+    display: flex;
+    height: 150px;
+    justify-content: space-between;
+    transition: all 400ms ease-out;
 }
 
 .producto-info img {
-    max-height: 90%;
     margin: 0 10px;
+    max-height: 90%;
 }
 
 .producto-info {
@@ -87,19 +89,21 @@ body, html {
     display: flex;
     height: 150px;
     justify-content: space-between;
-    margin: auto;
-    width: 90%;
+    margin: 10px;
 }
 
 .producto-title {
-    font-weight: bold;
     font-size: 20px;
+    font-weight: bold;
 }
 
 .quantity {
+    background-color: white;
     box-shadow: 0 0 10px rgb(59,69,116);
     border-radius: 30px;
+    color:#7C7B7C;
     padding: 10px 30px;
+    transition: all 300ms linear;
 }
 
 .precio {
@@ -109,20 +113,22 @@ body, html {
 
 .close {
     margin-right: 10px;
+    transition: all 300ms linear;
 }
 
 .total-precio {
     background-color: white;
     display: flex;
-    justify-content: flex-end;
     font-size: 30px;
     font-weight: bold;
-    padding: 0 10px 20px 0;
+    justify-content: flex-end;
+    padding: 10px 10px 20px 0;
 }
 .total{
     border: solid 2px #FF7AA5;
     color: #7C7B7C;
     padding: 10px 35px;
+    text-transform: uppercase;
 }
 
 .precio-final {
@@ -139,6 +145,7 @@ body, html {
     font-weight: bold;
     padding: 15px 35px;
     text-transform: uppercase;
+    transition: all 300ms linear;
 }
 
 .seguir-btn {
@@ -149,6 +156,33 @@ body, html {
     font-weight: bold;
     padding: 10px 35px;
     text-transform: uppercase;
+    transition: all 300ms linear;
+}
+
+/* Hovers */
+
+.producto:hover {
+    background-color: #c5c5c5;
+    color: white;
+    cursor: pointer;
+}
+
+.quantity:hover {
+    box-shadow: 0 0 15px black;
+    transform: scale(1.12);
+}
+
+.close:hover {
+    color:#7C7B7C
+}
+
+.pagar-btn:hover, .seguir-btn:hover {
+    cursor: pointer;
+    transform: scale(1.02);
+}
+
+.pagar-btn:hover {
+    box-shadow: 0 0 15px black;
 }
 
 @media (max-width: 414px){
@@ -180,5 +214,19 @@ body, html {
     .comprar-btn{
         width: 100%;
         margin: 0;
+    }
+    .producto-info{
+        width: auto;
+    }
+    
+    .precio-final, .total {
+        height: 90%;
+        border: solid 2px #FF7AA5;
+    }
+
+    .comprar{
+        flex-direction: column-reverse;
+        align-items: flex-end;
+        justify-content: space-evenly
     }
 }
