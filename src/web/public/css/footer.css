@@ -8,6 +8,8 @@ footer{
     background: rgb(59,69,116);
     background: linear-gradient(90deg, rgba(59,69,116,1) 0%,
     rgba(113,114,166,1) 100%);
+    position: relative;
+    top: 140px;
 }
 
 footer p {

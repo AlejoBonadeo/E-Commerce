@@ -7,18 +7,18 @@ module.exports = {
         res.render(path.join(views, "/index"), {libros: data});
     },
     carrito: (req, res) => {
-        res.render(path.join(views, "/carrito"));
+        res.render(path.join(views, "/products/carrito"));
     },
     producto: (req,res) => {
-        res.render(path.join(views, "/producto"), {libro: data.filter(libro => libro.id == req.params.id)})
+        res.render(path.join(views, "/products/producto"), {libro: data.filter(libro => libro.id == req.params.id)})
     },
     register: (req, res) => {
-        res.render(path.join(views, "/register"));
+        res.render(path.join(views, "/user/register"));
     },
     login: (req, res) => {
-        res.render(path.join(views, "/login"));
+        res.render(path.join(views, "/user/login"));
     },
     crearproducto: (req,res) => {
-        res.render(path.join(views, "/crearproducto"))
+        res.render(path.join(views, "/products/crearproducto"))
     }
 }

@@ -13,7 +13,7 @@
 
     <body>
         <!-- Nav-bar & Categories -->
-        <%- include('./partials/nav-bar.ejs') %> 
+        <%- include('../partials/nav-bar.ejs') %> 
         
         <!-- Carrito -->
         <div class="carrito-container">
@@ -21,7 +21,7 @@
                 <h3 class="title"><span><i class="fas fa-shopping-cart"></i></span>Carrito</h3>
                 <div class="productos-container">
                     <% for(let i = 0; i < 3; i++){ %>
-                        <%- include("./partials/libro-carrito.ejs") %> 
+                        <%- include("../partials/libro-carrito.ejs") %> 
                     <% } %> 
                 </div>
                 <div class="total-precio">
@@ -38,7 +38,6 @@
         <script src="/front-js/categories.js"></script>
     </body>
 
-    <footer>
-        <p>Todos los derechos reservados 2021 - Grupo 11 - MercadoLibros®</p>
-    </footer>
+    <%- include("../partials/footer.ejs") %>
+
 </html>
