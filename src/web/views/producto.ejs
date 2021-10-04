@@ -15,34 +15,31 @@
     <link rel="stylesheet" href="/css/nav-bar.css" />
   </head>
   <body>
+
+    <% const { name, author, img, description, price} = libro[0] %>
+
     <!-- Nav-bar & Categories -->
-    <nav class="nav-bar"></nav>
-    <nav class="nav-bar-pagina">
-      <a href="../views/index.html">Volver</a>
-    </nav>
+    <%- include("./partials/nav-bar.ejs") %>
 
     <!-- Main -->
     <main>
       <section class="producto-wrapper">
-        <h1>Lorem ipsum dolor sit amet.</h1>
+        <h1><%= name %></h1>
         <div class="imagen-producto-wrapper">
           <img
             class="img-producto"
-            src="\img\dummy-book.jpg"
-            alt="img-producto"
+            img src="<%= img %>" 
+            alt="<%= name %>"
           />
         </div>
 
-        <h2 class="precio">$7500</h2>
+        <h2 class="precio">$<%= price %></h2>
 
         <section class="descripcion">
           <article class="descripcion-producto">
             <h3>Descripcion:</h3>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum
-              delectus provident quibusdam nihil quia aliquid tempore pariatur
-              quasi eveniet, nostrum consequuntur itaque nam facere. Quasi autem
-              voluptas error fuga sequi!
+              <%= description %> 
             </p>
           </article>
           <article class="descripcion-vendedor">
@@ -67,7 +64,5 @@
       <p>Todos los derechos reservados 2021 - Grupo 11 - MercadoLibros®</p>
     </footer>
 
-    <!-- JS Scripts -->
-    <script src="/front-js/categories.js"></script>
   </body>
 </html>

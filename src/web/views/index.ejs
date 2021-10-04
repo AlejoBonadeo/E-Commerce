@@ -33,7 +33,7 @@
                             <% libros.filter(libro => libro.category === category).map( libro => {  %>
                             <%- include("./partials/libro.ejs", {libro}) %>
                         <% })} else {  %> 
-                        <%  libros.filter(libro => libro.id < 5).map(libro =>{ %>
+                        <%  libros.filter(libro => libro.id < 7 && libro.id > 1).map(libro =>{ %>
                                 <%- include("./partials/libro.ejs", {libro}) %>
                         <% })} %>
                     </div>

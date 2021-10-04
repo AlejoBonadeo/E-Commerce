@@ -1,4 +1,4 @@
-* {
+main * {
   box-sizing: border-box;
   font-family: "Roboto";
   margin: 0;
@@ -47,7 +47,7 @@
   width: 100%;
 }
 
-button {
+main button {
   background-color: lightgray;
   font-size: 15px;
   font-weight: bold;
@@ -138,12 +138,12 @@ button {
     font-size: 20px;
   }
 
-  button {
+  main button {
     transition-property: background-color;
     transition-duration: 0.5s;
   }
 
-  button:hover {
+  main button:hover {
     cursor: pointer;
     background-color: rgb(175, 131, 218);
   }

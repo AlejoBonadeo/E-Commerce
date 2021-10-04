@@ -71,8 +71,10 @@ section:not(:last-child){
 }
 
 .libro{
-    position: relative;
+    color: black;
     min-width: 200px;
+    position: relative;
+    text-decoration: none;
 }
 
 .libro:not(:last-child){

@@ -10,7 +10,7 @@ module.exports = {
         res.render(path.join(views, "/carrito"));
     },
     producto: (req,res) => {
-        res.render(path.join(views, "/producto"))
+        res.render(path.join(views, "/producto"), {libro: data.filter(libro => libro.id == req.params.id)})
     },
     register: (req, res) => {
         res.render(path.join(views, "/register"));
