@@ -20,19 +20,25 @@
     <main>
         <div class="productos">
             <h2>Explorá</h2>
-            <% for(let i = 0; i < 3; i++){ %>
+
+            <% const categories = ['Destacados', ...(new Set(libros.map(libro => libro.category)))] %> 
+            <% categories.map(category =>{  %>
                 <section>
                     <div class="productos-texto-container">
-                        <h3 class="productos-texto">Categoria <%= i %> </h3>
+                        <h3 class="productos-texto"> <%= category %> </h3>
                         <a href="#" class="ver-mas">Ver más</a>
                     </div>
                     <div class="libros">
-                        <% for(let j = 0; j < 5; j++){ %>
-                            <%- include("./partials/libro.ejs") %>
-                        <% } %>
+                        <% if(category !== 'Destacados'){ %>
+                            <% libros.filter(libro => libro.category === category).map( libro => {  %>
+                            <%- include("./partials/libro.ejs", {libro}) %>
+                        <% })} else {  %> 
+                        <%  libros.filter(libro => libro.id < 5).map(libro =>{ %>
+                                <%- include("./partials/libro.ejs", {libro}) %>
+                        <% })} %>
                     </div>
                 </section>
-            <% } %>
+            <% }) %>
         </div>
     </main>
 

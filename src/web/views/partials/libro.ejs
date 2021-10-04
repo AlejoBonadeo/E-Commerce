@@ -1,9 +1,11 @@
+<% const { name, author, img} = libro %> 
+<% const price = 11500 %> 
 <article class="libro">
-    <img src="/img/dummy-book.jpg" alt="">
+    <img src="<%= img %>" alt="">
     <i class="fas fa-heart fa-2x"></i>
     <div class="libro-info">
-        <h4 class="libro-titulo">The C Programming Language 2nd Edition. </h4>
-        <p class="libro-author">Brian  W. Kernighan and Dennis M. Ritchie</p>
-        <h4 class="libro-precio">$11.500</h4>
+        <h4 class="libro-titulo"><%= name %> </h4>
+        <p class="libro-author"><%= author %></p>
+        <h4 class="libro-precio">$<%= price %></h4>
     </div>
 </article>
