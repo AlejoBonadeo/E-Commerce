@@ -1,50 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/css/footer.css">
-    <link rel="stylesheet" href="/css/login.css">
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MercadoLibros</title>
+    <link rel="stylesheet" href="/css/register.css" />
+    <link rel="stylesheet" href="/css/footer.css" />
+    <link rel="stylesheet" href="/css/login.css" />
 
-<body>
-    <header>
-        <img src="/img/dummy-logo.png" alt="" class="logo">
-    </header>
-    <div class="container">
-        <div class="login">
-            <div class="titulo">
-                <h4>Iniciar sesion</h4>
-            </div>
-    
-            <form action="/login" method="POST">
+  </head>
 
-                <label for="emailUsuario">Correo electrónico:</label>
-                <input type="email" name="emailUsuario" id="emailUsuario" required>
-                      
-                <label for="passUsuario">Contraseña:</label>
-                <input type="password" name="passUsuario" id="passUsuario" required>
-
-                <div class="permanecer-conectado">
-                    <input type="checkbox" name="permanecer-conectado" id="permanecer-conectado" required>
-                    <label for="permanecer-conectado">Permanecer conectado</label>
-                </div>
-    
-                <button type="submit">Inicia Sesion</button>
-            
-            </form>
-            <div class="register">
-                <p>No tenes una cuenta?</p>
-                <a href="/register">Registrate</a>
-            </div>
-
-            <a href="#">olvide mi Contraseña</a>
-        </div>
-    </div>
-    
+  <body>
+    <main>
+      <section>
+        <img src="/img/logo-transparente.png" alt="">
+        <div class="sign-in">
+          <h3>¿No tenes una cuenta?</h3>
+          <a href="/register">Crea tu cuenta</a>
+        </div>Inicia Sesion
+          <div class="hero">
+              <div class="trian"></div>
+              <div class="sign-up">
+                <h2>Inicia Sesion</h2>
+                <form action="/register" method="POST">
+                  <div class="form-inputs">
+                      <article>
+                        <label for="emailUsuario">Email</label>
+                        <input
+                          type="email"
+                          name="emailUsuario"
+                          id="emailUsuario"
+                          required
+                        />
+                      </article>
+                      <article>
+                        <label for="passUsuario">Contraseña</label>
+                        <input
+                          type="password"
+                          name="passUsuario"
+                          id="passUsuario"
+                          required
+                        />
+                      </article>
+                  </div>
+        
+                  <div>
+                    <label class="terminos">Recordar Sesion
+                      <input type="checkbox">
+                      <span class="checkmark"></span>
+                    </label>
+                  </div>
+                  <div class="submit">
+                    <button type="submit">Ingresa</button>
+                  </div>
+                </form>
+              </div>
+          </div>
+      </section>
+  </main>
     <%- include("../partials/footer.ejs") %>
-
-</body>
+  </body>
 </html>

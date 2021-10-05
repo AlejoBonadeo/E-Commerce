@@ -1,207 +1,267 @@
-
-:root {
-    /* Primaries */ 
-    --primary-1: rgb(174,62,222);
-    --primary-2: rgb(205,135,234);
-    --primary-3: rgb(248,231,255);
-    /* Blue Link */ 
-    --link: rgb(41,122,243);
-    --link-hover: rgb(14,86,193);
-    /* Dark text */ 
-    --dark-1: rgb(0,0,0);
-    --dark-2: rgb(51,51,51);
-    --dark-3: rgb(97, 97, 97);
-    --dark-4: rgb(116, 116, 116);
-    /* White */ 
-    --white-1: rgb(225,225,225);
-    --white-2: rgb(204,204,204);
-} 
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 body, html {
+    background-color: #f6f6f6;
     margin: 0;
-    font-family: 'Roboto', sans-serif;
-    width: 100vw;
-    overflow-x: hidden;
+    padding: 0;
+    font-family: 'Roboto';
 }
 
-header {
-    height: 80px;
-    background-color: var(--primary-1);
-    width: 100vw;
+section img {
+    padding: 25px;
+    position: absolute;
+    width: 15%;
 }
 
-header img {
+
+.sign-in {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
     height: 100%;
+    justify-content: center;
+    width: 50%;
 }
 
-.container {
+.sign-in * {
+    color: white;
+    font-size: 35px;
+    text-decoration: none;
+}
+
+.sign-in a {
+    background-color: rgba(0,0,0,0);
+    border: solid 3px #FF7AA5;
+    color: #FF7AA5;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px 35px;
+    text-transform: uppercase;
+    transition: all 300ms linear;
+}
+
+main * {
+    box-sizing: border-box;
+  }
+  
+  main {
     display: flex;
     justify-content: center;
-    width: 100vw;
-    font-size: 20px;
-    margin: 80px 0;
-}
+    margin-top: 100px;;
+  }
+  
+  section {
+    position: relative;
+    width: 60vw;
+    height: 80vh;
+    box-shadow: 0px 0px 30px #C0ABE6;
+    border-radius: 15px;
+    overflow: hidden;
+    background: rgb(59,69,116);
+    background: linear-gradient(135deg, rgba(59,69,116,1) 0%, rgba(113,114,166,1) 100%);
+  }
 
-.titulo {
-    margin: 10px;
+.hero{
     display: flex;
-    justify-content: left;
+    justify-content: flex-end;
+    position: absolute;
+    height: 80vh;
+    bottom: 0;
+    right: 0;
+    z-index: 0;
+}
+.trian {
+    width: 0; 
+    height: 0; 
+    border-left: 7vh solid transparent;
+    bottom: 0px;
+    border-bottom: 80vh solid white;
 }
 
-form {width: 100%;}
-
-.register {
-    border: solid 5px var(--dark-1);
-    background-color: var(--primary-3);
+.sign-up {
+    background-color: white;
+    color: black;
     display: flex;
     flex-direction: column;
-    border-radius: 8px;
-    width: 60%;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 30vw;
 }
 
-.form-inputs {
-    width: 100%;
+.sign-up h2 {
+    font-size: 35px;
+    margin-bottom: 100px;
+}
+
+article {
     display: flex;
     flex-direction: column;
+    margin-bottom: 15px;
 }
 
-.form-inputs label {
-    margin-top:10px;
+label:not(:last-child) {
+    font-weight: bold;
+    margin-bottom: 5px;
 }
 
 .form-inputs div {
-    width: 90%;
     display: flex;
-    justify-content: space-between;
-    padding-left: 10px;
-    padding-right: 10px;
 }
-.form-inputs div article {
-    display: flex;
-    flex-direction: column;
-    width: 45%;
-}
-input{
-    border: 3px solid;
+
+.form-inputs input {
+    border: solid 1px #c5c5c5;
     border-radius: 5px;
-    height: 35px;
-    margin: 5px 0;
-}
-
-label {
-    margin-bottom: 10px;
-}
-
-.aceptaTerminos label {
-    margin-top: 13px;
-}
-
-input:focus { 
-    border-color:var(--primary-1);
+    height: 40px;
+    margin-right: 5px;
     outline: none;
- }
+    width: 220px;
+}
 
-.button-form button:hover {
+.submit {
+    display: flex;
+    justify-content: center;
+}
+
+.sign-up button{
+    background-color:#ffffff;
+    border: none;
+    box-shadow: 0 0 15px #4d4e53;
+    color: #FF7AA5;
+    font-size: 35px;
+    font-weight: bold;
+    margin-top: 30px;
+    padding: 15px 35px;
+    text-transform: uppercase;
+    transition: all 300ms linear;
+}
+
+/* Hovers */
+
+.sign-up button:hover, .sign-in a:hover {
     cursor: pointer;
-    color: var(--dark-2)
+    transform: scale(1.02);
+}
+
+.sign-up button:hover {
+    box-shadow: 0 0 15px black;
+}
+
+/* Custom checkbox */
+
+/* The container */
+.terminos {
+    align-items: center;
+    position: relative;
+    padding-left: 35px;
+    cursor: pointer;
+    display: flex;
+    font-size: 20px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* Hide the browser's default checkbox */
+  .terminos input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  /* Create a custom checkbox */
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+  }
+  
+  /* On mouse-over, add a grey background color */
+  .terminos:hover input ~ .checkmark {
+    background-color: #ccc;
+  }
+  
+  /* When the checkbox is checked, add a blue background */
+  .terminos input:checked ~ .checkmark {
+    background-color: rgb(59,69,116);
+  }
+  
+  /* Create the checkmark/indicator (hidden when not checked) */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the checkmark when checked */
+  .terminos input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  /* Style the checkmark/indicator */
+  .terminos .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
   }
 
-.aceptaTerminos{
-      display: flex;
-      flex-direction: row;
-      justify-content: flex-start;
-      padding: 10px ;
-      font-size: small;
-}
-
-.button-form{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 0 10px ;
-}
-
-h4 {
-    margin-top: 10px;
-    font-size: 26px;
-}
-
-.button-form button {
-    color: var(--white-1);
-    background-color: var(--primary-1);
-    margin: 5px 20px;
-    height: 50px;
-    border: solid 3px var(--dark-1);
-    border-radius: 30px;
-    transition: color .3s ease-out;
-    font-size: 25px;
-}
-
-.login p {
-    margin-bottom: 0;
-}
-
-.login {
-    margin: 0 0 20px 10px;
-}
-
-.login-mobile {
-    display: none;
-}
-
-.login a {
-    text-decoration: none;
-    color: var(--link);
-    transition: color .3s ease-out;
-}
-
-.login a:hover {
-    color: var(--link-hover);
-    cursor: pointer;
-}
-
 @media (max-width: 414px){
-    body {
-        background-color: var(--primary-2);
-    }
-    .register{
+
+    section {
+        background: rgb(59,69,116);
+        background: linear-gradient(90deg, rgba(59,69,116,1) 0%, rgba(113,114,166,1) 100%);
+        height: 700px;
         width: 100%;
-        border: none;
-    }
-    .form-inputs div{
-        flex-direction: column;
-        width: 100%;
-    }
-    input{
-        width: 90vw;
     }
 
-    .aceptaTerminos input{
-        width: auto;
+    .sign-up h2 {
+        background: rgb(59,69,116);
+        background: linear-gradient(90deg, rgba(59,69,116,1) 0%, rgba(113,114,166,1) 100%);
+        color: white;
+        margin: 0 0 20px 0;
+        padding: 10px 10px;
+        width: 100%;
     }
-    .login {
+
+    form {
+        padding: 0 10px;
+    }
+
+    .form-inputs div {
+        display: flex;
+        flex-direction: column
+    }
+
+    .sign-in, .trian, img{
         display: none;
     }
-    .titulo{
-        display: flex;
+
+    .hero, .sign-up, .sign-up form {
+        width: inherit;
+        height: inherit;
+    }
+
+    .sign-up {
         justify-content: space-between;
     }
-    .login-mobile{
-        display: block;
-        text-align: right;
-    }
-    .login-mobile a{
-        text-decoration: none;
-        color: var(--link);
-        transition: color .3s ease-out;
+    
+    .form-inputs input {
+        width: 100%;
     }
 
-    .login-mobile p {
-        margin-bottom: 0
-    }
-
-    .login-mobile a:hover {
-       color: var(--link-hover);
-        cursor: pointer;
+    .sign-up button {
+        font-size: 30px;
     }
 }
