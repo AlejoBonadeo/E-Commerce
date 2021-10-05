@@ -12,97 +12,97 @@
   <body>
     <main>
       <section>
-        <img src="/img/logo-transparente.png" alt="">
+        <a href="/"><img src="/img/logo-transparente.png" alt="" /></a>
         <div class="sign-in">
           <h3>¿Ya tenes una cuenta?</h3>
           <a href="/login">Inicia Sesion</a>
         </div>
-          <div class="hero">
-              <div class="trian"></div>
-              <div class="sign-up">
-                <h2>Crea tu cuenta</h2>
-                <form action="/register" method="POST">
-                  <div class="form-inputs">
-                    <div>
-                      <article>
-                        <label for="nombreDeUsuario">Nombre</label>
-                        <input
-                          type="text"
-                          name="nombreDeUsuario"
-                          id="nombreDeUsuario"
-                          required
-                        />
-                      </article>
-                      <article>
-                        <label for="apellidoDeUsuario">Apellido</label>
-                        <input
-                          type="text"
-                          name="apellidoDeUsuario"
-                          id="apellidoDeUsuario"
-                          required
-                        />
-                      </article>
-                    </div>
-        
-                    <div>
-                      <article>
-                        <label for="emailUsuario">Email</label>
-                        <input
-                          type="email"
-                          name="emailUsuario"
-                          id="emailUsuario"
-                          required
-                        />
-                      </article>
-                      <article>
-                        <label for="dnilUsuario">DNI</label>
-                        <input
-                          type="dni"
-                          name="dniUsuario"
-                          id="dniUsuario"
-                          required
-                        />
-                      </article>
-                    </div>
-                    <div>
-                      <article>
-                        <label for="passUsuario">Contraseña</label>
-                        <input
-                          type="password"
-                          name="passUsuario"
-                          id="passUsuario"
-                          required
-                        />
-                      </article>
-                      <article>
-                        <label for="repeatpassUsuario">Repetir Contraseña</label>
-                        <input
-                          type="repeatpassword"
-                          name="repeatpassUsuario"
-                          id="repeatpassUsuario"
-                          required
-                        />
-                      </article>
-                    </div>
-                  </div>
-        
-                  <div>
-                    <label class="terminos">Acepto los terminos y condiciones
-                      <input type="checkbox">
-                      <span class="checkmark"></span>
-                    </label>
-                  </div>
-                  <div class="submit">
-                    <button type="submit">Crear Cuenta</button>
-                  </div>
-                </form>
+        <div class="hero">
+          <div class="trian"></div>
+          <div class="sign-up">
+            <h2>Crea tu cuenta</h2>
+            <form action="/register" method="POST">
+              <div class="form-inputs">
+                <div>
+                  <article>
+                    <label for="nombreDeUsuario">Nombre</label>
+                    <input
+                      type="text"
+                      name="nombreDeUsuario"
+                      id="nombreDeUsuario"
+                      required
+                    />
+                  </article>
+                  <article>
+                    <label for="apellidoDeUsuario">Apellido</label>
+                    <input
+                      type="text"
+                      name="apellidoDeUsuario"
+                      id="apellidoDeUsuario"
+                      required
+                    />
+                  </article>
+                </div>
+
+                <div>
+                  <article>
+                    <label for="emailUsuario">Email</label>
+                    <input
+                      type="email"
+                      name="emailUsuario"
+                      id="emailUsuario"
+                      required
+                    />
+                  </article>
+                  <article>
+                    <label for="dnilUsuario">DNI</label>
+                    <input
+                      type="dni"
+                      name="dniUsuario"
+                      id="dniUsuario"
+                      required
+                    />
+                  </article>
+                </div>
+                <div>
+                  <article>
+                    <label for="passUsuario">Contraseña</label>
+                    <input
+                      type="password"
+                      name="passUsuario"
+                      id="passUsuario"
+                      required
+                    />
+                  </article>
+                  <article>
+                    <label for="repeatpassUsuario">Repetir Contraseña</label>
+                    <input
+                      type="repeatpassword"
+                      name="repeatpassUsuario"
+                      id="repeatpassUsuario"
+                      required
+                    />
+                  </article>
+                </div>
               </div>
+
+              <div>
+                <label class="terminos"
+                  >Acepto los terminos y condiciones
+                  <input type="checkbox" />
+                  <span class="checkmark"></span>
+                </label>
+              </div>
+              <div class="submit">
+                <button type="submit">Crear Cuenta</button>
+              </div>
+            </form>
           </div>
+        </div>
       </section>
-  </main>
+    </main>
     <%- include("../partials/footer.ejs") %>
   </body>
 </html>
-
 
 <!--  -->

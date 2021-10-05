@@ -8,57 +8,58 @@
     <link rel="stylesheet" href="/css/register.css" />
     <link rel="stylesheet" href="/css/footer.css" />
     <link rel="stylesheet" href="/css/login.css" />
-
   </head>
 
   <body>
     <main>
       <section>
-        <img src="/img/logo-transparente.png" alt="">
+        <a href="/"><img src="/img/logo-transparente.png" alt="" /></a>
         <div class="sign-in">
           <h3>¿No tenes una cuenta?</h3>
           <a href="/register">Crea tu cuenta</a>
-        </div>Inicia Sesion
-          <div class="hero">
-              <div class="trian"></div>
-              <div class="sign-up">
-                <h2>Inicia Sesion</h2>
-                <form action="/register" method="POST">
-                  <div class="form-inputs">
-                      <article>
-                        <label for="emailUsuario">Email</label>
-                        <input
-                          type="email"
-                          name="emailUsuario"
-                          id="emailUsuario"
-                          required
-                        />
-                      </article>
-                      <article>
-                        <label for="passUsuario">Contraseña</label>
-                        <input
-                          type="password"
-                          name="passUsuario"
-                          id="passUsuario"
-                          required
-                        />
-                      </article>
-                  </div>
-        
-                  <div>
-                    <label class="terminos">Recordar Sesion
-                      <input type="checkbox">
-                      <span class="checkmark"></span>
-                    </label>
-                  </div>
-                  <div class="submit">
-                    <button type="submit">Ingresa</button>
-                  </div>
-                </form>
+        </div>
+        Inicia Sesion
+        <div class="hero">
+          <div class="trian"></div>
+          <div class="sign-up">
+            <h2>Inicia Sesion</h2>
+            <form action="/register" method="POST">
+              <div class="form-inputs">
+                <article>
+                  <label for="emailUsuario">Email</label>
+                  <input
+                    type="email"
+                    name="emailUsuario"
+                    id="emailUsuario"
+                    required
+                  />
+                </article>
+                <article>
+                  <label for="passUsuario">Contraseña</label>
+                  <input
+                    type="password"
+                    name="passUsuario"
+                    id="passUsuario"
+                    required
+                  />
+                </article>
               </div>
+
+              <div>
+                <label class="terminos"
+                  >Recordar Sesion
+                  <input type="checkbox" />
+                  <span class="checkmark"></span>
+                </label>
+              </div>
+              <div class="submit">
+                <button type="submit">Ingresa</button>
+              </div>
+            </form>
           </div>
+        </div>
       </section>
-  </main>
+    </main>
     <%- include("../partials/footer.ejs") %>
   </body>
 </html>
