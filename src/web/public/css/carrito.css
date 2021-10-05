@@ -1,23 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
-:root {
-    /* Primaries */ 
-    --primary-1: rgb(174,62,222);
-    --primary-2: rgb(205,135,234);
-    --primary-3: rgb(248,231,255);
-    /* Blue Link */ 
-    --link: rgb(41,122,243);
-    --link-hover: rgb(14,86,193);
-    /* Dark text */ 
-    --dark-1: rgb(0,0,0);
-    --dark-2: rgb(51,51,51);
-    --dark-3: rgb(97, 97, 97);
-    --dark-4: rgb(116, 116, 116);
-    /* White */ 
-    --white-1: rgb(225,225,225);
-    --white-2: rgb(204,204,204);
-} 
-
 body, html {
     background-color: #f6f6f6;
     box-sizing: border-box;

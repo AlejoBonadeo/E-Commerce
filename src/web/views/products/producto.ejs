@@ -23,42 +23,31 @@
 
     <!-- Main -->
     <main>
-      <section class="producto-wrapper">
-        <h1><%= name %></h1>
-        <div class="imagen-producto-wrapper">
-          <img
-            class="img-producto"
-            img src="<%= img %>" 
-            alt="<%= name %>"
-          />
+      <section>
+        <div class="details">
+          <h1> <%= name %></h1>
+          <div class="description">
+            <p>Descripcion:</p>
+            <p><%= description %></p>
+          </div>
+          <img src="<%= img %>" alt="<%= name %>" class="mobile-img">
+          <div class="price">
+            <h4>$<%= price %></h4>
+            <p class="quantity">1</p>
+          </div>
+          <div class="buttons">
+            <button class="add-to-cart">Agregar Al Carrito</button>
+            <button class="comprar">Comprar</button>
+          </div>
         </div>
-
-        <h2 class="precio">$<%= price %></h2>
-
-        <section class="descripcion">
-          <article class="descripcion-producto">
-            <h3>Descripcion:</h3>
-            <p>
-              <%= description %> 
-            </p>
-          </article>
-          <article class="descripcion-vendedor">
-            <h3>Datos del vendedor:</h3>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum
-              delectus provident quibusdam nihil quia aliquid tempore pariatur
-              quasi eveniet, nostrum consequuntur itaque nam facere. Quasi autem
-              voluptas error fuga sequi!
-            </p>
-          </article>
-        </section>
-
-        <section class="botones-wrapper">
-          <button type="submit">Comprar ahora</button>
-          <button type="submit">Agregar al carrito</button>
-        </section>
+          <div class="hero">
+              <div class="trian"></div>
+              <div class="product-img">
+                  <img src="<%= img %>" alt="<%= name %>">
+              </div>
+          </div>
       </section>
-    </main>
+  </main>
     <!-- Footer -->
     <%- include("../partials/footer.ejs") %>
 

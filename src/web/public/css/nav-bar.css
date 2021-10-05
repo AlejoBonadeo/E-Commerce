@@ -10,7 +10,7 @@
     box-sizing: border-box;
 }
 
-.container {
+nav .container {
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -40,7 +40,7 @@ nav img {
     display: none;
 }
 
-form{
+nav form{
     align-items: center;
     background-color: white;
     border: 1px solid grey;
@@ -52,14 +52,14 @@ form{
     width: 45vw;
 }
 
-form input {
+nav form input {
     border: none;
     height: 100%;
     outline: none;
     width: 100%;
 }
 
-form button{
+nav form button{
     background-color: rgba(0,0,0,0);
     border: none;
     height: 100%;
@@ -100,7 +100,7 @@ form button{
     .nav-bar{
         height: 100px;
     }
-    .container {
+    nav .container {
         height: 100%
     }
     .mobile {
