@@ -1,4 +1,4 @@
-# WEEKLY MEETING 📅 - **28/09/2021**
+# WEEKLY MEETING 📅 - **05/10/2021**
 
 ## ACTIVIDADES 🚩:
 
