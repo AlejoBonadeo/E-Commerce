@@ -1,13 +1,12 @@
 const path = require("path");
-const views = path.join(__dirname, "../../web/views");
 const data = require("../data");
 
 const userController = {
   register: (req, res) => {
-    res.render(path.join(views, "/user/register"));
+    res.render("./user/register");
   },
   login: (req, res) => {
-    res.render(path.join(views, "/user/login"));
+    res.render("./user/login");
   },
 };
 
