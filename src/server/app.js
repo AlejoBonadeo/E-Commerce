@@ -20,10 +20,6 @@ app.use("/", index);
 app.use("/producto", product);
 app.use("/user", user);
 
-/* app.use('/', index)
-app.use('/user', user)
-app.use('/producto', producto)
- */
 //SERVIDOR
 app.listen(8080, () =>
   console.log("Servidor iniciado - escuchando en puerto 8080")
