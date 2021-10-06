@@ -1,10 +1,10 @@
-<% const { name, author, img, price, id} = libro %> 
-<a class="libro" href="/producto/<%= id %>">
-        <img src="<%= img %>" alt="">
-        <i class="fas fa-heart fa-2x"></i>
-        <div class="libro-info">
-            <h4 class="libro-titulo"><%= name %> </h4>
-            <p class="libro-author"><%= author %></p>
-            <h4 class="libro-precio">$<%= price %></h4>
-        </div>
+<% const { name, author, img, price, id} = libro %>
+<a class="libro" href="producto/producto/<%= id %>">
+  <img src="<%= img %>" alt="" />
+  <i class="fas fa-heart fa-2x"></i>
+  <div class="libro-info">
+    <h4 class="libro-titulo"><%= name %></h4>
+    <p class="libro-author"><%= author %></p>
+    <h4 class="libro-precio">$<%= price %></h4>
+  </div>
 </a>
