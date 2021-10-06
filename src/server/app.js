@@ -13,20 +13,12 @@ app.set("views", path.join(__dirname, "../web/views"));
 
 //RECURSOS
 const index = require("./routes/index");
-const producto = require("./routes/producto");
+const product = require("./routes/producto");
 const user = require("./routes/user");
 
-app.get("/", index);
-
-app.get("/carrito", producto);
-
-app.get("/producto/:id", producto);
-
-app.get("/crearproducto", producto);
-
-app.get("/register", user);
-
-app.get("/login", user);
+app.use("/", index);
+app.use("/producto", product);
+app.use("/user", user);
 
 /* app.use('/', index)
 app.use('/user', user)
