@@ -1,6 +1,3 @@
-const path = require("path");
-const data = require("../data");
-
 const userController = {
   register: (req, res) => {
     res.render("./user/register");
