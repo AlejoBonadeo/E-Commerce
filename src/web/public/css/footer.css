@@ -1,20 +1,23 @@
-footer{
-    display: flex;
-    margin: 0;
-    justify-content: center;
-    align-items: center;
-    height: 100px;
-    width: 100%;
-    background: rgb(59,69,116);
-    background: linear-gradient(90deg, rgba(59,69,116,1) 0%,
-    rgba(113,114,166,1) 100%);
-    position: relative;
-    top: 140px;
+footer {
+  display: flex;
+  margin: 0;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  width: 100%;
+  background: rgb(59, 69, 116);
+  background: linear-gradient(
+    90deg,
+    rgba(59, 69, 116, 1) 0%,
+    rgba(113, 114, 166, 1) 100%
+  );
+  /* position: relative;
+    top: 140px; */
 }
 
 footer p {
-    font-weight: bold;
-    color: white;
-    text-align: center;
-    width: 90%;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  width: 90%;
 }

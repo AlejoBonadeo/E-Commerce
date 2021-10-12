@@ -20,6 +20,11 @@ app.use("/", index);
 app.use("/producto", product);
 app.use("/user", user);
 
+//ERROR
+app.use((req, res, next) => {
+  res.status(404).render("404");
+});
+
 //SERVIDOR
 app.listen(8080, () =>
   console.log("Servidor iniciado - escuchando en puerto 8080")
