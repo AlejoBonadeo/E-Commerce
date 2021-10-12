@@ -40,8 +40,12 @@ main {
   font-size: 50px;
 }
 
-img {
+.container-alert img {
   width: 50%;
+}
+
+.img-libro {
+  box-shadow: 0 0 10px 10px white inset;
 }
 
 .btn-regreso-inicio {
@@ -52,4 +56,12 @@ img {
   padding: 10px;
   border-radius: 5px;
   font-size: 20px;
+  transition-property: font-size, background-color, box-shadow;
+  transition-duration: 0.5s;
+  margin: 5px;
+}
+
+.btn-regreso-inicio:hover {
+  font-size: 21px;
+  box-shadow: 10px 10px 8px 0px rgba(0, 0, 0, 0.1);
 }
