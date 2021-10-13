@@ -15,8 +15,8 @@
     <link rel="stylesheet" href="/css/nav-bar.css" />
   </head>
   <body>
-
-    <% const { name, author, img, description, price} = libro[0] %>
+    <% const { id, name, author, category, img, description, price, idseller} =
+    libro[0] %>
 
     <!-- Nav-bar & Categories -->
     <%- include("../partials/nav-bar.ejs") %>
@@ -25,12 +25,12 @@
     <main>
       <section>
         <div class="details">
-          <h1> <%= name %></h1>
+          <h1><%= name %></h1>
           <div class="description">
             <p>Descripcion:</p>
             <p><%= description %></p>
           </div>
-          <img src="<%= img %>" alt="<%= name %>" class="mobile-img">
+          <img src="<%= img %>" alt="<%= name %>" class="mobile-img" />
           <div class="price">
             <h4>$<%= price %></h4>
             <p class="quantity">1</p>
@@ -40,17 +40,15 @@
             <button class="comprar">Comprar</button>
           </div>
         </div>
-          <div class="hero">
-              <div class="trian"></div>
-              <div class="product-img">
-                  <img src="<%= img %>" alt="<%= name %>">
-              </div>
+        <div class="hero">
+          <div class="trian"></div>
+          <div class="product-img">
+            <img src="<%= img %>" alt="<%= name %>" />
           </div>
+        </div>
       </section>
-  </main>
+    </main>
     <!-- Footer -->
     <%- include("../partials/footer.ejs") %>
-
-
   </body>
 </html>
