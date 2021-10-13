@@ -25,6 +25,14 @@ app.use((req, res, next) => {
   res.status(404).render("404");
 });
 
+//DELETE Y PUT
+const methodOverride = require('method-override');
+app.use(methodOverride('_method'));
+
+//PROCESAMIENTO POST
+app.use(express.urlencoded({extended:false}));
+app.use(express.json);
+
 //SERVIDOR
 app.listen(8080, () =>
   console.log("Servidor iniciado - escuchando en puerto 8080")
