@@ -5,105 +5,108 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MercadoLibros</title>
-    <link rel="stylesheet" href="/css/footer.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="/css/nav-bar.css" />
     <link rel="stylesheet" href="/css/crearproducto.css" />
+    <link rel="stylesheet" href="/css/footer.css" />
   </head>
 
   <body>
-    <header>
-      <img src="/img/dummy-logo.png" alt="" class="logo" />
-    </header>
-
-    <div class="container">
-      <div class="crearproducto">
-        <div class="titulo">
-          <h4>Alta/Baja/Modificacion de Productos</h4>
+    <%- include("../partials/nav-bar.ejs") %>
+    <main>
+      <section>
+        <a href="/"><img src="/img/logo-transparente.png" alt="" /></a>
+        <div class="container-left">
+          <i class="fas fa-tag"></i>
+          <p>Vamos a vender!</p>
         </div>
+        <div class="hero">
+          <div class="trian"></div>
+          <div class="container-form">
+            <h2><i class="fas fa-info-circle"></i> Carga la info</h2>
+            <form action="/register" method="POST">
+              <div class="form-inputs">
+                <div>
+                  <article>
+                    <label for="titulo">Titulo</label>
+                    <input type="text" name="titulo" id="titulo" required />
+                  </article>
+                  <article>
+                    <label for="autor">Autor</label>
+                    <input type="text" name="autor" id="autor" required />
+                  </article>
+                </div>
 
-        <form action="/creaproducto" method="POST">
-          <div class="form-inputs">
-            <article>
-              <label for="nombreProducto">Nombre del producto:</label>
-              <input
-                type="text"
-                name="nombreProducto"
-                id="nombreProducto"
-                required
-              />
-            </article>
-
-            <article>
-              <label for="descripcionProducto">Descripción:</label>
-              <textarea
-                name="descripcionProducto"
-                id="descripcionProducto"
-                rows="5"
-                cols="50"
-              ></textarea>
-            </article>
-
-            <article>
-              <label for="imagenProducto">Imagenes:</label>
-              <input type="file" name="imagenProducto" accept=".jpg" multiple />
-            </article>
-
-            <article>
-              <label for="categoriaProducto">Categorias:</label>
-              <select name="categoriaProducto" id="categoriaProducto">
-                <option value="catHistoria">Historia</option>
-                <option value="catFiccion">Ciencia Ficcion</option>
-                <option value="catCiencia">Ciencia</option>
-                <option value="catArte">Arte</option>
-              </select>
-            </article>
-
-            <article>
-              <label for="autores">Autores:</label>
-              <input type="text" name="autores" id="autores" required />
-            </article>
-
-            <article>
-              <label for="editorial">Editorial:</label>
-              <input type="text" name="editorial" id="editorial" required />
-            </article>
-
-            <article>
-              <label for="precioProducto">Precio:</label>
-              <input type="number" name="precioProducto" id="precioProducto" />
-            </article>
-
-            <article>
-              <label for="condicionProducto">Condicion:</label>
-              <label for="nuevo">Nuevo</label>
-              <input type="radio" name="condicionProducto" id="nuevo" />
-              <label for="usado">Usado</label>
-              <input type="radio" name="condicionProducto" id="usado" />
-            </article>
+                <div>
+                  <article>
+                    <label for="editorial">Editorial</label>
+                    <input
+                      type="text"
+                      name="editorial"
+                      id="editorial"
+                      required
+                    />
+                  </article>
+                  <article>
+                    <label for="categoria">Categoria</label>
+                    <select id="categoria" name="categoria">
+                      <option value="tecnologia">Tecnologia</option>
+                      <option value="ciencia">Ciencia</option>
+                      <option value="literatura">Literatura</option>
+                    </select>
+                  </article>
+                </div>
+                <div>
+                  <article>
+                    <label for="precio">Precio ARS</label>
+                    <input type="number" name="precio" id="precio" required />
+                  </article>
+                  <article class="opt-estado">
+                    <label for="estado">Estado</label>
+                    <div class="cont-estados">
+                      <div>
+                        <input
+                          type="radio"
+                          name="estado"
+                          value="Nuevo"
+                          checked
+                        />
+                        <label for="estado">Nuevo</label>
+                      </div>
+                      <div>
+                        <input type="radio" name="estado" value="Usado" />
+                        <label for="estado">Usado</label>
+                      </div>
+                    </div>
+                  </article>
+                </div>
+                <div>
+                  <article>
+                    <label for="fotos">Fotos</label>
+                    <input type="file" name="fotos" id="fotos" required />
+                  </article>
+                </div>
+              </div>
+              <div class="cont-terminos">
+                <label class="terminos"
+                  >Acepto los terminos y condiciones
+                  <input type="checkbox" />
+                  <span class="checkmark"></span>
+                </label>
+              </div>
+              <div class="submit">
+                <button type="submit">Publicar</button>
+              </div>
+            </form>
           </div>
-
-          <div class="publicarProducto">
-            <input
-              type="checkbox"
-              name="publicarProducto"
-              id="publicarProducto"
-              required
-            />
-            <label for="publicarProducto"
-              >Habilitar la publicacion del producto en la Web</label
-            >
-          </div>
-
-          <div class="button-form">
-            <button type="submit">Aplicar Cambios</button>
-          </div>
-          <div class="button-form">
-            <button type="reset">Salir sin guardar</button>
-          </div>
-        </form>
-      </div>
-    </div>
-
+        </div>
+      </section>
+    </main>
     <%- include("../partials/footer.ejs") %>
   </body>
 </html>
+
+<!--  -->

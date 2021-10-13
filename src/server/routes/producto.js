@@ -5,9 +5,9 @@ const productoController = require("../controllers/productoController");
 /* GET home page. */
 router.get("/carrito", productoController.carrito);
 
-router.get("/:id", productoController.producto);
+/* router.get("/:id", productoController.producto); */
 
-router.get("/crear", productoController.crearproducto);
+router.get("/crearproducto", productoController.crearproducto);
 
 router.post("/crear", productoController.productocreado);
 
