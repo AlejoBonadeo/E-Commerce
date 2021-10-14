@@ -11,29 +11,21 @@ app.use(express.static(public));
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "../web/views"));
 
-//RECURSOS
-const index = require("./routes/index");
-const product = require("./routes/producto");
-const user = require("./routes/user");
+//PROCESAMIENTO POST
+app.use(express.urlencoded({extended:true}));
+app.use(express.json());
 
-app.use("/", index);
-app.use("/producto", product);
-app.use("/user", user);
+//RECURSOS
+app.use("/", require("./routes/index"));
+app.use("/producto", require("./routes/producto"));
+app.use("/user", require("./routes/user"));
 
 //ERROR
 app.use((req, res, next) => {
   res.status(404).render("404");
 });
 
-//DELETE Y PUT
-const methodOverride = require('method-override');
-app.use(methodOverride('_method'));
-
-//PROCESAMIENTO POST
-app.use(express.urlencoded({extended:false}));
-app.use(express.json);
-
 //SERVIDOR
 app.listen(8080, () =>
-  console.log("Servidor iniciado - escuchando en puerto 8080")
+console.log("Servidor iniciado - escuchando en puerto 8080")
 );
