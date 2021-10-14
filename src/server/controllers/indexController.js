@@ -1,4 +1,4 @@
-const data = require("../data/data.json");
+const data = require("../data/products.json");
 
 const indexController = {
   index: (req, res) => {

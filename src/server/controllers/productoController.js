@@ -1,4 +1,4 @@
-const data = require("../data/data.json");
+const data = require("../data/products.json");
 
 const productoController = {
   carrito: (req, res) => {
@@ -12,15 +12,13 @@ const productoController = {
   crearproducto: (req, res) => {
     res.render("./products/crearproducto");
   },
-  productocreado: (req, res) =>{
-    res.redirect("/products")
+  productocreado: (req, res) => {
+    res.redirect("/products");
   },
-  editarproducto: (req, res) =>{
+  editarproducto: (req, res) => {
     res.render("/editar");
   },
-  productoeditado: (req, res) =>{
-    
-  },
+  productoeditado: (req, res) => {},
 };
 
 module.exports = productoController;
