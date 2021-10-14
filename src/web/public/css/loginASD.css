@@ -1,0 +1,11 @@
+.form-inputs input {
+    width: 400px;
+}
+
+@media (max-width: 414px){
+
+    section {
+        height: 400px;
+    }
+
+}

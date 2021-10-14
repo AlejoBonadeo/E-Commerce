@@ -5,24 +5,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MercadoLibros</title>
-    <link rel="stylesheet" href="/css/register.css" />
-    <link rel="stylesheet" href="/css/footer.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/nav-bar.css" />
     <link rel="stylesheet" href="/css/login.css" />
+    <link rel="stylesheet" href="/css/footer.css" />
+    <!-- <link rel="stylesheet" href="/css/login.css" /> -->
   </head>
 
   <body>
+    <%- include("../partials/nav-bar.ejs") %>
     <main>
       <section>
         <a href="/"><img src="/img/logo-transparente.png" alt="" /></a>
         <div class="sign-in">
-          <h3>¿No tenes una cuenta?</h3>
+          <i class="fas fa-user-circle"></i>
+          <h3>¿Todavia no estas registrado?</h3>
           <a href="/user/register">Crea tu cuenta</a>
         </div>
-        Inicia Sesion
+
         <div class="hero">
           <div class="trian"></div>
           <div class="sign-up">
-            <h2>Inicia Sesion</h2>
+            <i class="fas fa-unlock-alt"></i>
             <form action="user/register" method="POST">
               <div class="form-inputs">
                 <article>
@@ -53,7 +60,7 @@
                 </label>
               </div>
               <div class="submit">
-                <button type="submit">Ingresa</button>
+                <button type="submit">Ingresar</button>
               </div>
             </form>
           </div>
