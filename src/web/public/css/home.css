@@ -1,145 +1,155 @@
 /* Roboto font, color palette & body style*/
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
-body, html {
-    background-color: #f6f6f6;
-    box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
-    margin: 0;
-    text-transform: capitalize;
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+  font-family: "Roboto", sans-serif;
+}
+
+body,
+html {
+  background-color: #f6f6f6;
+  box-sizing: border-box;
+  text-transform: capitalize;
+  width: 100%;
+  height: 100%;
 }
 
 /* Books */
 
 main {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .productos {
-    background: rgb(59,69,116);
-    background: linear-gradient(90deg, rgba(59,69,116,1) 0%, rgba(113,114,166,1) 100%);
-    border-radius: 15px;
-    box-shadow: 0px 0px 30px #C0ABE6;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    margin: 100px 0 30px 0;
-    padding-bottom: 70px;
-    width: 70%;
+  background: rgb(59, 69, 116);
+  background: linear-gradient(
+    90deg,
+    rgba(59, 69, 116, 1) 0%,
+    rgba(113, 114, 166, 1) 100%
+  );
+  border-radius: 15px;
+  box-shadow: 0px 0px 30px #c0abe6;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  margin: 100px 0 30px 0;
+  padding-bottom: 70px;
+  width: 70%;
 }
 
 .productos h2 {
-    margin-left: 10px;
-    font-size: 30px;
+  margin-left: 10px;
+  font-size: 30px;
 }
 
 section {
-    background-color: white;
-    color: black;
+  background-color: white;
+  color: black;
 }
 
-section:not(:last-child){
-    border-bottom: solid 1px #676294;
+section:not(:last-child) {
+  border-bottom: solid 1px #676294;
 }
 
 .productos-texto-container {
-    align-items: center;
-    display: flex;
-    justify-content: space-between;
-    margin: 0 10px;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 10px;
 }
 
 .productos-texto-container a {
-    border: solid 2px #FF7AA5;
-    color: #FF7AA5;
-    font-size: 20px;
-    padding: 5px;
-    text-decoration: none;
-    text-transform: uppercase;
-    transition: all 300ms linear;
+  border: solid 2px #ff7aa5;
+  color: #ff7aa5;
+  font-size: 20px;
+  padding: 5px;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: all 300ms linear;
 }
-
 
 .libros {
-    display: flex;
-    flex-wrap: nowrap;
-    margin: 0 10px;
-    min-height: 450px;
-    overflow: auto;
+  display: flex;
+  flex-wrap: nowrap;
+  margin: 0 10px;
+  min-height: 450px;
+  overflow: auto;
 }
 
-.libro{
-    color: black;
-    min-width: 200px;
-    position: relative;
-    text-decoration: none;
+.libro {
+  color: black;
+  min-width: 200px;
+  position: relative;
+  text-decoration: none;
 }
 
-.libro:not(:last-child){
-    border-right: solid 1px #676294;
-    padding-right: 30px;
+.libro:not(:last-child) {
+  border-right: solid 1px #676294;
+  padding-right: 30px;
 }
-.libro:not(:first-child){
-    padding-left: 30px;
+.libro:not(:first-child) {
+  padding-left: 30px;
 }
 
 .libro img {
-    width: 100%;
-    height: 280px;
+  width: 100%;
+  height: 280px;
 }
 
 .libro i {
-    color: #676294;
-    opacity: 0;
-    position: absolute;
-    right: 8px;
-    top: 8px;
-    transition: all 300ms linear;
+  color: #676294;
+  opacity: 0;
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  transition: all 300ms linear;
 }
 
-.libro:not(:last-child) i{
-    right: 38px;
+.libro:not(:last-child) i {
+  right: 38px;
 }
 
 .libro p {
-    color: #7C7B7C;
-    font-size: 12px;
-    transition: color 300ms ease-out;
+  color: #7c7b7c;
+  font-size: 12px;
+  transition: color 300ms ease-out;
 }
 
 /* Hovers */
 
-.libro:hover{
-    cursor: pointer;
+.libro:hover {
+  cursor: pointer;
 }
 
-.libro:hover p{
-    color: black;
+.libro:hover p {
+  color: black;
 }
 
 .libro:hover i {
-    opacity: 1;
+  opacity: 1;
 }
 
 i:hover {
-    color:#FF7AA5;
+  color: #ff7aa5;
 }
 
 .productos-texto-container a:hover {
-    background: #676294;
-    box-shadow: 0 0 10px #676294;
+  background: #676294;
+  box-shadow: 0 0 10px #676294;
 }
 
-@media (max-width: 414px){
+@media (max-width: 414px) {
+  .productos {
+    border: none;
+    width: 100%;
+  }
 
-    .productos {
-        border: none;
-        width: 100%;
-    }
-    
-    .productos-texto {
-        font-size: 20px;
-    }
+  .productos-texto {
+    font-size: 20px;
+  }
 }

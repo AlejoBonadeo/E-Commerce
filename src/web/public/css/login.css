@@ -6,6 +6,7 @@
   margin: 0px;
   padding: 0px;
 }
+
 body,
 html {
   width: 100%;
@@ -121,18 +122,18 @@ article {
   margin-bottom: 15px;
 }
 
-form {
+.form-signin-data {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-form .form-inputs {
+.form-signin-data .form-inputs {
   width: 60%;
 }
 
-label:not(:last-child) {
+.form-signin-data div article label:not(:last-child) {
   font-weight: bold;
   margin-bottom: 5px;
 }
