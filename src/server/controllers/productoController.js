@@ -1,6 +1,9 @@
 const data = require("../data/products.json");
-const fs = require('fs')
-const path = require('path')
+const fs = require("fs");
+const path = require("path");
+
+const librosFilePath = path.resolve(__dirname, "../data/products.json");
+const libros = JSON.parse(fs.readFileSync(librosFilePath, "utf-8"));
 
 const productoController = {
   carrito: (req, res) => {
@@ -18,29 +21,43 @@ const productoController = {
   },
 
   productocreado: (req, res) => {
-    let data = fs.readFileSync(path.resolve(__dirname, '../data/products.json'), 'utf-8')
-    data = JSON.parse(data)
-    data.push({...req.body, id: new Date().getTime()})
-    fs.writeFileSync( path.resolve(__dirname, '../data/products.json'), JSON.stringify(data, null, 3))
+    let data = fs.readFileSync(
+      path.resolve(__dirname, "../data/products.json"),
+      "utf-8"
+    );
+    data = JSON.parse(data);
+    data.push({ ...req.body, id: new Date().getTime() });
+    fs.writeFileSync(
+      path.resolve(__dirname, "../data/products.json"),
+      JSON.stringify(data, null, 3)
+    );
     res.redirect("/");
   },
 
   editarproducto: (req, res) => {
-    res.render("./products/editarproducto",{ 
-      libro: data.filter((libro) => libro.id == req.params.id)
-    })
+    res.render("./products/editarproducto", {
+      libro: data.filter((libro) => libro.id == req.params.id),
+    });
   },
-
+  /////////////////////////////////////////////////////////////////
   productoeditado: (req, res) => {
-    const newLibro = { ...req.body }
-    console.log(newLibro)
-    let data = fs.readFileSync(path.resolve(__dirname, '../data/products.json'), 'utf-8')
+    let nuevaListaLibros = libros.map((libro) => {
+      if (libro.id == req.params.id) {
+        let newLibro = { id: libro.id, ...req.body };
+        return newLibro;
+      } else {
+        return libro;
+      }
+    });
 
-    data = JSON.parse(data).map( libro => libro.id == req.params.id ? newLibro : libro )
-
-    fs.writeFileSync( path.resolve(__dirname, '../data/products.json'), JSON.stringify(data, null, 3))
+    fs.writeFileSync(
+      librosFilePath,
+      JSON.stringify(nuevaListaLibros, null, " ")
+    );
     res.redirect("/");
   },
+
+  ////////////////////////////////////////////////////////////////
 };
 
 module.exports = productoController;

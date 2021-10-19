@@ -7,15 +7,19 @@ const path = require("path");
 const public = path.join(__dirname, "../web/public");
 app.use(express.static(public));
 
+//OVERRIDE PUT Y DELETE
+const methodOverride = require("method-override");
+
 //CONFIGURACION EJS
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "../web/views"));
 
 //PROCESAMIENTO POST
-app.use(express.urlencoded({extended:true}));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 //RECURSOS
+app.use(methodOverride("_method"));
 app.use("/", require("./routes/index"));
 app.use("/producto", require("./routes/producto"));
 app.use("/user", require("./routes/user"));
@@ -27,5 +31,5 @@ app.use((req, res, next) => {
 
 //SERVIDOR
 app.listen(8080, () =>
-console.log("Servidor iniciado - escuchando en puerto 8080")
+  console.log("Servidor iniciado - escuchando en puerto 8080")
 );
