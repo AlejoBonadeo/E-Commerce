@@ -21,23 +21,23 @@
         <a href="/"><img src="/img/logo-transparente.png" alt="" /></a>
         <div class="container-left">
           <i class="fas fa-tag"></i>
-          <p>Vamos a vender!</p>
+          <p>Edita tu Producto!</p>
           <img class="pila-libros" src="/img/books.png" alt="" />
         </div>
         <div class="hero">
           <div class="trian"></div>
           <div class="container-form">
             <h2><i class="fas fa-info-circle"></i> Carga la info</h2>
-            <form action="/producto/crear" method="POST">
+            <form action="/producto/edit/<%= libro[0].id %>" method="PUT">
               <div class="form-inputs">
                 <div>
                   <article>
                     <label for="titulo">Titulo</label>
-                    <input type="text" name="titulo" id="titulo" required />
+                    <input type="text" name="titulo" id="titulo" value="<%= libro[0].name %>"required  />
                   </article>
                   <article>
                     <label for="autor">Autor</label>
-                    <input type="text" name="autor" id="autor" required />
+                    <input type="text" name="autor" id="autor" value="<%= libro[0].author %>" required />
                   </article>
                 </div>
 
@@ -49,6 +49,7 @@
                       name="editorial"
                       id="editorial"
                       required
+                      
                     />
                   </article>
                   <article>
@@ -63,7 +64,7 @@
                 <div>
                   <article>
                     <label for="precio">Precio ARS</label>
-                    <input type="number" name="precio" id="precio" required />
+                    <input type="number" name="precio" id="precio" value="<%= libro[0].price %>" required />
                   </article>
                   <article class="opt-estado">
                     <label for="estado">Estado</label>

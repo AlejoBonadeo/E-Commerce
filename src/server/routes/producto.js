@@ -9,9 +9,9 @@ router.get("/crearproducto", productoController.crearproducto);
 
 router.post("/crear", productoController.productocreado);
 
-router.get("/:id/edit", productoController.editarproducto);
+router.get("/edit/:id", productoController.editarproducto);
 
-router.put("/:id/edit", productoController.productoeditado);
+router.put("/edit/:id", productoController.productoeditado);
 
 router.get("/:id", productoController.producto);
 
