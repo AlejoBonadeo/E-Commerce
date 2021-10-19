@@ -58,6 +58,13 @@ const productoController = {
   },
 
   ////////////////////////////////////////////////////////////////
+  delete: (req, res) => {
+    fs.writeFileSync(
+      librosFilePath,
+      JSON.stringify(libros.filter(libro => req.params.id != libro.id), null, " ")
+    );
+    res.redirect("/");
+  }
 };
 
 module.exports = productoController;

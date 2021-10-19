@@ -15,4 +15,6 @@ router.patch("/edit/:id", productoController.productoeditado);
 
 router.get("/:id", productoController.producto);
 
+router.delete('/:id', productoController.delete)
+
 module.exports = router;
