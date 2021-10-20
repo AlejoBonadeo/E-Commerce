@@ -16,11 +16,11 @@ const productoController = {
     });
   },
 
-  crearproducto: (req, res) => {
+  crearProducto: (req, res) => {
     res.render("./products/crearproducto");
   },
 
-  productocreado: (req, res) => {
+  productoCreado: (req, res) => {
     let data = fs.readFileSync(
       path.resolve(__dirname, "../data/products.json"),
       "utf-8"
@@ -34,13 +34,13 @@ const productoController = {
     res.redirect("/");
   },
 
-  editarproducto: (req, res) => {
+  editarProducto: (req, res) => {
     res.render("./products/editarproducto", {
       libro: data.filter((libro) => libro.id == req.params.id),
     });
   },
   /////////////////////////////////////////////////////////////////
-  productoeditado: (req, res) => {
+  productoEditado: (req, res) => {
     let nuevaListaLibros = libros.map((libro) => {
       if (libro.id == req.params.id) {
         let newLibro = { id: libro.id, ...req.body };
