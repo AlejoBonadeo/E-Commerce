@@ -17,6 +17,11 @@
 
   <body>
     <%- include("../partials/nav-bar.ejs") %>
+    <div class="error">
+      <%  if(typeof error !== 'undefined') {  %>
+        <h3>ERROR: <%= error %></h3>
+      <% } %> 
+    </div>
     <main>
       <section class="register-container">
         <!-- <a href="/"><img src="/img/logo-transparente.png" alt="" /></a> -->
@@ -29,7 +34,7 @@
           <div class="trian"></div>
           <div class="sign-up">
             <h2><i class="fas fa-info-circle"></i> Crea tu cuenta</h2>
-            <form action="/register" method="POST">
+            <form action="/user/register" method="POST">
               <div class="form-inputs">
                 <div>
                   <article>
@@ -107,7 +112,7 @@
                   <article>
                     <label for="repeatpassUsuario">Repetir Contraseña</label>
                     <input
-                      type="repeatpassword"
+                      type="password"
                       name="repeatpassUsuario"
                       id="repeatpassUsuario"
                       required
@@ -119,7 +124,11 @@
               <div>
                 <label class="terminos"
                   >Acepto los terminos y condiciones
-                  <input type="checkbox" />
+                  <input
+                  type="checkbox"
+                  name="aceptaTerminos"
+                  required
+                  />
                   <span class="checkmark"></span>
                 </label>
               </div>

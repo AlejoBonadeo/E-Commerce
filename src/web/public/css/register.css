@@ -241,6 +241,12 @@ label:not(:last-child) {
   transform: rotate(45deg);
 }
 
+.error {
+  display: flex;
+  justify-content: center;
+  color: red;
+}
+
 @media (max-width: 414px) {
   section {
     background: rgb(59, 69, 116);
