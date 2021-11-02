@@ -40,6 +40,10 @@ const userController = {
       usersFilePath,
       JSON.stringify( users, null, 3 )
     )
+    
+    delete body.passUsuario
+    req.session.user = { ...body }
+    // console.log(req.session)
 
     res.redirect('/')
   }

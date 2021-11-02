@@ -1,5 +1,6 @@
 //EXPRESS
 const express = require("express");
+const session  = require('express-session')
 const app = express();
 
 // CARPETA PUBLIC
@@ -14,12 +15,13 @@ const methodOverride = require("method-override");
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "../web/views"));
 
-//PROCESAMIENTO POST
+//MIDDLEWARES
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-
-//RECURSOS
 app.use(methodOverride("_method"));
+app.use(session({ secret: '238y7wrhqwre58q2', resave: false, saveUninitialized: true }))
+
+//ROUTES
 app.use("/", require("./routes/index"));
 app.use("/producto", require("./routes/producto"));
 app.use("/user", require("./routes/user"));

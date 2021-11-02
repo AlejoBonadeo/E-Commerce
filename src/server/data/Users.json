@@ -4,291 +4,200 @@
       "nombreDeUsuario": "Sada",
       "apellidoDeUsuario": "Kraft",
       "emailUsuario": "skraft0@dion.ne.jp",
-      "telUsuario": "6731176290",
       "dniUsuario": 2,
-      "direccionUsuario": "815 Montana Way",
       "localidadUsuario": "Strasbourg",
-      "cpUsuario": "67928 CEDEX 9",
       "provinciaUsuario": "Alsace",
-      "passUsuario": "2442JMjuz",
-      "repeatpassUsuario": "sayngNAa3Wm"
+      "passUsuario": "2442JMjuz"
    },
    {
       "idUsuario": 2,
       "nombreDeUsuario": "Gabe",
       "apellidoDeUsuario": "Egell",
       "emailUsuario": "gegell1@bing.com",
-      "telUsuario": "8969395342",
       "dniUsuario": 8,
-      "direccionUsuario": "18 Kipling Park",
       "localidadUsuario": "Spétses",
-      "cpUsuario": null,
       "provinciaUsuario": null,
-      "passUsuario": "dJqqFRN9Jic8",
-      "repeatpassUsuario": "yYulek"
+      "passUsuario": "dJqqFRN9Jic8"
    },
    {
       "idUsuario": 3,
       "nombreDeUsuario": "Georges",
       "apellidoDeUsuario": "Newbury",
       "emailUsuario": "gnewbury2@technorati.com",
-      "telUsuario": "1272533157",
       "dniUsuario": 5,
-      "direccionUsuario": "82 Anthes Plaza",
       "localidadUsuario": "Trondheim",
-      "cpUsuario": "7425",
       "provinciaUsuario": "Sor-Trondelag",
-      "passUsuario": "u463jxGIHkst",
-      "repeatpassUsuario": "rMFgbNCthF"
+      "passUsuario": "u463jxGIHkst"
    },
    {
       "idUsuario": 4,
       "nombreDeUsuario": "Dalston",
       "apellidoDeUsuario": "Shalloo",
       "emailUsuario": "dshalloo3@purevolume.com",
-      "telUsuario": "6046495003",
       "dniUsuario": 10,
-      "direccionUsuario": "80 Ridge Oak Lane",
       "localidadUsuario": "Sanchang",
-      "cpUsuario": null,
       "provinciaUsuario": null,
-      "passUsuario": "hXTohSYqJqv",
-      "repeatpassUsuario": "4tmS7nBZy"
+      "passUsuario": "hXTohSYqJqv"
    },
    {
       "idUsuario": 5,
       "nombreDeUsuario": "Quent",
       "apellidoDeUsuario": "Maker",
       "emailUsuario": "qmaker4@unblog.fr",
-      "telUsuario": "5544538196",
       "dniUsuario": 8,
-      "direccionUsuario": "5282 Pankratz Terrace",
       "localidadUsuario": "Qianzhou",
-      "cpUsuario": null,
       "provinciaUsuario": null,
-      "passUsuario": "WWGQ6QFrJynG",
-      "repeatpassUsuario": "NmQ8UeupONLu"
+      "passUsuario": "WWGQ6QFrJynG"
    },
    {
       "idUsuario": 6,
       "nombreDeUsuario": "Marve",
       "apellidoDeUsuario": "Garraway",
       "emailUsuario": "mgarraway5@drupal.org",
-      "telUsuario": "3418486229",
       "dniUsuario": 7,
-      "direccionUsuario": "143 Monterey Crossing",
       "localidadUsuario": "Baiyang",
-      "cpUsuario": null,
       "provinciaUsuario": null,
-      "passUsuario": "Ji41nimz",
-      "repeatpassUsuario": "zGFOPDW"
+      "passUsuario": "Ji41nimz"
    },
    {
       "idUsuario": 7,
       "nombreDeUsuario": "Joli",
       "apellidoDeUsuario": "Lantoph",
       "emailUsuario": "jlantoph6@slideshare.net",
-      "telUsuario": "6176504953",
       "dniUsuario": 3,
-      "direccionUsuario": "5838 Chive Junction",
       "localidadUsuario": "Sevilla",
-      "cpUsuario": "41020",
       "provinciaUsuario": "Andalucia",
-      "passUsuario": "txry6wKO",
-      "repeatpassUsuario": "PNCxpRWD9VB"
+      "passUsuario": "txry6wKO"
    },
    {
       "idUsuario": 8,
       "nombreDeUsuario": "Reuben",
       "apellidoDeUsuario": "Farrants",
       "emailUsuario": "rfarrants7@washingtonpost.com",
-      "telUsuario": "6711776727",
       "dniUsuario": 8,
-      "direccionUsuario": "10 Ruskin Junction",
       "localidadUsuario": "Severnyy",
-      "cpUsuario": "141707",
       "provinciaUsuario": null,
-      "passUsuario": "JIZ0hBl21QUn",
-      "repeatpassUsuario": "cgEv2ik"
+      "passUsuario": "JIZ0hBl21QUn"
    },
    {
       "idUsuario": 9,
       "nombreDeUsuario": "Nissie",
       "apellidoDeUsuario": "Garden",
       "emailUsuario": "ngarden8@tinyurl.com",
-      "telUsuario": "5854201328",
       "dniUsuario": 5,
-      "direccionUsuario": "6942 Beilfuss Alley",
       "localidadUsuario": "Vellinge",
-      "cpUsuario": "235 93",
       "provinciaUsuario": "Skåne",
-      "passUsuario": "xSJKQWwGjr4h",
-      "repeatpassUsuario": "ilxaOQz"
+      "passUsuario": "xSJKQWwGjr4h"
    },
    {
       "idUsuario": 10,
       "nombreDeUsuario": "Basile",
       "apellidoDeUsuario": "Duddridge",
       "emailUsuario": "bduddridge9@shop-pro.jp",
-      "telUsuario": "2928650970",
       "dniUsuario": 9,
-      "direccionUsuario": "63509 Hoepker Point",
       "localidadUsuario": "Zilang",
-      "cpUsuario": null,
       "provinciaUsuario": null,
-      "passUsuario": "I342gIjcuXm",
-      "repeatpassUsuario": "8nN8dUTK5"
+      "passUsuario": "I342gIjcuXm"
    },
    {
       "idUsuario": 11,
       "nombreDeUsuario": "Roth",
       "apellidoDeUsuario": "Pratten",
       "emailUsuario": "rprattena@dyndns.org",
-      "telUsuario": "3456542704",
       "dniUsuario": 4,
-      "direccionUsuario": "8 Laurel Trail",
       "localidadUsuario": "Corani",
-      "cpUsuario": null,
       "provinciaUsuario": null,
-      "passUsuario": "bZd05vv",
-      "repeatpassUsuario": "REijwQoT"
+      "passUsuario": "bZd05vv"
    },
    {
       "idUsuario": 12,
       "nombreDeUsuario": "Kalila",
       "apellidoDeUsuario": "Cossentine",
       "emailUsuario": "kcossentineb@wufoo.com",
-      "telUsuario": "9687716136",
       "dniUsuario": 1,
-      "direccionUsuario": "736 Beilfuss Plaza",
       "localidadUsuario": "Kukur",
-      "cpUsuario": null,
       "provinciaUsuario": null,
-      "passUsuario": "PC9BFeNqr8",
-      "repeatpassUsuario": "LpsE9heA6"
+      "passUsuario": "PC9BFeNqr8"
    },
    {
       "idUsuario": 13,
       "nombreDeUsuario": "Vittoria",
       "apellidoDeUsuario": "Gonthier",
       "emailUsuario": "vgonthierc@mayoclinic.com",
-      "telUsuario": "6665872035",
       "dniUsuario": 3,
-      "direccionUsuario": "524 Forest Run Junction",
       "localidadUsuario": "Palmeira",
-      "cpUsuario": "88545-000",
       "provinciaUsuario": null,
-      "passUsuario": "QP4xd7ld7yy",
-      "repeatpassUsuario": "vLNRF0"
+      "passUsuario": "QP4xd7ld7yy"
    },
    {
       "idUsuario": 14,
       "nombreDeUsuario": "Francyne",
       "apellidoDeUsuario": "Tomisch",
       "emailUsuario": "ftomischd@artisteer.com",
-      "telUsuario": "4385437390",
       "dniUsuario": 6,
-      "direccionUsuario": "37 Messerschmidt Lane",
       "localidadUsuario": "Yanfolila",
-      "cpUsuario": null,
       "provinciaUsuario": null,
-      "passUsuario": "LQbYtFL4eY",
-      "repeatpassUsuario": "6jUB63"
+      "passUsuario": "LQbYtFL4eY"
    },
    {
       "idUsuario": 15,
       "nombreDeUsuario": "Afton",
       "apellidoDeUsuario": "Jenner",
       "emailUsuario": "ajennere@yellowbook.com",
-      "telUsuario": "8816180605",
       "dniUsuario": 4,
-      "direccionUsuario": "4964 Northview Plaza",
       "localidadUsuario": "Mutatá",
-      "cpUsuario": "057428",
       "provinciaUsuario": null,
-      "passUsuario": "uDNON9snU",
-      "repeatpassUsuario": "DsZMRW"
+      "passUsuario": "uDNON9snU"
    },
    {
       "idUsuario": 16,
       "nombreDeUsuario": "Eachelle",
       "apellidoDeUsuario": "McVane",
       "emailUsuario": "emcvanef@indiegogo.com",
-      "telUsuario": "4024322563",
       "dniUsuario": 9,
-      "direccionUsuario": "4 Rutledge Court",
       "localidadUsuario": "Cimuncang",
-      "cpUsuario": null,
       "provinciaUsuario": null,
-      "passUsuario": "RiagcA3nVd",
-      "repeatpassUsuario": "4d8SCinzAUy"
+      "passUsuario": "RiagcA3nVd"
    },
    {
       "idUsuario": 17,
       "nombreDeUsuario": "Concordia",
       "apellidoDeUsuario": "Geaney",
       "emailUsuario": "cgeaneyg@exblog.jp",
-      "telUsuario": "6584479937",
       "dniUsuario": 10,
-      "direccionUsuario": "52128 Ridge Oak Place",
       "localidadUsuario": "Kalininaul",
-      "cpUsuario": "368157",
       "provinciaUsuario": null,
-      "passUsuario": "oWgeLDmZ",
-      "repeatpassUsuario": "wEJlSCrh"
+      "passUsuario": "oWgeLDmZ"
    },
    {
       "idUsuario": 18,
       "nombreDeUsuario": "Kenna",
       "apellidoDeUsuario": "Benoi",
       "emailUsuario": "kbenoih@tmall.com",
-      "telUsuario": "7715313938",
       "dniUsuario": 4,
-      "direccionUsuario": "6231 Washington Lane",
       "localidadUsuario": "Bidbid",
-      "cpUsuario": null,
       "provinciaUsuario": null,
-      "passUsuario": "eIaItF",
-      "repeatpassUsuario": "8jseHspO"
+      "passUsuario": "eIaItF"
    },
    {
       "idUsuario": 19,
       "nombreDeUsuario": "Ardella",
       "apellidoDeUsuario": "Locock",
       "emailUsuario": "alococki@seattletimes.com",
-      "telUsuario": "6008022028",
       "dniUsuario": 3,
-      "direccionUsuario": "9 Northview Street",
       "localidadUsuario": "Cabaiguán",
-      "cpUsuario": null,
       "provinciaUsuario": null,
-      "passUsuario": "TqZf2UVD7D",
-      "repeatpassUsuario": "9AriTrmCkb"
+      "passUsuario": "TqZf2UVD7D"
    },
    {
       "idUsuario": 20,
       "nombreDeUsuario": "Luciana",
       "apellidoDeUsuario": "Grindell",
       "emailUsuario": "lgrindellj@auda.org.au",
-      "telUsuario": "9958194259",
       "dniUsuario": 8,
-      "direccionUsuario": "692 Independence Avenue",
       "localidadUsuario": "Malartic",
-      "cpUsuario": "X0G",
       "provinciaUsuario": "Québec",
-      "passUsuario": "KHIYxfd",
-      "repeatpassUsuario": "rtzSuC2"
-   },
-   {
-      "nombreDeUsuario": "Alejo",
-      "apellidoDeUsuario": "Bonadeo",
-      "emailUsuario": "alejobonadeo@hotmail.com",
-      "dniUsuario": "123456",
-      "localidadUsuario": "Buenos Aires",
-      "provinciaUsuario": "Buenos Aires",
-      "passUsuario": "$2a$10$O4xwC7bXBXwf7m5CiSDBnu9n9o23tfnv.1Te0ekL.PTmIJsifwTjG",
-      "repeatpassUsuario": "123",
-      "idUsuario": 1635883845481
+      "passUsuario": "KHIYxfd"
    },
    {
       "idUsuario": 1635884152858,
@@ -298,7 +207,36 @@
       "dniUsuario": "1234",
       "localidadUsuario": "Buenos Aires",
       "provinciaUsuario": "Buenos Aires",
-      "passUsuario": "$2a$10$Jis/LWNTy7RLUdPuMKI6HuWyEyMMBueb7u3hGO3t1mSYi3Dtp726C",
-      "repeatpassUsuario": "1234"
+      "passUsuario": "$2a$10$Jis/LWNTy7RLUdPuMKI6HuWyEyMMBueb7u3hGO3t1mSYi3Dtp726C"
+   },
+   {
+      "idUsuario": 1635890560680,
+      "nombreDeUsuario": "Mesi",
+      "apellidoDeUsuario": "Lionel",
+      "emailUsuario": "mesi@mesi.com",
+      "dniUsuario": "12344444",
+      "localidadUsuario": "Buenos Aires",
+      "provinciaUsuario": "Buenos Aires",
+      "passUsuario": "$2a$10$ndAnezZ3qRRb2DPagrrJ8Oua9GlgQRu2JmlSRxVETK.wKloNBdhT."
+   },
+   {
+      "idUsuario": 1635890985166,
+      "nombreDeUsuario": "Jorge",
+      "apellidoDeUsuario": "Zapa",
+      "emailUsuario": "jorge@zapa.com",
+      "dniUsuario": "554665465",
+      "localidadUsuario": "Buenos Aires",
+      "provinciaUsuario": "Buenos Aires",
+      "passUsuario": "$2a$10$zfy7dMM5UIzBErt7WyClyuefOx2R4tNd/10Tf95EvKk3odVHe6rS6"
+   },
+   {
+      "idUsuario": 1635892284954,
+      "nombreDeUsuario": "Alejo",
+      "apellidoDeUsuario": "Bonadeo",
+      "emailUsuario": "alejobonadeo@hotmail.com",
+      "dniUsuario": "12354456543",
+      "localidadUsuario": "Buenos Aires",
+      "provinciaUsuario": "Buenos Aires",
+      "passUsuario": "$2a$10$BDm9rBUML5ixw.FiY/oV8.yjSmfUkxzDjvyw2Fs2Ztc8YNaU.IARW"
    }
 ]

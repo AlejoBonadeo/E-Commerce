@@ -39,8 +39,15 @@
       <ul class="nav-menu">
         <li><a href="#">Categorias</a></li>
         <li><a href="/producto/crearproducto">Vender</a></li>
+        <% if(typeof user === 'undefined'){ %> 
         <li><a href="/user/login">Iniciar sesion</a></li>
         <li><a href="/user/register">Registrarse</a></li>
+        <% } else { %>
+          <li><a href="#"><%= user.nombreDeUsuario %></a></li>
+          <li><a href="/produto/carrito">
+            <i class="fas fa-shopping-cart"></i>
+          </a></li>
+        <% } %>  
       </ul>
     </div>
     <div class="nav-text">
