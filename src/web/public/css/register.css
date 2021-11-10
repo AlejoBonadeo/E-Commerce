@@ -154,9 +154,17 @@ label:not(:last-child) {
   font-size: 25px;
   font-weight: bold;
   margin-top: 30px;
-  padding: 15px 35px;
+  padding: 0px 15px;
   transition-property: font-size, box-shadow;
   transition-duration: 0.5s;
+}
+
+.upload_avatar {
+  justify-content:center;
+  background-color: rgb(59, 69, 116);
+  border-radius: 5px;
+  color: whitesmoke;
+  font-size: 20px;
 }
 
 /* Hovers */

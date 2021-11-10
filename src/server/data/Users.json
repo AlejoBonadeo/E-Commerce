@@ -238,5 +238,15 @@
       "localidadUsuario": "Buenos Aires",
       "provinciaUsuario": "Buenos Aires",
       "passUsuario": "$2a$10$BDm9rBUML5ixw.FiY/oV8.yjSmfUkxzDjvyw2Fs2Ztc8YNaU.IARW"
+   },
+   {
+      "idUsuario": 1636537896807,
+      "nombreDeUsuario": "EDUARDO",
+      "apellidoDeUsuario": "DIFERMO",
+      "emailUsuario": "edifermo@gmail.com",
+      "dniUsuario": "12345678",
+      "localidadUsuario": "Buenos Aires",
+      "provinciaUsuario": "BA",
+      "passUsuario": "$2a$10$nG7kWp1N9etET5rbCO.1UesvgmL6U/JcZPe3kahgw2sm4PzrOVfa."
    }
 ]
