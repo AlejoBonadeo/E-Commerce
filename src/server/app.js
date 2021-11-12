@@ -15,11 +15,19 @@ const methodOverride = require("method-override");
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "../web/views"));
 
+//SESSION
+const userSession = require('./middlewares/sessionMiddleware')
+
+//COOKIE PARSER
+const cookie = require('cookie-parser')
+
 //MIDDLEWARES
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(methodOverride("_method"));
-app.use(session({ secret: '238y7wrhqwre58q2', resave: false, saveUninitialized: true }))
+app.use(session({ secret: '238y7wrhqwre58q2', resave: false, saveUninitialized: true }));
+app.use(cookie())
+app.use(userSession);
 
 //ROUTES
 app.use("/", require("./routes/index"));

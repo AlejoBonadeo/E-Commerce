@@ -15,22 +15,17 @@ const authUser = require("../middlewares/authUsersMiddleware");
 
 /*-------------------------------------------------------------------------*/
 
-router.get("/check",authUser, (req, res)=>{
-  res.send('paginaCheck')
- 
-});
-
 /* GET formulario Registro de Usuario */
 router.get("/register", userController.register);
 
 /* GET formulario Login de Usuario */
 router.get("/login", userController.login);
 
-/* POST formulario Login de Usuario */
-router.post("/login", validateLoginForm, userController.processLogin);
-
 /* GET pagina detalle de Usuario */
 router.post("/userDetail/:id", authUser, userController.userDetails);
+
+/* POST formulario Login de Usuario */
+router.post("/login", validateLoginForm, userController.processLogin);
 
 /* POST Registro de Usuario */
 router.post(

@@ -30,7 +30,7 @@
             <i class="fas fa-unlock-alt"></i>
             <% if (locals.invalidUser) {%>
             <div class="text-danger-validator">
-              <h3><%= locals.invalidUser.msg %></h3>
+              <p><%= locals.invalidUser.msg %></p>
             </div>
             <%}%>
             <form class="form-signin-data" action="/user/login/" method="POST">
@@ -58,7 +58,7 @@
               <div>
                 <label class="terminos"
                   >Recordar Sesion
-                  <input type="checkbox" />
+                  <input type="checkbox" name="checkbox" />
                   <span class="checkmark"></span>
                 </label>
               </div>

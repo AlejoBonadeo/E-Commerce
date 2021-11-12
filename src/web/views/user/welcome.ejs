@@ -15,12 +15,12 @@
   </head>
 
   <body>
-    <%- include("../partials/nav-bar.ejs") %>
+    <%- include("../partials/nav-bar.ejs", {authUser:authUser}) %>
     <main>
-      <h1>Detalle de usuario</h1>
+      <h1>BIENVENIDO</h1>
       <br />
-      <p><%= loggedUser.emailUsuario %></p>
-      <p><%= loggedUser.passUsuario %></p>
+      <p><%= authUser.emailUsuario %></p>
+      <p><%= authUser.passUsuario %></p>
     </main>
     <%- include("../partials/footer.ejs") %>
   </body>

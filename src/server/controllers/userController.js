@@ -71,17 +71,20 @@ const userController = {
     if (errors.isEmpty()) {
       let users = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
 
-      let loggedUser = users.find((usr) => {
+      let authUser = users.find((usr) => {
         if (usr.emailUsuario == req.body.emailUsuario && usr.passUsuario == req.body.passUsuario) {
           return usr;
         }
       });
 
-      if (loggedUser != undefined) {
+      if (authUser != undefined) {
+        if(req.body.checkbox != undefined){
+          res.cookie('savedUserCookie', authUser, {maxAge: 120000})
+        }
+
+        req.session.authUser = authUser;
         
-        req.session.loggedUser = loggedUser;
-        
-        res.render("./user/userDetails", { loggedUser });
+        res.render("./user/welcome", { authUser: authUser});
       } else {
         res.render("./user/login", {invalidUser: {msg: "Email o Password incorrectos"}});
       }
