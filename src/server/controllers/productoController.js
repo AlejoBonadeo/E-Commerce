@@ -17,7 +17,7 @@ const productoController = {
   },
 
   crearProducto: (req, res) => {
-    res.render("./products/crearproducto");
+    res.render("./products/crearproducto", {authUser: req.session.authUser});
   },
 
   productoCreado: (req, res) => {
