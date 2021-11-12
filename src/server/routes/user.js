@@ -19,7 +19,7 @@ router.get("/register", userController.register);
 router.get("/login", userController.login);
 
 /* POST formulario Login de Usuario */
-router.post("/login/userProfile", validateLoginForm, userController.userLogin);
+router.post("/login/", validateLoginForm, userController.processLogin);
 
 /* POST Registro de Usuario */
 router.post(

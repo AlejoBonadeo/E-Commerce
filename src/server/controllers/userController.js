@@ -6,6 +6,10 @@ const usersFilePath = path.resolve(__dirname, "../data/Users.json");
 
 const { validationResult } = require("express-validator");
 
+
+/*-----------------------------------------------------------------------*/
+/* CONTROLADOR DE USUARIO*/
+
 const userController = {
   /* RENDERIZA FORMULARIO DE REGISTRO DE USUARIO */
   register: (req, res) => {
@@ -60,7 +64,7 @@ const userController = {
   },
 
   /*LOGIN DE USUARIO EN APLICACION*/
-  userLogin: (req, res) => {
+  processLogin: (req, res) => {
     let users = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
 
     let errors = validationResult(req);
