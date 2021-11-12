@@ -8,9 +8,17 @@ const userController = require("../controllers/userController");
 /*VALIDADORES DE FORMULARIOS (EXPRESS-VALIDATOR)*/
 const { check } = require("express-validator");
 const validateForm = require("../middlewares/validateForm");
-const validateLoginForm = require("../middlewares/validateLoginForm");
+const validateLoginForm = require("../middlewares/checkLoginFormMiddleware");
+
+/*VALIDADORES DE SESION*/
+const authUser = require("../middlewares/authUsersMiddleware");
 
 /*-------------------------------------------------------------------------*/
+
+router.get("/check",authUser, (req, res)=>{
+  res.send('paginaCheck')
+ 
+});
 
 /* GET formulario Registro de Usuario */
 router.get("/register", userController.register);
@@ -19,7 +27,10 @@ router.get("/register", userController.register);
 router.get("/login", userController.login);
 
 /* POST formulario Login de Usuario */
-router.post("/login/", validateLoginForm, userController.processLogin);
+router.post("/login", validateLoginForm, userController.processLogin);
+
+/* GET pagina detalle de Usuario */
+router.post("/userDetail/:id", authUser, userController.userDetails);
 
 /* POST Registro de Usuario */
 router.post(

@@ -2,10 +2,15 @@ const express = require("express");
 const router = express.Router();
 const productoController = require("../controllers/productoController");
 
+/*VALIDADORES DE SESION*/
+const authUser = require("../middlewares/authUsersMiddleware");
+
+/*-----------------------------------------------------------------------------*/
+
 /* GET home page. */
 router.get("/carrito", productoController.carrito);
 
-router.get("/crearproducto", productoController.crearProducto);
+router.get("/crearproducto", authUser, productoController.crearProducto);
 
 router.post("/crear", productoController.productoCreado);
 

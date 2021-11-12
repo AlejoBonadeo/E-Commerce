@@ -65,29 +65,35 @@ const userController = {
 
   /*LOGIN DE USUARIO EN APLICACION*/
   processLogin: (req, res) => {
-    let users = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
 
     let errors = validationResult(req);
 
     if (errors.isEmpty()) {
+      let users = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
+
       let loggedUser = users.find((usr) => {
-        if (
-          usr.emailUsuario == req.body.emailUsuario &&
-          usr.passUsuario == req.body.passUsuario
-        ) {
+        if (usr.emailUsuario == req.body.emailUsuario && usr.passUsuario == req.body.passUsuario) {
           return usr;
         }
       });
 
       if (loggedUser != undefined) {
+        
+        req.session.loggedUser = loggedUser;
+        
         res.render("./user/userDetails", { loggedUser });
       } else {
-        res.send("Usuario no encontrado");
+        res.render("./user/login", {invalidUser: {msg: "Email o Password incorrectos"}});
       }
     } else {
         res.render("./user/login", { errors: errors.mapped(), oldBody: req.body });
     }
   },
+
+  /*RENDERIZA DETALLE DE USUARIO POR ID*/
+  userDetails: (req, res)=>{
+
+  }
 };
 
 module.exports = userController;

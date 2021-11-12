@@ -28,6 +28,11 @@
           <div class="trian"></div>
           <div class="sign-up">
             <i class="fas fa-unlock-alt"></i>
+            <% if (locals.invalidUser) {%>
+            <div class="text-danger-validator">
+              <h3><%= locals.invalidUser.msg %></h3>
+            </div>
+            <%}%>
             <form class="form-signin-data" action="/user/login/" method="POST">
               <div class="form-inputs">
                 <article>
