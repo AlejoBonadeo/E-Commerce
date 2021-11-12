@@ -18,7 +18,6 @@
     <%- include("../partials/nav-bar.ejs") %>
     <main>
       <section>
-        <!-- <a href="/"><img src="/img/logo-transparente.png" alt="" /></a> -->
         <div class="sign-in">
           <i class="fas fa-user-circle"></i>
           <h3>¿Todavia no estas registrado?</h3>
@@ -29,25 +28,25 @@
           <div class="trian"></div>
           <div class="sign-up">
             <i class="fas fa-unlock-alt"></i>
-            <form class="form-signin-data" action="user/register" method="POST">
+            <form class="form-signin-data" action="/user/login/userProfile" method="POST">
               <div class="form-inputs">
                 <article>
                   <label for="emailUsuario">Email</label>
-                  <input
-                    type="email"
-                    name="emailUsuario"
-                    id="emailUsuario"
-                    required
-                  />
+                  <input type="email" name="emailUsuario" id="emailUsuario" value="<%= locals.oldBody ? oldBody.emailUsuario : null %>"/>
+                  <% if(locals.errors && errors.emailUsuario) {%>
+                    <div class="text-danger-validator">
+                      <p><%= errors.emailUsuario.msg%></p>
+                    </div>
+                  <%}%>
                 </article>
                 <article>
                   <label for="passUsuario">Contraseña</label>
-                  <input
-                    type="password"
-                    name="passUsuario"
-                    id="passUsuario"
-                    required
-                  />
+                  <input type="password" name="passUsuario" id="passUsuario" value="<%= locals.passUsuario ? oldBody.passUsuario : null %>"/>
+                  <% if(locals.errors && errors.passUsuario) {%>
+                    <div class="text-danger-validator">
+                      <p><%= errors.passUsuario.msg%></p>
+                    </div>
+                  <%}%>
                 </article>
               </div>
 

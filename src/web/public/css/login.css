@@ -167,6 +167,10 @@ article {
   transition: all 300ms linear;
 }
 
+.text-danger-validator{
+  color: red;
+  font-weight: bold;
+}
 /* Hovers */
 
 .sign-up button:hover,
