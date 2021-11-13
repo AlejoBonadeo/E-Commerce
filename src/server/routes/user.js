@@ -12,14 +12,15 @@ const validateLoginForm = require("../middlewares/checkLoginFormMiddleware");
 
 /*VALIDADORES DE SESION*/
 const authUser = require("../middlewares/authUsersMiddleware");
+const guestUser = require('../middlewares/guestMiddleware');
 
 /*-------------------------------------------------------------------------*/
 
 /* GET formulario Registro de Usuario */
-router.get("/register", userController.register);
+router.get("/register", guestUser, userController.register);
 
 /* GET formulario Login de Usuario */
-router.get("/login", userController.login);
+router.get("/login", authUser, userController.login);
 
 /* GET pagina detalle de Usuario */
 router.post("/userDetail/:id", authUser, userController.userDetails);
