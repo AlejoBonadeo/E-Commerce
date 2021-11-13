@@ -72,7 +72,7 @@ const userController = {
       let users = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
 
       let authUser = users.find((usr) => {
-        if (usr.emailUsuario == req.body.emailUsuario && compareSync(req.body.passUsuario, usr.passUsuario ) {
+        if (usr.emailUsuario == req.body.emailUsuario && compareSync(req.body.passUsuario, usr.passUsuario )){
           return usr;
         }
       });
