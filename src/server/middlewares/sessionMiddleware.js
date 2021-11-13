@@ -1,7 +1,6 @@
 const fs = require("fs");
 const path = require("path");
 const usersFilePath = path.resolve(__dirname, "../data/Users.json");
-const {compareSync} = require('bcryptjs');
 
 let users = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
 
