@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MercadoLibros</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/nav-bar.css" />
+    <link rel="stylesheet" href="/css/userDetails.css" />
+    <link rel="stylesheet" href="/css/footer.css" />
+  </head>
+
+  <body>
+    <%- include("../partials/nav-bar.ejs", {authUser:authUser}) %>
+    <main>
+
+        <h1> <%= authUser.nombreDeUsuario%></h1>
+        <h1> <%= authUser.apellidoDeUsuario%></h1>
+        <h3><%= authUser.emailUsuario%></h3>
+        <h3><%= authUser.dniUsuario%></h3>
+        <h3><%= authUser.localidadUsuario%></h3>
+        <h3><%= authUser.provinciaUsuario%></h3>      
+      
+    </main>
+    <%- include("../partials/footer.ejs") %>
+  </body>
+</html>

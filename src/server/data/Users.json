@@ -248,5 +248,16 @@
       "localidadUsuario": "Buenos Aires",
       "provinciaUsuario": "BA",
       "passUsuario": "$2a$10$nG7kWp1N9etET5rbCO.1UesvgmL6U/JcZPe3kahgw2sm4PzrOVfa."
+   },
+   {
+      "idUsuario": 1636836593834,
+      "nombreDeUsuario": "Javier",
+      "apellidoDeUsuario": "Menendez",
+      "emailUsuario": "javier.menendez@live.com.ar",
+      "dniUsuario": "123456789",
+      "localidadUsuario": "Ciudad Autonoma de Buenos AIres",
+      "provinciaUsuario": "Buenos Aires",
+      "passUsuario": "$2a$10$fMQcWUjjLcv8YuyeqlBYVOJgCFEZOOd9dXe67lADhVe8eRLxuNb6q",
+      "user_img": ""
    }
 ]

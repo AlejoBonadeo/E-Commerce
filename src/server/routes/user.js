@@ -23,7 +23,7 @@ router.get("/register", guestUser, userController.register);
 router.get("/login", authUser, userController.login);
 
 /* GET pagina detalle de Usuario */
-router.post("/userDetail/:id", authUser, userController.userDetails);
+router.get("/userDetails/:id", authUser, userController.userDetails);
 
 /* POST formulario Login de Usuario */
 router.post("/login", validateLoginForm, userController.processLogin);
