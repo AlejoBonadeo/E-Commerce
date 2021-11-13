@@ -79,7 +79,7 @@ const userController = {
 
       if (authUser != undefined) {
         if(req.body.checkbox != undefined){
-          res.cookie('savedUserCookie', authUser, {maxAge: 120000})
+          res.cookie('savedUserCookie', authUser, {maxAge: 1200000})
         }
 
         req.session.authUser = authUser;
