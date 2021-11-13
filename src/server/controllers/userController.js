@@ -95,6 +95,15 @@ const userController = {
 
   /*RENDERIZA DETALLE DE USUARIO POR ID*/
   userDetails: (req, res)=>{
+    let users = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
+
+    let authUser = users.find((usr) => {
+      if (usr.idUsuario == req.params.id){
+        return usr;
+      }
+    });
+    
+    res.render('./user/userDetails', {authUser:authUser})
 
   }
 };
