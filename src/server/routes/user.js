@@ -20,7 +20,7 @@ const guestUser = require('../middlewares/guestMiddleware');
 router.get("/register", guestUser, userController.register);
 
 /* GET formulario Login de Usuario */
-router.get("/login", authUser, userController.login);
+router.get("/login", guestUser, userController.login);
 
 /* GET pagina detalle de Usuario */
 router.get("/userDetails/:id", authUser, userController.userDetails);
