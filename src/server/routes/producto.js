@@ -10,9 +10,9 @@ const authUser = require("../middlewares/authUsersMiddleware");
 /* GET home page. */
 router.get("/carrito", productoController.carrito);
 
-router.get("/crearproducto", authUser, productoController.crearProducto);
+router.get("/crear/producto", authUser, productoController.crearProducto);
 
-router.post("/crear", productoController.productoCreado);
+router.post("/crear/producto", productoController.productoCreado);
 
 router.get("/edit/:id", productoController.editarProducto);
 

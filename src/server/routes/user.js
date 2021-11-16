@@ -2,6 +2,23 @@
 const express = require("express");
 const router = express.Router();
 
+/*MULTER*/
+// TODO pasar esto a un middleware
+
+const multer = require('multer')
+const path = require('path')
+
+const storage = multer.diskStorage({
+  destination: ( req, file, cb ) => {
+    cb(null, path.join(__dirname, '../../web/public/img/user_img'))
+  },
+  filename: ( req, file, cb ) => {
+    const newFileName = 'user-' + new Date().getTime() + path.extname(file.originalname)
+    cb(null, newFileName)
+  }
+})
+const upload = multer({ storage })
+
 /*CONTROLADORES */
 const userController = require("../controllers/userController");
 
@@ -32,15 +49,11 @@ router.post("/login", validateLoginForm, userController.processLogin);
 router.post(
   "/register",
   [
-    check("nombreDeUsuario", "Por favor ingrese un nombre válido")
-      .not()
-      .isEmpty(),
+    upload.single('user_img'),
+    check("nombreDeUsuario", "Por favor ingrese un nombre válido").not().isEmpty(),
     check("emailUsuario", "Por favor ingrese un email válido").isEmail(),
-    check(
-      "passUsuario",
-      "La contraseña debe tener al menos 7 caracteres"
-    ).isLength({ min: 6 }),
-    validateForm(),
+    check("passUsuario", "La contraseña debe tener al menos 7 caracteres").isLength({ min: 6 }),
+    validateForm,
   ],
   userController.newAccount
 );

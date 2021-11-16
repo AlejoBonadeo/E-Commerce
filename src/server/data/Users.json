@@ -259,5 +259,16 @@
       "provinciaUsuario": "Buenos Aires",
       "passUsuario": "$2a$10$fMQcWUjjLcv8YuyeqlBYVOJgCFEZOOd9dXe67lADhVe8eRLxuNb6q",
       "user_img": ""
+   },
+   {
+      "idUsuario": 1637036931738,
+      "nombreDeUsuario": "Mauricio",
+      "apellidoDeUsuario": "Macri",
+      "emailUsuario": "mauricio@macri.com",
+      "dniUsuario": "124435",
+      "localidadUsuario": "Buenos Aires",
+      "provinciaUsuario": "Buenos Aires",
+      "passUsuario": "$2a$10$wZ0RcjZUEaKFwy6xmCNFrunpttZDLuwjogK0ys7/WdW9C3q18.RPK",
+      "imagenDeUsuario": "/home/alejo/codigo/node/ECOMMERCE/eCommerce/src/web/public/img/user_img/user-1637036931627.jfif"
    }
 ]

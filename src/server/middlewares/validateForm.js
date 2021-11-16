@@ -1,9 +1,9 @@
 const { validationResult } = require("express-validator")
 
-const validateForm = () => (req, res, next) => {
-
+const validateForm = (req, res, next) => {
+    
     const errors = validationResult( req )
-    if( !errors.isEmpty()) {
+    if( !errors.isEmpty() ) {
         return res.render('./user/register', { error: errors.array()[0].msg })
     }
 

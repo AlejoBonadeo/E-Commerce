@@ -23,7 +23,7 @@ const userController = {
 
   /*CREACION DE NUEVO USUARIO EN DATA BASE*/
   newAccount: (req, res) => {
-    //TODO agregar multer
+
     let users = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
     const { body } = req;
 
@@ -46,6 +46,8 @@ const userController = {
     delete body.aceptaTerminos;
     delete body.repeatpassUsuario;
 
+    body.imagenDeUsuario = req.file.path
+
     users = [
       ...users,
       {
@@ -57,8 +59,8 @@ const userController = {
     fs.writeFileSync(usersFilePath, JSON.stringify(users, null, 3));
 
     delete body.passUsuario;
-    req.session.user = { ...body };
-    // console.log(req.session)
+    req.session.authUser = { ...body };
+
 
     res.redirect("/");
   },
