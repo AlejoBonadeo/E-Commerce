@@ -19,5 +19,13 @@ module.exports = (sequelize, define) =>{
         timeStamps: false
     }
     const Libros_Autores = sequelize.define(alias, columnas, config);
+
+    Libros_Autores.associate = function(models){
+        Libros_Autores.hasMany(models.Libro, {
+            as:'Libros',
+            foreignKey:'id_Libro'
+        })
+    };
+
     return Libros_Autores;
 }
