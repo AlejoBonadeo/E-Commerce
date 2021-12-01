@@ -20,7 +20,7 @@ module.exports = (sequelize, dataTypes) => {
         email:{
             type: dataTypes.STRING(100)
         },
-        psw_hash:{
+        password:{
             type: dataTypes.STRING(100)
         },
         dni:{
@@ -45,13 +45,13 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.STRING(100)
         },
         status:{
-            type: dataTypes.SMALLINT
+            type: dataTypes.INTEGER
         }
 
     }
     let config = {
         tableName: 'Usuarios',
-        timestamps: false
+        timeStamps: false
     }
     const Usuario = sequelize.define("Usuarios", columnas, config);
     return Usuario;

@@ -1,21 +1,21 @@
-module.exports = (sequelize, define) => {
+module.exports = (sequelize, dataTypes) => {
     let alias = 'Editoriales'
     let columnas ={
         id:{
-            dataTypes: INTEGER,
+            type: dataTypes.INTEGER,
             primaryKey:true
         },
         nombre:{
-            dataTypes: VARCHAR(100)
+            type: dataTypes.STRING(100)
         },
         direccion:{
-            dataTypes: VARCHAR(100)
+            type: dataTypes.STRING(100)
         },
         telefono:{
-            dataTypes: INTEGER
+            type: dataTypes.INTEGER,
         },
         status:{
-            dataTypes: SMALLINT
+            type: dataTypes.INTEGER,
         }
     }
     let config ={

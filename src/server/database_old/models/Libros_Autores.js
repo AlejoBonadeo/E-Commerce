@@ -2,15 +2,15 @@ module.exports = (sequelize, define) =>{
     let alias = 'Libros_Autores';
     let columnas ={
         id:{
-            dataTypes: INTEGER,
+            type: dataTypes.INTEGER,
             primaryKey: true
         },
         id_libro:{
-            dataTypes: INTEGER,
+            dtype: dataTypes.INTEGER,
             foreignKey: true
         },
         id_autor:{
-            dataTypes: INTEGER,
+            type: dataTypes.INTEGER,
             foreignKey: true
         }
     }

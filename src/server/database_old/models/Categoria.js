@@ -1,12 +1,12 @@
-module.exports = (sequelize, define) => {
+module.exports = (sequelize, dataTypes) => {
     let alias = 'Categorias'
     let columnas ={
         id:{
-            dataTypes: INTEGER,
+            type: dataTypes.INTEGER,
             primaryKey:true
         },
         categoria:{
-            dataTypes: VARCHAR(50)
+            type: dataTypes.STRING(50)
         }
     }
     let config ={
@@ -14,8 +14,7 @@ module.exports = (sequelize, define) => {
         timeStamps: false
     }
     
-    
-    
+  
     const Categoria = sequelize.define(alias, columnas, config);
     return Categoria;
 }

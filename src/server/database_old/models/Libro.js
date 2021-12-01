@@ -1,32 +1,32 @@
-module.exports = (sequelize, define) => {
+module.exports = (sequelize, dataTypes) => {
     let alias = 'Libros';
     let columnas = {
         id:{
-             type: INTEGER,
+            type: dataTypes.INTEGER,
              primaryKey: true
         },
         titulo:{
-            dataTypes: VARCHAR(100)
+            type: dataTypes.STRING(100)
         },
         isbn:{
-            dataTypes: INTEGER
+            type: dataTypes.INTEGER,
         },
         edicion:{
-            dataTypes: SMALLINT
+            type: dataTypes.INTEGER,
         },
         fecha_edicion:{
-            dataTypes: DATE
+            type: dataTypes.DATE
         },
         id_editorial:{
-            dataTypes:INTEGER,
+            type: dataTypes.INTEGER,
             foreignKey: true
         },
         id_categoria:{
-            dataTypes: INTEGER,
+            type: dataTypes.INTEGER,
             foreignKey: true
         },
         status:{
-            dataTypes: SMALLINT
+            type: dataTypes.INTEGER,
         }
 
     }

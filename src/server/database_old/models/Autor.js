@@ -1,27 +1,25 @@
-module.exports = (sequelize, define) => {
+module.exports = (sequelize, dataTypes) => {
     let alias = 'Autores'
     let columnas ={
         id:{
-            dataTypes: INTEGER,
+            type: dataTypes.INTEGER,
             primaryKey:true
         },
         nombre:{
-            dataTypes: VARCHAR(100) 
+            type: dataTypes.STRING(100) 
         },
         apellido:{
-            dataTypes: VARCHAR(100)
+            type: dataTypes.STRING(100)
         },
         status:{
-            dataTypes: SMALLINT
+            type: dataTypes.INTEGER
         }
     }
     let config ={
         tableName: 'Autores',
         timeStamps: false
     }
-    
-    
-    
+        
     const Autor = sequelize.define(alias, columnas, config);
     return Autor;
 }

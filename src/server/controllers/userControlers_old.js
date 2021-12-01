@@ -2,36 +2,15 @@ const { hashSync, genSaltSync, compareSync } = require("bcryptjs");
 const fs = require("fs");
 const path = require("path");
 
-//const usersFilePath = path.resolve(__dirname, "../data/Users.json");
+const usersFilePath = path.resolve(__dirname, "../data/Users.json");
 
 const { validationResult } = require("express-validator");
 
-/*-- se habilita sequelize --*/
-const db = require("../database/models")
-
-const sequelize = db.sequelize;
-const { Op } = require("sequelize");
-
-/*--se llaman los modelos a utilizar --*/
-// otro formato de llamado: const {Usuario, otratabla1, otratabla2} = require('../database/models');
-const Usuario= db.Usuario
 
 /*-----------------------------------------------------------------------*/
 /* CONTROLADOR DE USUARIO*/
 
 const userController = {
-
-  /* prueba con findAll()  */
-  list: (req, res) => {
-    db.Usuarios.findAll()
-        .then(function(usuarios) {
-            //console.log(usuarios)
-            res.render( "./user/listadoDeUsuarios", {usuarios:usuarios})
-
-        })
-  },
-
-
   /* RENDERIZA FORMULARIO DE REGISTRO DE USUARIO */
   register: (req, res) => {
     res.render("./user/register");

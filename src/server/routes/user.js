@@ -33,6 +33,13 @@ const guestUser = require('../middlewares/guestMiddleware');
 
 /*-------------------------------------------------------------------------*/
 
+
+/******** PRUEBA DE SEQUELIZE CON findAll() **************/
+
+router.get("/list", userController.list);
+
+/*********************************************************/
+
 /* GET formulario Registro de Usuario */
 router.get("/register", guestUser, userController.register);
 
