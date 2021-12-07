@@ -57,5 +57,15 @@ module.exports = (sequelize, define) => {
         })
     };
 
+     Libro.associate = function(models){
+        Libro.belongsToMany(models.Libros_Autores, {
+            as:'autores',
+            through:'libros_utores',
+            foreignKey:'id_libro',
+            otherKey:'id_autor',
+            timeStamps: false
+        })
+    };
+
     return Libro;
 };
