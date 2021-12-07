@@ -20,7 +20,7 @@ module.exports = (sequelize, dataTypes) => {
         email:{
             type: dataTypes.STRING(100)
         },
-        psw_hash:{
+        password:{
             type: dataTypes.STRING(100)
         },
         dni:{
