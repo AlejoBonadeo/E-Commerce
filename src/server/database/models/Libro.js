@@ -37,7 +37,7 @@ module.exports = (sequelize, dataTypes) => {
     const Libro = sequelize.define(alias, columnas, config);
 
     Libro.associate = function(models){
-        Libro.belongsTo(models.Categoria, {
+        Libro.belongsTo(models.Categorias, {
             as: 'Categorias',
             foreignKey: 'id_categoria'
         })
@@ -51,12 +51,12 @@ module.exports = (sequelize, dataTypes) => {
     };
 
     Libro.associate = function(models){
-        Libro.hasMany(models.Autor, {
+        Libro.hasMany(models.Autores, {
             as: 'Autores',
             foreignKey: 'id_autor'
         })
     };
-
+/*
      Libro.associate = function(models){
         Libro.belongsToMany(models.Libros_Autores, {
             as:'autores',
@@ -66,6 +66,6 @@ module.exports = (sequelize, dataTypes) => {
             timeStamps: false
         })
     };
-
+*/
     return Libro;
 };
