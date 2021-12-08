@@ -23,8 +23,14 @@ module.exports = (sequelize, dataTypes) => {
         timeStamps: false
     }
     
-    
-    
     const Editorial = sequelize.define(alias, columnas, config);
+    
+    Editorial.associate = function(models){
+        Editorial.hasMany(models.Libro, {
+            as:'Libros',
+            foreignKey:'id_editorial'
+        })
+    };
+    
     return Editorial;
 }
