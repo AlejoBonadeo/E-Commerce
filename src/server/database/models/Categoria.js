@@ -1,29 +1,25 @@
 module.exports = (sequelize, dataTypes) => {
-    let alias = 'Categorias'
+  let alias = "Categoria";
 
-    let columnas ={
-        id:{
-            type: dataTypes.INTEGER,
-            primaryKey:true
-        },
-        categoria:{
-            type: dataTypes.STRING(50)
-        }
-    }
+  let columnas = {
+    categoria: {
+      type: dataTypes.STRING(50),
+    },
+  };
 
-    let config ={
-        tableName: 'Categorias',
-        timeStamps: false
-    }
-    
-   const Categoria = sequelize.define(alias, columnas, config);
+  let config = {
+    tableName: "Categorias",
+    timestamps: false,
+  };
 
-    Categoria.associate = function(models){
-        Categoria.hasMany(models.Libros, {
-            as:'Libros',
-            foreignKey:'id_categoria'
-        })
-    };
+  const Categoria = sequelize.define(alias, columnas, config);
 
-    return Categoria;
-}
+  Categoria.associate = function (models) {
+    Categoria.hasMany(models.Libro, {
+      as: "libros",
+      foreignKey: "id_categoria",
+    });
+  };
+
+  return Categoria;
+};

@@ -1,62 +1,61 @@
 module.exports = (sequelize, dataTypes) => {
-    let alias = 'Libros';
-    let columnas = {
-        id:{
-            type: dataTypes.INTEGER,
-             primaryKey: true
-        },
-        titulo:{
-            type: dataTypes.STRING(100)
-        },
-        isbn:{
-            type: dataTypes.INTEGER,
-        },
-        edicion:{
-            type: dataTypes.INTEGER,
-        },
-        fecha_edicion:{
-            type: dataTypes.DATE
-        },
-        id_editorial:{
-            type: dataTypes.INTEGER,
-            foreignKey: true
-        },
-        id_categoria:{
-            type: dataTypes.INTEGER,
-            foreignKey: true
-        },
-        status:{
-            type: dataTypes.INTEGER,
-        }
+  let alias = "Libro";
+  let columnas = {
+    titulo: {
+      type: dataTypes.STRING(100),
+    },
+    isbn: {
+      type: dataTypes.INTEGER,
+    },
+    edicion: {
+      type: dataTypes.SMALLINT,
+    },
+    fecha_edicion: {
+      type: dataTypes.DATE,
+    },
+    /* id_editorial: {
+      type: dataTypes.INTEGER,
+      foreignKey: true,
+    },
+    id_categoria: {
+      type: dataTypes.INTEGER,
+      foreignKey: true,
+    }, */
+    status: {
+      type: dataTypes.SMALLINT,
+    },
+  };
+  let config = {
+    tableName: "Libros",
+    timestamps: false,
+  };
+  const Libro = sequelize.define(alias, columnas, config);
 
-    }
-    let config = {
-        tableName: 'Libros',
-        timeStamps: false
-    }
-    const Libro = sequelize.define(alias, columnas, config);
+  Libro.associate = function (models) {
+    Libro.belongsTo(models.Editorial, {
+      as: "editorial",
+      foreignKey: "id_editorial",
+    });
+    Libro.belongsTo(models.Categoria, {
+      as: "categoria",
+      foreignKey: "id_categoria",
+    });
+    Libro.belongsToMany(models.Autor, {
+      as: "autores",
+      through: "Libros_Autores",
+      foreignKey: "id_libro",
+      otherKey: "id_autor",
+      timestamps: false,
+    });
+  };
 
-    Libro.associate = function(models){
-        Libro.belongsTo(models.Categorias, {
-            as: 'Categorias',
-            foreignKey: 'id_categoria'
-        })
-    };
-
-    Libro.associate = function(models){
-        Libro.belongsTo(models.Editorial, {
-            as: 'Editoriales',
-            foreignKey: 'id_editorial'
-        })
-    };
-
-    Libro.associate = function(models){
-        Libro.hasMany(models.Autores, {
-            as: 'Autores',
-            foreignKey: 'id_autor'
-        })
-    };
-/*
+  /* Libro.associate = function (models) {
+    Libro.hasMany(models.Autores, {
+      as: "Autores",
+      foreignKey: "id_autor",
+    });
+  };
+  
      Libro.associate = function(models){
         Libro.belongsToMany(models.Libros_Autores, {
             as:'autores',
@@ -65,7 +64,7 @@ module.exports = (sequelize, dataTypes) => {
             otherKey:'id_autor',
             timeStamps: false
         })
-    };
-*/
-    return Libro;
+    }; */
+
+  return Libro;
 };

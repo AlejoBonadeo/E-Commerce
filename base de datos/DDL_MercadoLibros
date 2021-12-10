@@ -24,7 +24,7 @@ CREATE TABLE `Usuarios` (
     `pais` VARCHAR(100) NOT NULL,
     `telefono` INTEGER NOT NULL,
     `img_url` VARCHAR(100) NOT NULL,
-    `status` SMALLINT NOT NULL,
+    `status` SMALLINT DEFAULT 1 NOT NULL,
     PRIMARY KEY (`id`),
     UNIQUE (`id`)
 );
@@ -36,7 +36,7 @@ CREATE TABLE `Publicaciones` (
     `estado_libro` CHAR(1) NOT NULL,
     `precio` DECIMAL NOT NULL,
     `fecha_publicacion` DATETIME NOT NULL,
-    `status` SMALLINT NOT NULL,
+    `status` SMALLINT DEFAULT 1 NOT NULL,
     `id_libro` INTEGER NOT NULL,
     `id_usuario` INTEGER NOT NULL,
     PRIMARY KEY (`id`),
@@ -51,7 +51,7 @@ CREATE TABLE `Libros` (
     `fecha_edicion` DATE NOT NULL,
     `id_editorial` INTEGER NOT NULL,
     `id_categoria` INTEGER NOT NULL,
-    `status` SMALLINT NOT NULL,
+    `status` SMALLINT  DEFAULT 1 NOT NULL,
     PRIMARY KEY (`id`),
     UNIQUE (`id`, `isbn`)
 );
@@ -61,7 +61,7 @@ CREATE TABLE `Editoriales` (
     `nombre` VARCHAR(100) NOT NULL,
     `direccion` VARCHAR(100),
     `telefono` INTEGER,
-    `status` SMALLINT NOT NULL,
+    `status` SMALLINT DEFAULT 1 NOT NULL,
     PRIMARY KEY (`id`),
     UNIQUE (`id`)
 );
@@ -70,7 +70,7 @@ CREATE TABLE `Autores` (
     `id` INTEGER AUTO_INCREMENT NOT NULL,
     `nombre` VARCHAR(100) NOT NULL,
     `apellido` VARCHAR(100) NOT NULL,
-    `status` SMALLINT NOT NULL,
+    `status` SMALLINT DEFAULT 1 NOT NULL,
     PRIMARY KEY (`id`),
     UNIQUE (`id`)
 );
@@ -87,6 +87,7 @@ CREATE TABLE `Carrito` (
     `id` INTEGER AUTO_INCREMENT NOT NULL,
     `fecha` DATETIME NOT NULL,
     `id_usuario` INTEGER NOT NULL,
+    `status` SMALLINT DEFAULT 1 NOT NULL,
     PRIMARY KEY (`id`),
     UNIQUE (`id`)
 );
@@ -96,7 +97,7 @@ CREATE TABLE `Foto_publicaciones` (
     `filename` VARCHAR(20) NOT NULL,
     `path` VARCHAR(100) NOT NULL,
     `id_publicacion` INTEGER NOT NULL,
-    `status` SMALLINT NOT NULL,
+    `status` SMALLINT DEFAULT 1 NOT NULL,
     PRIMARY KEY (`id`),
     UNIQUE (`id`)
 );
@@ -104,6 +105,7 @@ CREATE TABLE `Foto_publicaciones` (
 CREATE TABLE `Categorias` (
     `id` INTEGER AUTO_INCREMENT NOT NULL,
     `categoria` VARCHAR(50) NOT NULL,
+    `status` SMALLINT DEFAULT 1 NOT NULL,
     PRIMARY KEY (`id`),
     UNIQUE (`id`)
 );
@@ -113,6 +115,7 @@ CREATE TABLE `carrito_detalle` (
     `id_carrito` INTEGER NOT NULL,
     `cantidad` INTEGER NOT NULL,
     `id_publicacion` INTEGER NOT NULL,
+    `status` SMALLINT DEFAULT 1 NOT NULL,
     PRIMARY KEY (`id`),
     UNIQUE (`id`)
 );

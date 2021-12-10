@@ -7,30 +7,27 @@ const path = require("path");
 const { validationResult } = require("express-validator");
 
 /*-- se habilita sequelize --*/
-const db = require("../database/models")
+const db = require("../database/models");
 
 const sequelize = db.sequelize;
 const { Op } = require("sequelize");
 
 /*--se llaman los modelos a utilizar --*/
 // otro formato de llamado: const {Usuario, otratabla1, otratabla2} = require('../database/models');
-const Usuario= db.Usuario
+const Usuario = db.Usuario;
 
 /*-----------------------------------------------------------------------*/
 /* CONTROLADOR DE USUARIO*/
 
 const userController = {
-
-  /* prueba con findAll()  */
+  /* RENDERIZA LISTADO DE USUARIOS */
   list: (req, res) => {
-    db.Usuarios.findAll()
-        .then(function(usuarios) {
-            //console.log(usuarios)
-            res.render( "./user/listadoDeUsuarios", {usuarios:usuarios})
-
-        })
+    db.Usuario.findAll()
+      .then((usuarios) => {
+        res.render("./user/listadoDeUsuarios", { usuarios: usuarios });
+      })
+      .catch((e) => console.log(e));
   },
-
 
   /* RENDERIZA FORMULARIO DE REGISTRO DE USUARIO */
   register: (req, res) => {
@@ -44,7 +41,6 @@ const userController = {
 
   /*CREACION DE NUEVO USUARIO EN DATA BASE*/
   newAccount: (req, res) => {
-
     let users = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
     const { body } = req;
 
@@ -67,7 +63,7 @@ const userController = {
     delete body.aceptaTerminos;
     delete body.repeatpassUsuario;
 
-    body.imagenDeUsuario = req.file.path
+    body.imagenDeUsuario = req.file.path;
 
     users = [
       ...users,
@@ -82,53 +78,50 @@ const userController = {
     delete body.passUsuario;
     req.session.authUser = { ...body };
 
-
     res.redirect("/");
   },
 
   /*LOGIN DE USUARIO EN APLICACION*/
   processLogin: (req, res) => {
-
     let errors = validationResult(req);
 
     if (errors.isEmpty()) {
       let users = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
 
       let authUser = users.find((usr) => {
-        if (usr.emailUsuario == req.body.emailUsuario && compareSync(req.body.passUsuario, usr.passUsuario )){
+        if (usr.emailUsuario == req.body.emailUsuario && compareSync(req.body.passUsuario, usr.passUsuario)) {
           return usr;
         }
       });
 
       if (authUser != undefined) {
-        if(req.body.checkbox != undefined){
-          res.cookie('savedUserCookie', authUser, {maxAge: 1200000})
+        if (req.body.checkbox != undefined) {
+          res.cookie("savedUserCookie", authUser, { maxAge: 1200000 });
         }
 
         req.session.authUser = authUser;
-        
-        res.render("./user/welcome", { authUser: authUser});
+
+        res.render("./user/welcome", { authUser: authUser });
       } else {
-        res.render("./user/login", {invalidUser: {msg: "Email o Password incorrectos"}});
+        res.render("./user/login", { invalidUser: { msg: "Email o Password incorrectos" } });
       }
     } else {
-        res.render("./user/login", { errors: errors.mapped(), oldBody: req.body });
+      res.render("./user/login", { errors: errors.mapped(), oldBody: req.body });
     }
   },
 
   /*RENDERIZA DETALLE DE USUARIO POR ID*/
-  userDetails: (req, res)=>{
+  userDetails: (req, res) => {
     let users = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
 
     let authUser = users.find((usr) => {
-      if (usr.idUsuario == req.params.id){
+      if (usr.idUsuario == req.params.id) {
         return usr;
       }
     });
-    
-    res.render('./user/userDetails', {authUser:authUser})
 
-  }
+    res.render("./user/userDetails", { authUser: authUser });
+  },
 };
 
 module.exports = userController;

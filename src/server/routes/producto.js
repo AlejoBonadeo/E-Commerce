@@ -8,6 +8,8 @@ const authUser = require("../middlewares/authUsersMiddleware");
 /*-----------------------------------------------------------------------------*/
 
 /* GET home page. */
+router.get("/all", productoController.listAll);
+
 router.get("/carrito", productoController.carrito);
 
 router.get("/crear/producto", authUser, productoController.crearProducto);
@@ -20,6 +22,6 @@ router.patch("/edit/:id", productoController.productoEditado);
 
 router.get("/:id", productoController.producto);
 
-router.delete('/:id', productoController.delete)
+router.delete("/:id", productoController.delete);
 
 module.exports = router;
