@@ -23,7 +23,8 @@ router.get("/sequelize/usuarioCarrito/:email", (req, res) => {
     where: {
       email: { [Op.eq]: req.params.email },
     },
-    include: [{ association: "publicaciones" }, { association: "carritos" }],
+    include: [{ association: "carritos", include: { association: "carritoDetalle", include: "publicacion" } }],
+    /* include: { all: true, nested: true }, */
   })
     .then((usuarios) => res.send(usuarios))
     .catch((e) => console.log(e));

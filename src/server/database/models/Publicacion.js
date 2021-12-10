@@ -48,7 +48,7 @@ module.exports = (sequelize, dataTypes) => {
       foreignKey: "id_publicacion",
     });
     Publicacion.hasOne(models.CarritoDetalle, {
-      foreignKey: "publicacion_id",
+      foreignKey: "id_publicacion",
     });
   };
 

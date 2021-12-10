@@ -20,7 +20,10 @@ module.exports = (sequelize, dataTypes) => {
   const CarritoDetalle = sequelize.define(alias, columnas, config);
 
   CarritoDetalle.associate = function (models) {
-    CarritoDetalle.belongsTo(models.Publicacion);
+    CarritoDetalle.belongsTo(models.Publicacion, {
+      as: "publicacion",
+      foreignKey: "id_publicacion",
+    });
 
     CarritoDetalle.belongsTo(models.Carrito, {
       as: "carrito",
