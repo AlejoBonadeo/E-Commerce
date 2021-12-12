@@ -5,10 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MercadoLibros</title>
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-      rel="stylesheet"
-    />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
 
     <link rel="stylesheet" href="/css/nav-bar.css" />
     <link rel="stylesheet" href="/css/register.css" />
@@ -18,9 +15,9 @@
   <body>
     <%- include("../partials/nav-bar.ejs") %>
     <div class="error">
-      <%  if(typeof error !== 'undefined') {  %>
-        <h3>ERROR: <%= error %></h3>
-      <% } %> 
+      <% if(typeof error !== 'undefined') { %>
+      <h3>ERROR: <%= error %></h3>
+      <% } %>
     </div>
     <main>
       <section class="register-container">
@@ -39,92 +36,61 @@
                 <div>
                   <article>
                     <label for="nombreDeUsuario">Nombre</label>
-                    <input
-                      type="text"
-                      name="nombreDeUsuario"
-                      id="nombreDeUsuario"
-                      required
-                    />
+                    <input type="text" name="nombreDeUsuario" id="nombreDeUsuario" />
                   </article>
                   <article>
                     <label for="apellidoDeUsuario">Apellido</label>
-                    <input
-                      type="text"
-                      name="apellidoDeUsuario"
-                      id="apellidoDeUsuario"
-                      required
-                    />
+                    <input type="text" name="apellidoDeUsuario" id="apellidoDeUsuario" />
                   </article>
                 </div>
 
                 <div>
                   <article>
                     <label for="emailUsuario">Email</label>
-                    <input
-                      type="email"
-                      name="emailUsuario"
-                      id="emailUsuario"
-                      required
-                    />
+                    <input type="email" name="emailUsuario" id="emailUsuario" />
                   </article>
                   <article>
                     <label for="dnilUsuario">DNI</label>
-                    <input
-                      type="number"
-                      name="dniUsuario"
-                      id="dniUsuario"
-                      required
-                    />
+                    <input type="number" name="dniUsuario" id="dniUsuario" />
                   </article>
                 </div>
 
                 <div>
                   <article>
                     <label for="localidadUsuario">Localidad</label>
-                    <input
-                      type="text"
-                      name="localidadUsuario"
-                      id="localidadUsuario"
-                      required
-                    />
+                    <input type="text" name="localidadUsuario" id="localidadUsuario" />
                   </article>
                   <article>
                     <label for="provinciaUsuario">Provincia</label>
-                    <input
-                      type="text"
-                      name="provinciaUsuario"
-                      id="provinciaUsuario"
-                      required
-                    />
+                    <input type="text" name="provinciaUsuario" id="provinciaUsuario" />
+                  </article>
+                </div>
+                <div>
+                  <article>
+                    <label for="paisUsuario">Pais</label>
+                    <input type="text" name="paisUsuario" id="paisUsuario" />
+                  </article>
+                  <article>
+                    <label for="telefonoUsuario">Telefono</label>
+                    <input type="text" name="telefonoUsuario" id="telefonoUsuario" />
                   </article>
                 </div>
 
                 <div>
                   <article>
                     <label for="passUsuario">Contraseña</label>
-                    <input
-                      type="password"
-                      name="passUsuario"
-                      id="passUsuario"
-                      required
-                    />
+                    <input type="password" name="passUsuario" id="passUsuario" />
                   </article>
                   <article>
                     <label for="repeatpassUsuario">Repetir Contraseña</label>
-                    <input
-                      type="password"
-                      name="repeatpassUsuario"
-                      id="repeatpassUsuario"
-                      required
-                    />
+                    <input type="password" name="repeatpassUsuario" id="repeatpassUsuario" />
                   </article>
                 </div>
 
                 <div class="upload_avatar">
-                  <article  >
-                    <label for="user_img" > Subí tu foto o avatar </label>
-                    <input type="file" style="display:none;" name="user_img" id="user_img"
-                    />
+                  <article>
+                    <label for="user_img"> Subí tu foto </label>
+                    <input type="file" style="display: none" name="user_img" id="user_img" />
                   </article>
                 </div>
               </div>
@@ -132,11 +98,7 @@
               <div>
                 <label class="terminos"
                   >Acepto los terminos y condiciones
-                  <input
-                  type="checkbox"
-                  name="aceptaTerminos"
-                  required
-                  />
+                  <input type="checkbox" name="aceptaTerminos" required />
                   <span class="checkmark"></span>
                 </label>
               </div>

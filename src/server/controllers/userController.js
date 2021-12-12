@@ -1,20 +1,11 @@
 const { hashSync, genSaltSync, compareSync } = require("bcryptjs");
 const fs = require("fs");
 const path = require("path");
-
-//const usersFilePath = path.resolve(__dirname, "../data/Users.json");
-
 const { validationResult } = require("express-validator");
-
-/*-- se habilita sequelize --*/
 const db = require("../database/models");
-
-const sequelize = db.sequelize;
 const { Op } = require("sequelize");
 
-/*--se llaman los modelos a utilizar --*/
-// otro formato de llamado: const {Usuario, otratabla1, otratabla2} = require('../database/models');
-const Usuario = db.Usuario;
+const sequelize = db.sequelize;
 
 /*-----------------------------------------------------------------------*/
 /* CONTROLADOR DE USUARIO*/
@@ -41,7 +32,49 @@ const userController = {
 
   /*CREACION DE NUEVO USUARIO EN DATA BASE*/
   newAccount: (req, res) => {
-    let users = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
+    let newUser = { ...req.body };
+
+    if (newUser.passUsuario !== newUser.repeatpassUsuario) {
+      return res.render("./user/register", {
+        error: "Ambas contraseñas deben ser iguales",
+      });
+    }
+
+    db.Usuario.findAll({
+      where: {
+        email: newUser.emailUsuario,
+      },
+    })
+      .then((usuario) => {
+        if (usuario.length == 0) {
+          const salt = genSaltSync();
+          newUser.passUsuario = hashSync(newUser.passUsuario, salt);
+
+          let usuario = db.Usuario.create({
+            nombre: newUser.nombreDeUsuario,
+            apellido: newUser.apellidoDeUsuario,
+            email: newUser.emailUsuario,
+            password: newUser.passUsuario,
+            dni: newUser.dniUsuario,
+            direccion: "direccion",
+            localidad: newUser.localidadUsuario,
+            provincia: newUser.provinciaUsuario,
+            pais: newUser.paisUsuario,
+            telefono: newUser.telefonoUsuario,
+            img_url: "asdasdasdasdasd",
+          })
+            .then(() => res.redirect("/"))
+            .catch((e) => console.log(e));
+        } else {
+          res.render("./user/register", {
+            error: "El email ya esta siendo usado",
+          });
+        }
+      })
+      .catch((e) => console.log(e));
+
+    /* -------------------------------------------------------------------- */
+    /*   let users = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
     const { body } = req;
 
     if (body.passUsuario !== body.repeatpassUsuario) {
@@ -78,7 +111,7 @@ const userController = {
     delete body.passUsuario;
     req.session.authUser = { ...body };
 
-    res.redirect("/");
+    res.redirect("/"); */
   },
 
   /*LOGIN DE USUARIO EN APLICACION*/
