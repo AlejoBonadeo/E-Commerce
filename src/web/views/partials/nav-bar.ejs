@@ -21,33 +21,29 @@
     </div>
     <div class="nav-items">
       <div class="nav-img-container">
-        <a href="/"
-          ><img src="/img/logo-transparente.png" alt="" class="nav-logo"
-        /></a>
+        <a href="/"><img src="/img/logo-transparente.png" alt="" class="nav-logo" /></a>
         <h1>| MercadoLibros</h1>
       </div>
 
       <form class="nav-form" action="">
-        <input
-          class="input-buscar"
-          type="text"
-          placeholder=" Buscá un libro..."
-        />
+        <input class="input-buscar" type="text" placeholder=" Buscá un libro..." />
         <button class="btn-buscar">Buscar</button>
       </form>
 
       <ul class="nav-menu">
         <li><a href="#">Categorias</a></li>
         <li><a href="/producto/crear/producto">Vender</a></li>
-        <% if(typeof authUser === 'undefined'){ %> 
+        <% if(typeof authUser === 'undefined'){ %>
         <li><a href="/user/login">Iniciar sesion</a></li>
         <li><a href="/user/register">Registrarse</a></li>
         <% } else { %>
-          <li><a href="/user/userDetails/<%=authUser.idUsuario%>">Bienvenido <%= authUser.nombreDeUsuario %></a></li>
-          <li><a href="/produto/carrito">
+        <li><a href="/user/userDetails/<%=authUser.id%>"><%= authUser.nombre %></a></li>
+        <li>
+          <a href="/produto/carrito">
             <i class="fas fa-shopping-cart"></i>
-          </a></li>
-        <% } %>  
+          </a>
+        </li>
+        <% } %>
       </ul>
     </div>
     <div class="nav-text">

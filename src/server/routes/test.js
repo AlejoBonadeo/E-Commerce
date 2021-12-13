@@ -19,9 +19,9 @@ router.get("/sequelize/publicaciones", (req, res) => {
 });
 
 router.get("/sequelize/usuarioCarrito/:email", (req, res) => {
-  db.Usuario.findAll({
+  db.Usuario.findOne({
     where: {
-      email: { [Op.eq]: req.params.email },
+      email: req.params.email,
     },
     include: [{ association: "carritos", include: { association: "carritoDetalle", include: "publicacion" } }],
     /* include: { all: true, nested: true }, */
