@@ -25,6 +25,7 @@ const productoController = {
   producto: (req, res) => {
     res.render("./products/producto", {
       libro: data.filter((libro) => libro.id == req.params.id),
+      authUser: req.session.authUser,
     });
   },
 
@@ -76,14 +77,14 @@ const productoController = {
     try {
       const libro = await db.Libro.findOne({
         where: {
-          isbn: req.body.isbn
-        }
-      })
-      if(!libro) {
+          isbn: req.body.isbn,
+        },
+      });
+      if (!libro) {
         return res.status(404).json({
           ok: false,
-          msg: "El libro no existe en la base de datos"
-        })
+          msg: "El libro no existe en la base de datos",
+        });
       }
       const publicacion = await db.Publicacion.create({
         titulo: libro.titulo,
@@ -92,82 +93,84 @@ const productoController = {
         precio: req.body.precio,
         fecha_publicacion: req.body.fecha_publicacion,
         id_libro: libro.id,
-        id_usuario: req.session.authUser.id
-      })
+        id_usuario: req.session.authUser.id,
+      });
       res.status(201).json({
         ok: true,
-        publicacion
-      })
-      
+        publicacion,
+      });
     } catch (error) {
       res.status(500).json({
         ok: false,
-        msg: "Error del servidor"
-      })
+        msg: "Error del servidor",
+      });
     }
   },
   borrarPublicacion(req, res) {
     db.Publicacion.update({
-      where: {id: req.params.id}
+      where: { id: req.params.id },
     })
-    .then(_ => res.json({ok: true}))
-    .catch(_ => res.json({ok : false, msg: "Error del servidor"}))
+      .then((_) => res.json({ ok: true }))
+      .catch((_) => res.json({ ok: false, msg: "Error del servidor" }));
   },
   editarPublicacion(req, res) {
-    db.Publicacion.destroy({
-      id: req.params.id
-    },{
-      where: {id: req.params.id}
-    })
-    .then(_ => res.json({ok: true}))
-    .catch(_ => res.json({ok : false, msg: "Error del servidor"}))
+    db.Publicacion.destroy(
+      {
+        id: req.params.id,
+      },
+      {
+        where: { id: req.params.id },
+      }
+    )
+      .then((_) => res.json({ ok: true }))
+      .catch((_) => res.json({ ok: false, msg: "Error del servidor" }));
   },
   crearLibro: async (req, res) => {
     try {
       const editorial = await db.Editorial.findOne({
         where: {
-          nombre: req.body.editorial
-        }
-      })
+          nombre: req.body.editorial,
+        },
+      });
       const categoria = await db.Categoria.findOne({
         where: {
-          categoria: req.body.categoria
-        }
-      })
+          categoria: req.body.categoria,
+        },
+      });
       const libro = await db.Libro.create({
         titulo: req.body.titulo,
         isbn: req.body.isbn,
         edicion: req.body.edicion,
         fecha_edicion: new Date().getTime(), //Cambiar esto
         id_editorial: editorial.id,
-        id_categoria: categoria.id
-      })
+        id_categoria: categoria.id,
+      });
       res.status(201).json({
         ok: true,
-        libro
-      }) 
+        libro,
+      });
     } catch (error) {
       res.status(500).json({
         ok: false,
-        msg: "Error del servidor"
-      })
+        msg: "Error del servidor",
+      });
     }
   },
   crearEditorial(req, res) {
     db.Editorial.create({
       nombre: req.body.nombre,
       direccion: req.body.direccion,
-      telefono: req.body.telefono
+      telefono: req.body.telefono,
     })
-    .then(resp => res.json(resp))
-    .catch(err => res.json({ok : false, msg: "Error del servidor"}))
+      .then((resp) => res.json(resp))
+      .catch((err) => res.json({ ok: false, msg: "Error del servidor" }));
   },
   crearCategoria(req, res) {
     db.Categoria.create({
       categoria: req.body.categoria,
     })
-    .then(resp => res.json(resp))
-    .catch(_ => res.json({ok : false, msg: "Error del servidor"}))
+      .then((resp) => res.json(resp))
+      .catch((_) => res.json({ ok: false, msg: "Error del servidor" }));
   },
 };
 

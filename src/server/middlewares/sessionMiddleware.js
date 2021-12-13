@@ -3,18 +3,20 @@ const db = require("../database/models");
 
 module.exports = function (req, res, next) {
   if (req.cookies.savedUserCookie != undefined && req.session.authUser == undefined) {
+    console.log(req.session.authUser);
     db.Usuario.findOne({
       where: {
-        [Op.and]: [{ email: req.cookies.savedUserCookie.emailUsuario }, { password: cookies.savedUserCookie.passUsuario }],
+        email: req.cookies.savedUserCookie.email,
       },
     })
       .then((usr) => {
-        if (usr != null) {
+        if (usr != null && usr.password == req.cookies.savedUserCookie.password) {
           req.session.authUser = usr;
-          console.log("Se creo session desde local cookie -> " + loggedUser.emailUsuario);
+          next();
         }
       })
       .catch((e) => console.log(e));
+  } else {
+    next();
   }
-  next();
 };
