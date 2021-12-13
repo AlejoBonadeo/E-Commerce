@@ -24,4 +24,10 @@ router.get("/:id", productoController.producto);
 
 router.delete("/:id", productoController.delete);
 
+router.post("/editorial", productoController.crearEditorial)
+
+router.post("/categoria", productoController.crearCategoria)
+
+router.post("/libro", productoController.crearLibro)
+
 module.exports = router;
