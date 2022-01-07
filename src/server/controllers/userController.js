@@ -62,7 +62,7 @@ const userController = {
             provincia: newUser.provinciaUsuario,
             pais: newUser.paisUsuario,
             telefono: newUser.telefonoUsuario,
-            img_url: "asdasdasdasdasd",
+            img_url: req.file.filename,
           })
             .then(() => res.redirect("/"))
             .catch((e) => console.log(e));
@@ -94,7 +94,7 @@ const userController = {
             }
             req.session.authUser = usr;
 
-            res.render("./user/welcome", { authUser: usr });
+            res.render("./user/userDetails", { authUser: usr });
           }
         })
         .catch((e) => console.log(e));

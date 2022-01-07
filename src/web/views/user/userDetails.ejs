@@ -14,12 +14,35 @@
   <body>
     <%- include("../partials/nav-bar.ejs", {authUser:authUser}) %>
     <main>
-      <h1><%= authUser.nombre%></h1>
-      <h1><%= authUser.apellido%></h1>
-      <h3><%= authUser.email%></h3>
-      <h3><%= authUser.dni%></h3>
-      <h3><%= authUser.localid%></h3>
-      <h3><%= authUser.provincia%></h3>
+      <h1 class="title">Detalle de usuario</h1> 
+      <article>
+        <div class="user-data-container">
+          <div class="avatar-container">
+            <p>Bienvenido!</p>
+            <div>
+              <img src="/img/user_img/<%=authUser.img_url%>" class="user-avatar" alt="user-avatar">
+            </div>
+          </div>
+          <div class="userDetails-container">
+            <div>
+              <ul class="user-detail-list">
+                <li><span class="span-titulos">Nombre</span><span class="span-user-data"><%= authUser.nombre%></span> </li>
+                <li><span class="span-titulos">Apellido</span><span class="span-user-data"><%= authUser.apellido%></span></li>
+                <li><span class="span-titulos">Email</span><span class="span-user-data"><%= authUser.email%></span></li>
+                <li><span class="span-titulos">DNI</span><span class="span-user-data"><%= authUser.dni%></span></li>
+                <li><span class="span-titulos">Direccion</span><span class="span-user-data"><%= authUser.direccion%></span></li>
+                <li><span class="span-titulos">Localidad</span><span class="span-user-data"><%= authUser.localidad%></span></li>
+                <li><span class="span-titulos">Provincia</span><span class="span-user-data"><%= authUser.provincia%></span></li>
+                <li><span class="span-titulos">Pais</span><span class="span-user-data"><%= authUser.pais%></span></li>
+                <li><span class="span-titulos">Telefono</span><span class="span-user-data"><%= authUser.telefono%></span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="button-container">
+          <button>Editar</button> 
+        </div>              
+      </article>
     </main>
     <%- include("../partials/footer.ejs") %>
   </body>

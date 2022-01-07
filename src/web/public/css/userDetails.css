@@ -7,16 +7,16 @@
   padding: 0px;
 }
 
-body,
-html {
-  width: 100%;
-  height: 100%;
+body,html {
+  height: 100vh;
+  width: 100vw;
 }
 
 body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
 }
 
 main {
@@ -24,234 +24,112 @@ main {
   flex-direction: column;
   justify-content:space-between;
   align-items: center;
+  width: 80%;
 }
 
-section {
-  position: relative;
-  width: 60vw;
-  height: 60vh;
-  box-shadow: 0px 0px 30px #c0abe6;
-  border-radius: 15px;
-  overflow: hidden;
-  background: rgb(59, 69, 116);
-  background: linear-gradient(
-    135deg,
-    rgba(59, 69, 116, 1) 0%,
-    rgba(113, 114, 166, 1) 100%
-  );
-}
-section img {
-  padding: 25px;
-  position: absolute;
-  width: 15%;
-}
-
-.sign-in {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  justify-content: center;
-  width: 50%;
-}
-
-.sign-in * {
-  color: white;
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-.sign-in i {
-  text-shadow: 1px 1px 2px black;
-  font-size: 40px;
-}
-
-.sign-in h3 {
-  text-shadow: 1px 1px 2px black;
-  font-size: 35px;
-}
-
-.sign-in a {
-  text-decoration: none;
-  background-color: rgb(59, 69, 116);
-  border-radius: 5px;
-  color: whitesmoke;
-  font-size: 25px;
-  font-weight: bold;
-  padding: 10px 35px;
-  transition: all 300ms linear;
-}
-
-.hero {
-  display: flex;
-  justify-content: flex-end;
-  position: absolute;
-  height: 100%;
-  bottom: 0;
-  right: 0;
-  z-index: 0;
-}
-.trian {
-  width: 0;
-  height: 0;
-  border-left: 7vh solid transparent;
-  bottom: 0px;
-  border-bottom: 80vh solid white;
-}
-
-.sign-up {
-  background-color: white;
-  color: black;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  width: 30vw;
-}
-
-.sign-up i {
-  color: rgb(59, 69, 116);
-  font-size: 40px;
-  text-shadow: 0.2px 0.2px 0.5px black;
-  margin-bottom: 10px;
+.title {
+  padding: 5px 0px;
 }
 
 article {
+  /* padding: 20px; */
   display: flex;
   flex-direction: column;
-  margin-bottom: 15px;
+  border-radius: 10px;
+  width: 50%;
+  background-color: rgb(99, 109, 155)
 }
 
-.form-signin-data {
-  width: 100%;
+.user-data-container {
+  display: flex;
+  flex-direction: row;
+  padding-top: 20px;
+}
+
+.avatar-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  justify-content: center;
+  padding: 0px 20px;
+  border-right: 1px solid whitesmoke;
+
 }
 
-.form-signin-data .form-inputs {
-  width: 60%;
-}
-
-.form-signin-data div article label/* :not(:last-child) */ {
+.avatar-container p {
+  color: whitesmoke;
   font-weight: bold;
+  text-align: center;
+  font-size: 25px;
+  text-shadow: 0.5px 0.5px 0.2px black;
   margin-bottom: 5px;
 }
 
-.form-inputs div {
-  display: flex;
+.avatar-container div {
+  width: 200px;
+  height: 200px;
+  /* border-radius: 50%; */
+  
+
+}
+.user-avatar {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 1px solid whitesmoke; 
 }
 
-.form-inputs input {
-  border: solid 1px #c5c5c5;
-  border-radius: 5px;
-  height: 40px;
-  margin-right: 5px;
-  outline: none;
-  width: 100%;
-}
-
-.submit {
-  display: flex;
-  justify-content: center;
-}
-
-.sign-up button {
-  background-color: rgb(59, 69, 116);
-  border-radius: 5px;
-  color: whitesmoke;
-  font-size: 25px;
-  font-weight: bold;
-  margin-top: 30px;
-  padding: 10px 35px;
-  transition: all 300ms linear;
-}
-
-.text-danger-validator{
-  color: red;
-  font-weight: bold;
-}
-/* Hovers */
-
-.sign-up button:hover,
-.sign-in a:hover {
-  cursor: pointer;
-  transform: scale(1.02);
-}
-
-.sign-up button:hover {
-  box-shadow: 0 0 15px black;
-}
-
-/* Custom checkbox */
-
-/* The container */
-.terminos {
+.userDetails-container{
+  flex: auto;
+  flex-direction: column;
   align-items: center;
-  position: relative;
-  padding-left: 35px;
-  cursor: pointer;
-  display: flex;
+  justify-content: center;
+  padding: 5px 0px
+}
+
+ul{
+  padding: 0px 20px;
+  height: 100%;
+}
+
+.user-detail-list li{
   font-size: 20px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+  list-style: none;
+  padding: 4px 0px;
 }
 
-/* Hide the browser's default checkbox */
-.terminos input {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-  height: 0;
-  width: 0;
-}
-
-/* Create a custom checkbox */
-.checkmark {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 25px;
-  width: 25px;
-  background-color: #eee;
-}
-
-/* On mouse-over, add a grey background color */
-.terminos:hover input ~ .checkmark {
-  background-color: #ccc;
-}
-
-/* When the checkbox is checked, add a blue background */
-.terminos input:checked ~ .checkmark {
+.span-titulos{
+  font-weight: bold;
   background-color: rgb(59, 69, 116);
+  color: whitesmoke;
+  padding: 2px 5px;
+  border-top-left-radius: 5px ;
+  border-bottom-left-radius: 5px;
 }
 
-/* Create the checkmark/indicator (hidden when not checked) */
-.checkmark:after {
-  content: "";
-  position: absolute;
-  display: none;
+.span-user-data{
+  background-color: whitesmoke;
+  color: black;
+  padding: 2px 5px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 
-/* Show the checkmark when checked */
-.terminos input:checked ~ .checkmark:after {
-  display: block;
+.button-container{
+  padding: 5px 0px;
+  text-align: center;
 }
 
-/* Style the checkmark/indicator */
-.terminos .checkmark:after {
-  left: 9px;
-  top: 5px;
-  width: 5px;
-  height: 10px;
-  border: solid white;
-  border-width: 0 3px 3px 0;
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  transform: rotate(45deg);
+.button-container button{
+  background-color: rgb(59, 69, 116);
+  color: whitesmoke;
+  font-weight: bold;
+  font-size: 20px;
+  height: 40px;
+  width: 100px;
+  border-radius: 5px;
 }
+
+
 
 @media (max-width: 414px) {
   section {

@@ -114,19 +114,14 @@ main {
   text-shadow: 0.2px 0.2px 0.5px black;
 }
 
-.form-inputs div article {
+.form-inputs div {
+  display: flex;
+}
+
+.form-inputs div article :not(.direccion) {
   display: flex;
   flex-direction: column;
   margin-bottom: 15px;
-}
-
-label:not(:last-child) {
-  font-weight: bold;
-  margin-bottom: 5px;
-}
-
-.form-inputs div {
-  display: flex;
 }
 
 .form-inputs input {
@@ -137,6 +132,23 @@ label:not(:last-child) {
   outline: none;
   width: 220px;
 }
+
+.direccion {
+  width: 100%;
+}
+
+.direccion input{
+  width:100%;
+}
+
+label:not(:last-child) {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+
+
+
 
 .submit {
   display: flex;
