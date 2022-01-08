@@ -24,7 +24,7 @@ main {
   flex-direction: column;
   justify-content:space-between;
   align-items: center;
-  width: 80%;
+  width: 100%;
 }
 
 .title {
@@ -32,12 +32,12 @@ main {
 }
 
 article {
-  /* padding: 20px; */
   display: flex;
   flex-direction: column;
   border-radius: 10px;
-  width: 50%;
-  background-color: rgb(99, 109, 155)
+  width: 40%;
+  background-color: rgb(99, 109, 155);
+  overflow: auto;
 }
 
 .user-data-container {

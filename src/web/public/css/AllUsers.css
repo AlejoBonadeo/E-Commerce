@@ -24,7 +24,9 @@ main {
   flex-direction: column;
   justify-content:space-between;
   align-items: center;
-  width: 80%;
+  width: 100%;
+  flex: 1;
+  overflow: auto;
 }
 
 .title {
@@ -36,7 +38,7 @@ article {
   display: flex;
   flex-direction: column;
   border-radius: 10px;
-  width: 50%;
+  width: 40%;
   background-color: rgb(99, 109, 155)
 }
 
