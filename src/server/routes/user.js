@@ -2,22 +2,8 @@
 const express = require("express");
 const router = express.Router();
 
-/*MULTER*/
-// TODO pasar esto a un middleware
-
-const multer = require("multer");
-const path = require("path");
-
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, path.join(__dirname, "../../web/public/img/user_img"));
-  },
-  filename: (req, file, cb) => {
-    const newFileName = "user-" + new Date().getTime() + path.extname(file.originalname);
-    cb(null, newFileName);
-  },
-});
-const upload = multer({ storage });
+/*MULTER MIDDLEWARE*/
+const upload = require ("../middlewares/multerMiddleware");
 
 /*CONTROLADORES */
 const userController = require("../controllers/userController");
@@ -47,6 +33,9 @@ router.get("/edit/:id", userController.editUser);
 
 /* PUT pagina edicion de Usuario */
 router.put("/update/:id",upload.single("user_img"), userController.updateUser);
+
+/* GET Eliminar un Usuario */
+router.get("/delete/:id", userController.deleteUser);
 
 /* GET pagina listado de Usuarios */
 router.get("/list", userController.list);

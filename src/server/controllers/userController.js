@@ -38,7 +38,7 @@ const userController = {
 
   },
 
-  /* ACTUALIZACION DE USUARIO */
+  /* ACTUALIZACION DE USUARIO EN DATA BASE */
   updateUser: (req, res) => {
     let idUser = req.params.id;
     let user = {
@@ -65,6 +65,16 @@ const userController = {
       }).then(()=> {
         return res.redirect("/user/list")})            
     .catch(error => res.send(error))
+  },
+
+  /* ELIMINA USUARIO EN DATA BASE */
+  deleteUser: (req, res) => {
+    let userId = req.params.id;
+    db.Usuario.destroy(
+      {where: {id: userId}, force: true})
+    .then(()=>{
+        return res.redirect('/user/list')})
+    .catch(e => console.log(e));
   },
 
   /* RENDERIZA FORMULARIO DE LOGIN DE USUARIO */
