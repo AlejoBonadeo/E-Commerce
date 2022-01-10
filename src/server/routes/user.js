@@ -42,6 +42,12 @@ router.get("/login", guestUser, userController.login);
 /* GET pagina detalle de Usuario */
 router.get("/userDetails/:id", authUser, userController.userDetails);
 
+/* GET pagina edicion de Usuario */
+router.get("/edit/:id", userController.editUser);
+
+/* PUT pagina edicion de Usuario */
+router.put("/update/:id",upload.single("user_img"), userController.updateUser);
+
 /* GET pagina listado de Usuarios */
 router.get("/list", userController.list);
 

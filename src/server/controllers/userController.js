@@ -25,6 +25,48 @@ const userController = {
     res.render("./user/register");
   },
 
+  /* RENDERIZA FORMULARIO DE EDICION DE USUARIO */
+  editUser: (req, res) => {
+    let id = req.params.id;
+
+    db.Usuario.findByPk(id)
+      .then((usuario) => {
+        res.render("./user/editUser",{usuario:usuario})  
+      })
+      .catch(e => console.log(e)) 
+    
+
+  },
+
+  /* ACTUALIZACION DE USUARIO */
+  updateUser: (req, res) => {
+    let idUser = req.params.id;
+    let user = {
+        nombre: req.body.nombreDeUsuario,
+        apellido:req.body.apellidoDeUsuario,
+        email:req.body.emailUsuario,
+        dni:req.body.dniUsuario,
+        direccion:req.body.direccionUsuario,
+        localidad:req.body.localidadUsuario,
+        provincia:req.body.provinciaUsuario,
+        pais:req.body.paisUsuario,
+        telefono:req.body.telefonoUsuario,
+    }
+    if(req.file){
+      user.img_url=req.file.filename;
+    }
+
+    db.Usuario.update(
+      {
+        ...user
+      },
+      {
+        where: {id: idUser}
+      }).then(()=> {
+        return res.redirect("/user/list")})            
+    .catch(error => res.send(error))
+  },
+
   /* RENDERIZA FORMULARIO DE LOGIN DE USUARIO */
   login: (req, res) => {
     res.render("./user/login");

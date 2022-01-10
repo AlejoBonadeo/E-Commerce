@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MercadoLibros</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="/css/nav-bar.css" />
+    <link rel="stylesheet" href="/css/editUser.css" />
+    <link rel="stylesheet" href="/css/footer.css" />
+  </head>
+  <body>
+    <%- include("../partials/nav-bar.ejs") %>
+    <main>
+        <h2><i class="fas fa-info-circle"></i> Edita tus datos</h2>
+        <form action="/user/update/<%= usuario.id %>?_method=PUT " method="POST" enctype="multipart/form-data" class="form-user-data">
+          <div class="form-inputs">
+            <div>
+              <article class="avatar">
+                <img src="/img/user_img/<%=usuario.img_url%>" alt="img_user" class="user-img">
+                <input type="file" name="user_img" id="user_img">
+              </article>
+            </div>
+            <div>
+              <article>
+                <label for="nombreDeUsuario">Nombre</label>
+                <input type="text" name="nombreDeUsuario" id="nombreDeUsuario" value="<%= usuario.nombre %> "/>
+              </article>
+              <article>
+                <label for="apellidoDeUsuario">Apellido</label>
+                <input type="text" name="apellidoDeUsuario" id="apellidoDeUsuario" value="<%= usuario.apellido %>"/>
+              </article>
+            </div>
+            <div>
+              <article>
+                <label for="emailUsuario">Email</label>
+                <input type="email" name="emailUsuario" id="emailUsuario" value="<%= usuario.email %>"/>
+              </article>
+              <article>
+                <label for="dnilUsuario">DNI</label>
+                <input type="number" name="dniUsuario" id="dniUsuario" value="<%= usuario.dni %>" />
+              </article>
+            </div>
+            <div class="direccionContainer">
+              <article class="direccion">
+                <label for="direccionUsuario">Direccion</label>
+                <input type="text" name="direccionUsuario" id="direccionUsuario" value="<%= usuario.direccion %>"/>
+              </article>
+            </div>
+            <div>
+              <article>
+                <label for="localidadUsuario">Localidad</label>
+                <input type="text" name="localidadUsuario" id="localidadUsuario" value="<%= usuario.localidad %>"/>
+              </article>
+              <article>
+                <label for="provinciaUsuario">Provincia</label>
+                <input type="text" name="provinciaUsuario" id="provinciaUsuario" value="<%= usuario.provincia %>"/>
+              </article>
+            </div>
+            <div>
+              <article>
+                <label for="paisUsuario">Pais</label>
+                <input type="text" name="paisUsuario" id="paisUsuario" value="<%= usuario.pais %>"/>
+              </article>
+              <article>
+                <label for="telefonoUsuario">Telefono</label>
+                <input type="text" name="telefonoUsuario" id="telefonoUsuario" value="<%= usuario.telefono %>"/>
+              </article>
+            </div>
+            <div class="submit">
+              <button type="submit">Actualizar</button>
+            </div>
+        </form>
+    </main>
+    <%- include("../partials/footer.ejs") %>
+  </body>
+</html>
+
+<!--  -->

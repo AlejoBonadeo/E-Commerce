@@ -38,7 +38,7 @@ article {
   display: flex;
   flex-direction: column;
   border-radius: 10px;
-  width: 40%;
+  width: 45%;
   background-color: rgb(99, 109, 155)
 }
 
@@ -52,18 +52,18 @@ article {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   padding: 0px 20px;
   border-right: 1px solid whitesmoke;
 
 }
 
-.avatar-container p {
-  color: whitesmoke;
-  font-weight: bold;
-  text-align: center;
-  font-size: 25px;
-  text-shadow: 0.5px 0.5px 0.2px black;
-  margin-bottom: 5px;
+.avatar-container a {
+  margin-top: 5px;
+}
+
+.avatar-container a button {
+  font-size: 20px;
 }
 
 .avatar-container div {
