@@ -14,11 +14,6 @@
 
   <body>
     <%- include("../partials/nav-bar.ejs") %>
-    <div class="error">
-      <% if(typeof error !== 'undefined') { %>
-      <h3>ERROR: <%= error %></h3>
-      <% } %>
-    </div>
     <main>
       <section class="register-container">
         <!-- <a href="/"><img src="/img/logo-transparente.png" alt="" /></a> -->
@@ -31,29 +26,48 @@
           <div class="trian"></div>
           <div class="sign-up">
             <h2><i class="fas fa-info-circle"></i> Crea tu cuenta</h2>
-            <form action="/user/register" method="POST" enctype="multipart/form-data">
+            <form action="/user/register" enctype="multipart/form-data" method="POST">
               <div class="form-inputs">
                 <div>
                   <article>
                     <label for="nombreDeUsuario">Nombre</label>
-                    <input type="text" name="nombreDeUsuario" id="nombreDeUsuario" />
+                    <input type="text" name="nombreDeUsuario" id="nombreDeUsuario" value="<%= locals.oldBody ? oldBody.nombreDeUsuario : null %>"/>
                   </article>
                   <article>
                     <label for="apellidoDeUsuario">Apellido</label>
-                    <input type="text" name="apellidoDeUsuario" id="apellidoDeUsuario" />
-                  </article>
+                    <input type="text" name="apellidoDeUsuario" id="apellidoDeUsuario" value="<%= locals.oldBody ? oldBody.apellidoDeUsuario : null %>" />
+                  </article> 
                 </div>
-
+                <% if(locals.errors && errors.nombreDeUsuario) {%>
+                  <div class="text-danger-validator">
+                    <p><%= errors.nombreDeUsuario.msg%></p>
+                  </div>
+                <%}%>
+                <% if(locals.errors && errors.apellidoDeUsuario) {%>
+                  <div class="text-danger-validator">
+                    <p><%= errors.apellidoDeUsuario.msg%></p>
+                  </div>
+                <%}%>
                 <div>
                   <article>
                     <label for="emailUsuario">Email</label>
-                    <input type="email" name="emailUsuario" id="emailUsuario" />
+                    <input type="email" name="emailUsuario" id="emailUsuario" value="<%= locals.oldBody ? oldBody.emailUsuario : null %>"/>
                   </article>
                   <article>
                     <label for="dnilUsuario">DNI</label>
                     <input type="number" name="dniUsuario" id="dniUsuario" />
                   </article>
                 </div>
+                <% if(locals.errors && errors.emailUsuario) {%>
+                  <div class="text-danger-validator">
+                    <p><%= errors.emailUsuario.msg%></p>
+                  </div>
+                <%}%>
+                <% if(locals.errorEmail) {%>
+                  <div class="text-danger-validator">
+                    <p><%= errorEmail %></p>
+                  </div>
+                <%}%>
 
                 <div class="direccionContainer">
                   <article class="direccion">
@@ -93,6 +107,26 @@
                     <input type="password" name="repeatpassUsuario" id="repeatpassUsuario" />
                   </article>
                 </div>
+                <% if(locals.errors && errors.passUsuario) {%>
+                  <div class="text-danger-validator">
+                    <p><%= errors.passUsuario.msg%></p>
+                  </div>
+                <%}%>
+                <% if(locals.errors && errors.repeatpassUsuario) {%>
+                  <div class="text-danger-validator">
+                    <p><%= errors.repeatpassUsuario.msg%></p>
+                  </div>
+                <%}%>
+                <% if(locals.errors && errors.aceptaTerminos) {%>
+                  <div class="text-danger-validator">
+                    <p><%= errors.aceptaTerminos.msg%></p>
+                  </div>
+                <%}%>
+                <% if(locals.multerError) {%>
+                  <div class="text-danger-validator">
+                    <p><%= multerError.msg%></p>
+                  </div>
+                <%}%>
 
                 <div class="upload_avatar">
                   <article>
@@ -105,7 +139,7 @@
               <div>
                 <label class="terminos"
                   >Acepto los terminos y condiciones
-                  <input type="checkbox" name="aceptaTerminos" required />
+                  <input type="checkbox" name="aceptaTerminos" />
                   <span class="checkmark"></span>
                 </label>
               </div>

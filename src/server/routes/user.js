@@ -3,7 +3,7 @@ const express = require("express");
 const router = express.Router();
 
 /*MULTER MIDDLEWARE*/
-const upload = require ("../middlewares/multerMiddleware");
+const uploadUserImage = require ("../middlewares/multerRegisterMiddleware");
 
 /*CONTROLADORES */
 const userController = require("../controllers/userController");
@@ -12,6 +12,7 @@ const userController = require("../controllers/userController");
 const { check } = require("express-validator");
 const validateForm = require("../middlewares/validateForm");
 const validateLoginForm = require("../middlewares/checkLoginFormMiddleware");
+const validateRegisterForm = require ("../middlewares/checkRegisterFormMiddleware");
 
 /*VALIDADORES DE SESION*/
 const authUser = require("../middlewares/authUsersMiddleware");
@@ -32,7 +33,7 @@ router.get("/userDetails/:id", authUser, userController.userDetails);
 router.get("/edit/:id", userController.editUser);
 
 /* PUT pagina edicion de Usuario */
-router.put("/update/:id",upload.single("user_img"), userController.updateUser);
+router.put("/update/:id" , userController.updateUser);
 
 /* GET Eliminar un Usuario */
 router.get("/delete/:id", userController.deleteUser);
@@ -44,6 +45,6 @@ router.get("/list", userController.list);
 router.post("/login", validateLoginForm, userController.processLogin);
 
 /* POST Registro de Usuario */
-router.post("/register", [upload.single("user_img"), check("nombreDeUsuario", "Por favor ingrese un nombre válido").not().isEmpty(), check("emailUsuario", "Por favor ingrese un email válido").isEmail(), check("passUsuario", "La contraseña debe tener al menos 7 caracteres").isLength({ min: 6 }), validateForm], userController.newAccount);
+router.post("/register", uploadUserImage, validateRegisterForm, userController.newAccount);
 
 module.exports = router;

@@ -1,24 +1,27 @@
 /* MIDDLEWARE - VALIDA LOS DATOS DEL FORM DE REGISTRO DE USUARIO (login.ejs) */
-const multer = require("multer");
-
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, path.join(__dirname, "../../web/public/img/user_img"));
-  },
-  filename: (req, file, cb) => {
-    const newFileName = "user-" + new Date().getTime() + path.extname(file.originalname);
-    cb(null, newFileName);
-  },
-});
-
-const upload = multer({ storage });
-
-const { check } = require("express-validator")
-const validateForm = require("../middlewares/validateForm");
+const {check} = require("express-validator");
+const upload = require("./multerUserConfig");
 
 module.exports = [
-  upload.single("user_img"),
-  check("nombreDeUsuario").notEmpty().withMessage("Por favor ingrese un nombre válido"),
-  check("emailUsuario").isEmail().withMessage("Por favor ingrese un email válido"),
-  check("passUsuario").isLength({ min: 6 }).withMessage("La contraseña debe tener al menos 7 caracteres"),
-  validateForm,]
+  check("nombreDeUsuario")
+    .notEmpty().withMessage("* Debe completar el campo NOMBRE")
+    .isLength({min: 2}).withMessage("* NOMBRE Debe ser mayor a 2 caracteres"),
+  check("apellidoDeUsuario")
+    .notEmpty().withMessage("* Debe completar el campo APELLIDO")
+    .isLength({min: 2}).withMessage("* APELLIDO debe ser mayor a 2 caracteres"),
+  check("emailUsuario")
+    .notEmpty().withMessage("* Debe completar el campo EMAIL")
+    .isEmail().withMessage("EMAIL debe ser un formato valido"),  
+  check("passUsuario")
+    .notEmpty().withMessage("* Debe incluir una contraseña")
+    .isLength({min: 8}).withMessage("* La contraseña debe tener al menos 8 caracteres"),
+  check("repeatpassUsuario")
+    .custom((value, {req}) => {
+      if(value !== req.body.passUsuario){
+        throw new Error("Las contraseñas no son iguales");  
+      }
+      return true;
+    }).withMessage("* Ambas contraseñas deben ser iguales"),
+  check("aceptaTerminos")
+    .notEmpty().withMessage("* Debe aceptar los terminos y condiciones"),
+];

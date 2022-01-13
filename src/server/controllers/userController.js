@@ -85,10 +85,54 @@ const userController = {
   /*CREACION DE NUEVO USUARIO EN DATA BASE*/
   newAccount: (req, res) => {
     let newUser = { ...req.body };
+    let errors = validationResult(req);
 
-    console.log(req.file);
+    console.log(errors.mapped());
 
-    if (newUser.passUsuario !== newUser.repeatpassUsuario) {
+    if(!errors.isEmpty()) {
+      res.render("./user/register", {errors : errors.mapped(), oldBody: req.body})
+
+    }else{
+
+      db.Usuario.findAll({
+        where: {
+          email: newUser.emailUsuario,
+        },
+      })
+        .then((usuario) => {
+          if (usuario.length == 0) {
+            const salt = genSaltSync();
+
+            let userImg = "default.jpg"
+
+            if(req.file)
+              userImg = req.file.filename;
+              
+            let usuario = db.Usuario.create({
+              nombre: newUser.nombreDeUsuario,
+              apellido: newUser.apellidoDeUsuario,
+              email: newUser.emailUsuario,
+              password: hashSync(newUser.passUsuario, salt),
+              dni: newUser.dniUsuario,
+              direccion: newUser.direccionUsuario,
+              localidad: newUser.localidadUsuario,
+              provincia: newUser.provinciaUsuario,
+              pais: newUser.paisUsuario,
+              telefono: newUser.telefonoUsuario,
+              img_url: userImg,
+            })
+              .then(() => res.redirect("/"))
+              .catch((e) => console.log(e));
+          } else {
+            res.render("./user/register", {
+              errorEmail: "El email ya esta siendo usado", oldBody: req.body
+            });
+          }
+        })
+        .catch((e) => console.log(e));
+    }
+
+   /*  if (newUser.passUsuario !== newUser.repeatpassUsuario) {
       return res.render("./user/register", {
         error: "Ambas contraseñas deben ser iguales",
       });
@@ -124,7 +168,7 @@ const userController = {
           });
         }
       })
-      .catch((e) => console.log(e));
+      .catch((e) => console.log(e)); */
   },
 
   /*LOGIN DE USUARIO EN APLICACION*/

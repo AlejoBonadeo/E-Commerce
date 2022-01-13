@@ -146,9 +146,10 @@ label:not(:last-child) {
   margin-bottom: 5px;
 }
 
-
-
-
+.text-danger-validator {
+  color: red;
+  font-weight: bold;
+}
 
 .submit {
   display: flex;
