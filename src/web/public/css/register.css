@@ -28,7 +28,7 @@ main {
 .register-container {
   position: relative;
   width: 60vw;
-  height: 75vh;
+  height: 70vh;
   box-shadow: 0px 0px 30px #c0abe6;
   border-radius: 15px;
   overflow: hidden;
@@ -121,7 +121,7 @@ main {
 .form-inputs div article :not(.direccion) {
   display: flex;
   flex-direction: column;
-  margin-bottom: 15px;
+  margin-bottom: 5px;
 }
 
 .form-inputs input {
@@ -162,7 +162,7 @@ label:not(:last-child) {
   color: whitesmoke;
   font-size: 25px;
   font-weight: bold;
-  margin-top: 30px;
+  margin-top: 15px;
   padding: 0px 15px;
   transition-property: font-size, box-shadow;
   transition-duration: 0.5s;
@@ -174,6 +174,7 @@ label:not(:last-child) {
   border-radius: 5px;
   color: whitesmoke;
   font-size: 20px;
+  margin-top: 10px;
 }
 
 /* Hovers */
@@ -186,6 +187,10 @@ label:not(:last-child) {
 
 .sign-up button:hover {
   box-shadow: 0 0 15px black;
+}
+
+.terminos-container{
+  margin-top: 10px;
 }
 
 /* Custom checkbox */
@@ -211,6 +216,7 @@ label:not(:last-child) {
   cursor: pointer;
   height: 0;
   width: 0;
+  margin-top: 5px;
 }
 
 /* Create a custom checkbox */
@@ -221,6 +227,7 @@ label:not(:last-child) {
   height: 25px;
   width: 25px;
   background-color: #eee;
+  border: solid 1px grey;
 }
 
 /* On mouse-over, add a grey background color */

@@ -125,50 +125,12 @@ const userController = {
               .catch((e) => console.log(e));
           } else {
             res.render("./user/register", {
-              errorEmail: "El email ya esta siendo usado", oldBody: req.body
+              errorEmail: "El email ingresado ya se encuentra en uso", oldBody: req.body
             });
           }
         })
         .catch((e) => console.log(e));
     }
-
-   /*  if (newUser.passUsuario !== newUser.repeatpassUsuario) {
-      return res.render("./user/register", {
-        error: "Ambas contraseñas deben ser iguales",
-      });
-    }
-
-    db.Usuario.findAll({
-      where: {
-        email: newUser.emailUsuario,
-      },
-    })
-      .then((usuario) => {
-        if (usuario.length == 0) {
-          const salt = genSaltSync();
-
-          let usuario = db.Usuario.create({
-            nombre: newUser.nombreDeUsuario,
-            apellido: newUser.apellidoDeUsuario,
-            email: newUser.emailUsuario,
-            password: hashSync(newUser.passUsuario, salt),
-            dni: newUser.dniUsuario,
-            direccion: newUser.direccionUsuario,
-            localidad: newUser.localidadUsuario,
-            provincia: newUser.provinciaUsuario,
-            pais: newUser.paisUsuario,
-            telefono: newUser.telefonoUsuario,
-            img_url: req.file.filename,
-          })
-            .then(() => res.redirect("/"))
-            .catch((e) => console.log(e));
-        } else {
-          res.render("./user/register", {
-            error: "El email ya esta siendo usado",
-          });
-        }
-      })
-      .catch((e) => console.log(e)); */
   },
 
   /*LOGIN DE USUARIO EN APLICACION*/
