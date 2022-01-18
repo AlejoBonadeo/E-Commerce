@@ -11,7 +11,7 @@ const sequelize = db.sequelize;
 
 const userController = {
   /* RENDERIZA LISTADO DE USUARIOS */
-  allEmails: (req, res) => {
+  allUsers: (req, res) => {
     db.Usuario.findAll()
       .then((usuarios) => {
         res.json(usuarios);

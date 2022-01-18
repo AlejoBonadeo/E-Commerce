@@ -7,6 +7,8 @@ window.onload = function () {
     form.addEventListener("submit", e =>{
         ulErrores.innerHTML=""
 
+        /* ulErrores.forEach(error=>error.innerHTML = "") */
+
         let inputEmail = document.querySelector("#emailUsuario");
         let inputPassword = document.querySelector("#passUsuario");
         
@@ -17,7 +19,7 @@ window.onload = function () {
         }
         else{
             e.preventDefault()       
-            fetch("http://localhost:8080/api/user/allEmails")
+            fetch("http://localhost:8080/api/user/allUsers")
                 .then(response => response.json())
                 .then(data => {                    
                     let emailBuscado = data.find(email => email.email == inputEmail.value)

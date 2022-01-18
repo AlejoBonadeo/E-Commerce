@@ -20,7 +20,7 @@
       <section>
         <div class="sign-in">
           <i class="fas fa-user-circle"></i>
-          <h3>¿Todavia no estas registrado?</h3>
+          <h3>¿No estas registrado?</h3>
           <a href="/user/register">Crea tu cuenta</a>
         </div>
 
@@ -30,7 +30,7 @@
             <i class="fas fa-unlock-alt"></i>
             <ul class="errores text-danger-validator"></ul>
             <% if (locals.invalidUser) {%>
-            <div class="text-danger-validator">
+            <div class="errores text-danger-validator">
               <p><%= locals.invalidUser.msg %></p>
             </div>
             <%}%>
@@ -40,7 +40,7 @@
                   <label for="emailUsuario">Email</label>
                   <input type="email" name="emailUsuario" id="emailUsuario" value="<%= locals.oldBody ? oldBody.emailUsuario : null %>"/>
                   <% if(locals.errors && errors.emailUsuario) {%>
-                    <div class="text-danger-validator">
+                    <div class="errores text-danger-validator">
                       <p><%= errors.emailUsuario.msg%></p>
                     </div>
                   <%}%>
@@ -49,7 +49,7 @@
                   <label for="passUsuario">Contraseña</label>
                   <input type="password" name="passUsuario" id="passUsuario" value="<%= locals.passUsuario ? oldBody.passUsuario : null %>"/>
                   <% if(locals.errors && errors.passUsuario) {%>
-                    <div class="text-danger-validator">
+                    <div class="errores text-danger-validator">
                       <p><%= errors.passUsuario.msg%></p>
                     </div>
                   <%}%>

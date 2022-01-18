@@ -9,6 +9,6 @@ const apiController = require("../../controllers/api/apiController");
 /*-------------------------------------------------------------------------*/
 
 /* GET listado de emails en DB*/
-router.get("/user/AllEmails", apiController.allEmails);
+router.get("/user/AllUsers", apiController.allUsers);
 
 module.exports = router;
