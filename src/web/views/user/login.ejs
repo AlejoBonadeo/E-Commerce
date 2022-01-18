@@ -28,6 +28,7 @@
           <div class="trian"></div>
           <div class="sign-up">
             <i class="fas fa-unlock-alt"></i>
+            <ul class="errores text-danger-validator"></ul>
             <% if (locals.invalidUser) {%>
             <div class="text-danger-validator">
               <p><%= locals.invalidUser.msg %></p>
@@ -71,5 +72,7 @@
       </section>
     </main>
     <%- include("../partials/footer.ejs") %>
+    <script src="https://unpkg.com/validator@latest/validator.min.js"></script>
+    <script src="/js/user/login.js"></script>
   </body>
 </html>
