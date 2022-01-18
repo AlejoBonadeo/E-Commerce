@@ -2,12 +2,16 @@ window.onload = function () {
  
     let form = document.querySelector(".form-signin-data")
 
-    let ulErrores = document.querySelector(".errores");
+    let divError = document.querySelector(".errorFront");
+
+    let erroresBack = document.querySelectorAll(".errorBack")
 
     form.addEventListener("submit", e =>{
-        ulErrores.innerHTML=""
+        if(erroresBack){
+            erroresBack.forEach(error=> error.innerHTML="")
+        }
 
-        /* ulErrores.forEach(error=>error.innerHTML = "") */
+        divError.innerHTML=""
 
         let inputEmail = document.querySelector("#emailUsuario");
         let inputPassword = document.querySelector("#passUsuario");
@@ -15,7 +19,7 @@ window.onload = function () {
 
         if(!validator.isEmail(inputEmail.value) || inputPassword.value.length < 8){
             e.preventDefault()
-            ulErrores.innerHTML +=`<li>${"Debe ingresar un formato de EMAIL o PASSWORD valido"}</li>`
+            divError.innerHTML +=`<p>${"Debe ingresar un formato de EMAIL o PASSWORD (+8 digit) valido"}</p>`
         }
         else{
             e.preventDefault()       
@@ -26,7 +30,7 @@ window.onload = function () {
                     if(!emailBuscado){
                         console.log(emailBuscado);
                         e.preventDefault()
-                        ulErrores.innerHTML +=`<li>${"El Email ingresado no existe o no es valido"}</li>`
+                        divError.innerHTML +=`<li>${"Email o password incorrectos"}</li>`
                     }else{
                         form.submit()
                     }
