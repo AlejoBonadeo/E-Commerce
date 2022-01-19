@@ -33,6 +33,10 @@ const productoController = {
     res.render("./products/crearproducto", { authUser: req.session.authUser });
   },
 
+  crearPublicacion: (req, res) => {
+    res.render("./products/crearpublicacion", { authUser: req.session.authUser });
+  },
+
   productoCreado: (req, res) => {
     let data = fs.readFileSync(path.resolve(__dirname, "../data/products.json"), "utf-8");
     data = JSON.parse(data);

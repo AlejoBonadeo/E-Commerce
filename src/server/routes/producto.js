@@ -14,6 +14,8 @@ router.get("/carrito", productoController.carrito);
 
 router.get("/crear/producto", authUser, productoController.crearProducto);
 
+router.get("/crear/publicacion", authUser, productoController.crearPublicacion);
+
 router.post("/crear/producto", productoController.productoCreado);
 
 router.get("/edit/:id", productoController.editarProducto);

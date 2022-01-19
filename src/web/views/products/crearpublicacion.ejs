@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MercadoLibros</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/nav-bar.css" />
+    <link rel="stylesheet" href="/css/crearproducto.css" />
+    <link rel="stylesheet" href="/css/footer.css" />
+  </head>
+
+  <body>
+    <%- include("../partials/nav-bar.ejs", {authUser}) %>
+    <main>
+      <section>
+        <div class="container-left">
+          <i class="fas fa-tag"></i>
+          <p>Vamos a vender!</p>
+          <img class="pila-libros" src="/img/books.png" alt="" />
+        </div>
+        <div class="hero">
+          <div class="trian"></div>
+          <div class="container-form">
+            <h2><i class="fas fa-info-circle"></i> Carga la info</h2>
+            <form action="/producto/buscar/libro" method="POST">
+              <div class="form-inputs">
+                <div>
+                  <article>
+                    <label for="isbn">ISBN</label>
+                    <input type="text" name="isbn" id="isbn" required />
+                    <button type="submit">Buscar</button>
+                  </article>
+                </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+    <%- include("../partials/footer.ejs") %>
+  </body>
+</html>
+
+<!--  -->

@@ -9,8 +9,6 @@ const uploadUserImage = require ("../middlewares/multerRegisterMiddleware");
 const userController = require("../controllers/userController");
 
 /*VALIDADORES DE FORMULARIOS (EXPRESS-VALIDATOR)*/
-const { check } = require("express-validator");
-const validateForm = require("../middlewares/validateForm");
 const validateLoginForm = require("../middlewares/checkLoginFormMiddleware");
 const validateRegisterForm = require ("../middlewares/checkRegisterFormMiddleware");
 
