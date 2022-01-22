@@ -2,20 +2,14 @@ import React from 'react';
 import {makeStyles} from '@material-ui/core/styles'
 import {Card, Typography, CardContent, CardActions} from '@material-ui/core/'
 
-const useStyles = makeStyles(()=>({
-    root:{
-        textAlign='center',
-        background=props.color
-    }
-}))
 
 
 function CardsHeader (props){
 
     const useStyles = makeStyles(()=>({
         root:{
-            textAlign='center',
-            background=props.color
+            textAlign: 'center',
+            background:props.color
         },
         texto:{
             fontSize:22,
@@ -30,7 +24,7 @@ function CardsHeader (props){
 
     const classes = useStyles();
     return(
-        <Card>
+        <Card className={classes.root}>
             <CardContent>
                 {props.icono}
                 <Typography className={classes.titulo}>
