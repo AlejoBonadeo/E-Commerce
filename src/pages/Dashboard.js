@@ -18,6 +18,15 @@ function Dashboard (props){
                 <Grid item xs={12}>
                     <Navbar/>
                 </Grid>
+                <Grid item xs={12} sm={4} md={4} lg={4} xl={4}>
+                
+                </Grid>
+                <Grid item xs={12} sm={4} md={4} lg={4} xl={4}>
+                
+                </Grid>
+                <Grid item xs={12} sm={4} md={4} lg={4} xl={4}>
+                
+                </Grid>
 
             </Grid>
         </div>
