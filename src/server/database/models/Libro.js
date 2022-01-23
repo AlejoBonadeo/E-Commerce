@@ -13,14 +13,14 @@ module.exports = (sequelize, dataTypes) => {
     fecha_edicion: {
       type: dataTypes.DATE,
     },
-    /* id_editorial: {
+    id_editorial: {
       type: dataTypes.INTEGER,
       foreignKey: true,
     },
     id_categoria: {
       type: dataTypes.INTEGER,
       foreignKey: true,
-    }, */
+    },
     status: {
       type: dataTypes.SMALLINT,
     },
@@ -42,7 +42,7 @@ module.exports = (sequelize, dataTypes) => {
     });
     Libro.belongsToMany(models.Autor, {
       as: "autores",
-      through: "Libros_Autores",
+      through: "libros_autores",
       foreignKey: "id_libro",
       otherKey: "id_autor",
       timestamps: false,

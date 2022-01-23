@@ -1,13 +1,8 @@
-const data = require("../data/products.json");
-const fs = require("fs");
-const path = require("path");
-
 const db = require("../database/models");
-const { body } = require("express-validator");
-const { decodeBase64 } = require("bcryptjs");
+const {validationResult} = require("express-validator");
+const { Op } = require("sequelize");
+const req = require("express/lib/request");
 
-const librosFilePath = path.resolve(__dirname, "../data/products.json");
-const libros = JSON.parse(fs.readFileSync(librosFilePath, "utf-8"));
 
 const productoController = {
   listAll: (req, res) => {
@@ -18,163 +13,138 @@ const productoController = {
       .catch((e) => console.log(e));
   },
 
-  carrito: (req, res) => {
-    res.render("./products/carrito");
-  },
+  buscarISBN: (req , res) => {
+    res.render("./products/buscarISBN" , {authUser: req.session.authUser})
+  },  
 
-  producto: (req, res) => {
-    res.render("./products/producto", {
-      libro: data.filter((libro) => libro.id == req.params.id),
-      authUser: req.session.authUser,
-    });
-  },
+  infoISBN: (req , res) => {
+    db.Libro.findOne({
+      where: {
+        isbn: req.body.isbn
+      },
+      include: [{ association: "categoria" }, { association: "editorial" }, { association: "autores" }]
+    }).then(libro => {
 
-  crearProducto: (req, res) => {
-    res.render("./products/crearproducto", { authUser: req.session.authUser });
+      if(libro){
+        res.render("./products/crearpublicacion" , {libro: libro , authUser: req.session.authUser })
+      }else{
+        db.Categoria.findAll()
+        .then(categorias => {
+          console.log(categorias);
+          res.render("./products/crearpublicacionBis" , {authUser: req.session.authUser , categorias: categorias})
+        })
+        .catch(e=>console.log(e))
+      }
+    }).catch(error => console.log(error))
+
   },
 
   crearPublicacion: (req, res) => {
-    res.render("./products/crearpublicacion", { authUser: req.session.authUser });
-  },
+    let userId = req.params.userId;
+    let libroId = req.params.libroId;
+    let libro_img = ""
 
-  productoCreado: (req, res) => {
-    let data = fs.readFileSync(path.resolve(__dirname, "../data/products.json"), "utf-8");
-    data = JSON.parse(data);
-    data.push({ ...req.body, id: new Date().getTime() });
-    fs.writeFileSync(path.resolve(__dirname, "../data/products.json"), JSON.stringify(data, null, 3));
-    res.redirect("/");
-  },
+    req.file?libro_img=req.file.filename:libro_img = "default.jpg"
 
-  editarProducto: (req, res) => {
-    res.render("./products/editarproducto", {
-      libro: data.filter((libro) => libro.id == req.params.id),
-    });
-  },
-  /////////////////////////////////////////////////////////////////
-  productoEditado: (req, res) => {
-    let nuevaListaLibros = libros.map((libro) => {
-      if (libro.id == req.params.id) {
-        let newLibro = { id: libro.id, ...req.body };
-        return newLibro;
-      } else {
-        return libro;
-      }
-    });
-
-    fs.writeFileSync(librosFilePath, JSON.stringify(nuevaListaLibros, null, " "));
-    res.redirect("/");
-  },
-
-  ////////////////////////////////////////////////////////////////
-  delete: (req, res) => {
-    fs.writeFileSync(
-      librosFilePath,
-      JSON.stringify(
-        libros.filter((libro) => req.params.id != libro.id),
-        null,
-        " "
-      )
-    );
-    res.redirect("/");
-  },
-  subirPublicacion: async (req, res) => {
-    try {
-      const libro = await db.Libro.findOne({
-        where: {
-          isbn: req.body.isbn,
-        },
-      });
-      if (!libro) {
-        return res.status(404).json({
-          ok: false,
-          msg: "El libro no existe en la base de datos",
-        });
-      }
-      const publicacion = await db.Publicacion.create({
-        titulo: libro.titulo,
-        detalle: req.body.detalle,
-        estado_libro: req.body.estado_libro,
-        precio: req.body.precio,
-        fecha_publicacion: req.body.fecha_publicacion,
-        id_libro: libro.id,
-        id_usuario: req.session.authUser.id,
-      });
-      res.status(201).json({
-        ok: true,
-        publicacion,
-      });
-    } catch (error) {
-      res.status(500).json({
-        ok: false,
-        msg: "Error del servidor",
-      });
+    let publicacion = {
+      titulo: req.body.pulic_titulo,
+      detalle: req.body.pulic_detalle,
+      estado: req.body.pulic_estado,
+      precio: req.body.pulic_precio,
+      estado_libro: req.body.pulic_estado,
+      id_libro: libroId,
+      id_usuario: userId,
+      foto: libro_img,
     }
-  },
-  borrarPublicacion(req, res) {
-    db.Publicacion.update({
-      where: { id: req.params.id },
-    })
-      .then((_) => res.json({ ok: true }))
-      .catch((_) => res.json({ ok: false, msg: "Error del servidor" }));
-  },
-  editarPublicacion(req, res) {
-    db.Publicacion.destroy(
+
+    db.Publicacion.create(
       {
-        id: req.params.id,
-      },
-      {
-        where: { id: req.params.id },
+        ...publicacion
       }
-    )
-      .then((_) => res.json({ ok: true }))
-      .catch((_) => res.json({ ok: false, msg: "Error del servidor" }));
+    ).then(() => res.send("Publicacion creada!!"))
+    .catch((e) => console.log(e))
   },
-  crearLibro: async (req, res) => {
-    try {
-      const editorial = await db.Editorial.findOne({
+
+  crearPublicacionBis: (req ,res) => {
+    /* db.Libro.create({
+      titulo: req.body.libro_titulo,
+      isbn: 123,
+      edicion:req.body.libro_edicion,
+      fecha_edicion: req.body.libro_fechaEdicion,
+      id_editorial: 1,
+      id_categoria: req.body.categoria_id
+    }).then(libro => res.send(libro))
+    .catch(e=>console.log(e)) */
+    let public_img = ""
+
+    req.file?public_img=req.file.filename:public_img = "default.jpg"
+
+
+    db.Autor.findOrCreate({
+      where: {
+        nombre: req.body.autor_nombre,
+        apellido: req.body.autor_apellido
+      }
+    }).then(([autor]) => {
+      db.Editorial.findOrCreate({
         where: {
-          nombre: req.body.editorial,
-        },
-      });
-      const categoria = await db.Categoria.findOne({
+          nombre: req.body.editorial_nombre
+        }
+      }).then(([editorial]) => {
+        db.Libro.findOrCreate({
+          where : {
+            isbn: 12343333,
+          },
+          defaults: {
+            titulo: req.body.libro_titulo,
+            edicion: req.body.libro_edicion,
+            fecha_edicion: req.body.libro_fechaEdicion,
+            id_editorial: editorial.id,
+            id_categoria: req.body.categoria_id
+          }            
+        }).then(([libro]) => {
+          db.Publicacion.create(
+            {
+              titulo: req.body.public_titulo,
+              detalle: req.body.public_detalle,
+              estado_libro: req.body.public_estado,
+              precio: req.body.public_precio,
+              foto: public_img,
+              id_libro: libro.id,
+              id_usuario: req.params.userId
+            }
+          ).then(publicacion => res.send(publicacion))
+          .catch(e=>console.log(e))
+        }).catch(e=>console.log(e))
+      }).catch(e=>console.log(e))
+      .catch(e=>console.log(e))
+    }).catch(e=>console.log(e))
+  },
+
+  buscarEditorial: (req , res) => {
+    db.Editorial.findOne (
+      {
         where: {
-          categoria: req.body.categoria,
-        },
-      });
-      const libro = await db.Libro.create({
-        titulo: req.body.titulo,
-        isbn: req.body.isbn,
-        edicion: req.body.edicion,
-        fecha_edicion: new Date().getTime(), //Cambiar esto
-        id_editorial: editorial.id,
-        id_categoria: categoria.id,
-      });
-      res.status(201).json({
-        ok: true,
-        libro,
-      });
-    } catch (error) {
-      res.status(500).json({
-        ok: false,
-        msg: "Error del servidor",
-      });
-    }
+          nombre: {
+            [Op.substring]: req.body.editorial
+          }
+        }
+      }
+    ).then(editorial => res.render("./products/crearpublicacionAAA", {editorial : editorial , user: req.session.authUser} ))
+    .catch((e)=>console.log(e))
   },
-  crearEditorial(req, res) {
-    db.Editorial.create({
-      nombre: req.body.nombre,
-      direccion: req.body.direccion,
-      telefono: req.body.telefono,
-    })
-      .then((resp) => res.json(resp))
-      .catch((err) => res.json({ ok: false, msg: "Error del servidor" }));
-  },
-  crearCategoria(req, res) {
-    db.Categoria.create({
-      categoria: req.body.categoria,
-    })
-      .then((resp) => res.json(resp))
-      .catch((_) => res.json({ ok: false, msg: "Error del servidor" }));
+
+  buscarAutor: (req , res) => {
+    db.Autor.findOne (
+      {
+        where: {
+          nombre: {
+            [Op.substring]: req.body.nombre
+          }
+        }
+      }
+    ).then(autor => res.render("./products/crearpublicacionAAA", {autor : autor , user: req.session.authUser} ))
+    .catch((e)=>console.log(e))
   },
 };
 

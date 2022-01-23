@@ -13,11 +13,14 @@ module.exports = (sequelize, dataTypes) => {
     precio: {
       type: dataTypes.FLOAT,
     },
-    fecha_publicacion: {
+   /*  fecha_publicacion: {
       type: dataTypes.DATE,
-    },
+    }, */
     status: {
       type: dataTypes.SMALLINT,
+    },
+    foto: {
+      type: dataTypes.STRING(100),
     },
     id_libro: {
       type: dataTypes.INTEGER,

@@ -7,29 +7,27 @@ const authUser = require("../middlewares/authUsersMiddleware");
 
 /*-----------------------------------------------------------------------------*/
 
-/* GET home page. */
+/* GET - RENDERIZA PAGINA DE INICIO. */
 router.get("/all", productoController.listAll);
 
-router.get("/carrito", productoController.carrito);
+/* GET - RENDERIZA PAGINA BUSCAR POR ISBN */
+router.get("/buscarISBN", authUser, productoController.buscarISBN);
 
-router.get("/crear/producto", authUser, productoController.crearProducto);
+/* POST - BUSCA LIBRO POR CODIGO ISBN */
+router.post("/buscarISBN", productoController.infoISBN);
 
-router.get("/crear/publicacion", authUser, productoController.crearPublicacion);
+/* POST - CREA PUBLICACION CON LIBRO EXISTENTE */
+router.post("/crearpublicacion/:userId&:libroId", productoController.crearPublicacion);
 
-router.post("/crear/producto", productoController.productoCreado);
+/* POST - CREA PUBLICACION DESDE CERO */
+router.post("/crearpublicacionBis/:userId", productoController.crearPublicacionBis);
 
-router.get("/edit/:id", productoController.editarProducto);
 
-router.patch("/edit/:id", productoController.productoEditado);
+/* POST - BUSCA EDITORIAL */
+router.post("/editorial", productoController.buscarEditorial);
 
-router.get("/:id", productoController.producto);
+/* POST - BUSCA AUTOR */
+router.post("/autor", productoController.buscarAutor);
 
-router.delete("/:id", productoController.delete);
-
-router.post("/editorial", productoController.crearEditorial)
-
-router.post("/categoria", productoController.crearCategoria)
-
-router.post("/libro", productoController.crearLibro)
 
 module.exports = router;

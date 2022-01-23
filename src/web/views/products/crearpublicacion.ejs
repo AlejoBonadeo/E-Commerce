@@ -10,39 +10,81 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/css/nav-bar.css" />
-    <link rel="stylesheet" href="/css/crearproducto.css" />
+    <link rel="stylesheet" href="/css/crearpublicacion.css" />
     <link rel="stylesheet" href="/css/footer.css" />
   </head>
-
   <body>
-    <%- include("../partials/nav-bar.ejs", {authUser}) %>
+    <%- include("../partials/nav-bar.ejs", {authUser}) %> 
     <main>
-      <section>
+      <section class="container-main">
         <div class="container-left">
-          <i class="fas fa-tag"></i>
-          <p>Vamos a vender!</p>
-          <img class="pila-libros" src="/img/books.png" alt="" />
+          <h2>Encontramos tu libro!</h2>
+          <p>Verifica la informacion, completa los datos de la publicacion y publica!</p>
         </div>
-        <div class="hero">
-          <div class="trian"></div>
-          <div class="container-form">
-            <h2><i class="fas fa-info-circle"></i> Carga la info</h2>
-            <form action="/producto/buscar/libro" method="POST">
-              <div class="form-inputs">
-                <div>
-                  <article>
-                    <label for="isbn">ISBN</label>
-                    <input type="text" name="isbn" id="isbn" required />
-                    <button type="submit">Buscar</button>
-                  </article>
-                </div>
-            </form>
-          </div>
+        <div class="container-center">
+          <h1>Informacion del libro</h1>
+          <section>
+            <article>
+              <h3>Informacion general:</h3>
+                <ul class="info-list">
+                  <li><span>ISBN: </span><%= libro.isbn %></li>
+                  <li><span>TITULO: </span><%= libro.titulo %></li>
+                  <li><span>EDICION: </span><%= libro.edicion %></li>
+                </ul>
+            </article>
+            <article>
+              <h3>Autor/es</h3>
+                <ol class="info-list">
+                  <% for(let i=0 ; i<libro.autores.length ; i++) { %>
+                    <li><%= libro.autores[i].apellido %>,<%= libro.autores[i].nombre %></li>  
+                  <% } %> 
+                </ol>
+            </article>
+            <article>
+              <h3>Editorial</h3>
+                <ul class="info-list">
+                  <li><span>NOMBRE: </span><%= libro.editorial.nombre %></li>
+                  <li><span>DIRECCION: </span><%= libro.editorial.direccion==null?" - ":libro.editorial.direccion %></li>
+                  <li><span>TELEFONO: </span><%= libro.editorial.telefono==null?" - ":libro.editorial.telefono %></li>
+                </ul>
+            </article>
+          </section>          
+        </div>
+        <div class="container-right">
+          <h2>Informacion de la publicacion</h2>
+          <form action="/producto/crearpublicacion/<%= authUser.id %>&<%= libro.id %>" method="POST">
+            <article>
+              <label for="pulic_titulo">Titulo</label>
+              <input type="text" name="pulic_titulo">
+            </article>
+            <article>
+              <label for="pulic_detalle">Detalle</label>
+              <input type="text" name="pulic_detalle">
+            </article>
+            <article>
+              <label for="">Estado</label>
+              <div>
+                <input type="radio" name="pulic_estado" value="N"checked />
+                <label for="pulic_estado">Nuevo</label>
+                <input type="radio" name="pulic_estado" value="U"/>
+                <label for="pulic_estado">Usado</label>
+              </div>
+            </article>
+            <article>
+              <label for="pulic_precio">PRECIO</label>
+              <input type="number" name="pulic_precio">
+            </article>
+            <article>
+              <label for="foto_publicacion">Subir foto</label>
+              <input type="file" name="foto_publicacion">
+            </article>
+            <div class="boton-container">
+              <button type="submit">Publicar</button>
+            </div>
+          </form>
         </div>
       </section>
     </main>
     <%- include("../partials/footer.ejs") %>
   </body>
 </html>
-
-<!--  -->

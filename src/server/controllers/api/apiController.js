@@ -17,7 +17,15 @@ const userController = {
         res.json(usuarios);
       })
       .catch((e) => console.log(e));
-  }
+  },
+
+  allCategories: (req, res) => {
+    db.Categoria.findAll()
+      .then((categoria) => {
+        res.json(categoria);
+      })
+      .catch((e) => console.log(e));
+  },
 }
 
 module.exports = userController;

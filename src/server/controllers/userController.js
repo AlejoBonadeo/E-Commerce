@@ -53,7 +53,7 @@ const userController = {
         telefono:req.body.telefonoUsuario,
     }
     if(req.file){
-      user.img_url=req.file.filename;
+      user.foto=req.file.filename;
     }
 
     db.Usuario.update(
@@ -119,7 +119,7 @@ const userController = {
               provincia: newUser.provinciaUsuario,
               pais: newUser.paisUsuario,
               telefono: newUser.telefonoUsuario,
-              img_url: userImg,
+              foto: userImg,
             })
               .then(() => res.redirect("/"))
               .catch((e) => console.log(e));

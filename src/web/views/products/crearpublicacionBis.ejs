@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MercadoLibros</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/nav-bar.css" />
+    <link rel="stylesheet" href="/css/crearpublicacionBis.css" />
+    <link rel="stylesheet" href="/css/footer.css" />
+  </head>
+  <body>
+    <%- include("../partials/nav-bar.ejs", {authUser}) %>
+    <main>
+      <section class="container-main">
+        <div class="container-left">
+          <h2>Nadie vendio este libro antes!</h2>
+          <p>Completa los datos de la publicacion y vende!</p>
+        </div>
+        <form class="form-publicacion" action="/producto/crearpublicacionBis/<%= authUser.id %>" method="POST">
+          <div class="container-center">
+            <h2><i class="fas fa-book"></i> Informacion del libro</h2>
+            <section>
+              <article>
+                <label for="libro_titulo">Titulo</label>
+                <input type="text" name="libro_titulo">
+              </article>
+              <article>
+                <label for="libro_edicion">Edicion</label>
+                <input type="number" name="libro_edicion">
+              </article>
+              <article>
+                <label for="libro_fechaEdicion">Fecha Edicion</label>
+                <input type="date" name="libro_fechaEdicion">
+              </article>
+              <article>
+                <label for="editorial_nombre">Editorial</label>
+                <input type="text" name="editorial_nombre" placeholder="Nombre...">
+              </article>
+              <article>
+                <label for="autor_nombre">Autor</label>
+                <input type="text" name="autor_nombre" placeholder="Nombre...">
+                <input type="text" name="autor_apellido" placeholder="Apellido...">
+              </article>
+              <article>
+                <label for="categoria_id">Categoria</label>
+                <select name="categoria_id">
+                <% for(let i=0 ; i<categorias.length ; i++){ %>
+                  <option value="<%= categorias[i].id %>"><%= categorias[i].categoria %></option> 
+                <% } %>
+                </select>
+              </article>
+            </section>
+          </div >
+          <div class="container-right">
+            <h2><i class="fas fa-info-circle"></i> Informacion de la publicacion</h2>
+            <section>
+              <article>
+                <label for="public_titulo">Titulo</label>
+                <input type="text" name="public_titulo">
+              </article>
+              <article>
+                <label for="public_detalle">Detalle</label>
+                <input type="text" name="public_detalle">
+              </article>
+              <article>
+                <label for="">Estado</label>
+                <div>
+                  <input type="radio" name="public_estado" value="N"checked />
+                  <label for="public_estado">Nuevo</label>
+                  <input type="radio" name="pulic_estado" value="U"/>
+                  <label for="public_estado">Usado</label>
+                </div>
+              </article>
+              <article>
+                <label for="public_precio">PRECIO</label>
+                <input type="number" name="public_precio">
+              </article>
+              <article>
+                <label for="foto_publicacion">Subir foto</label>
+                <input type="file" name="foto_publicacion">
+              </article>
+              <div class="boton-container">
+                <button type="submit">Publicar</button>
+              </div>
+            </section>
+          </div>
+
+        </form>
+        
+      </section>
+    </main>
+    <%- include("../partials/footer.ejs") %>
+    <script src="/js/product/crearPublicacionBis.js"></script>
+  </body>
+</html>

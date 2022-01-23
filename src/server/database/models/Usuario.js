@@ -31,7 +31,7 @@ module.exports = (sequelize, dataTypes) => {
     telefono: {
       type: dataTypes.INTEGER,
     },
-    img_url: {
+    foto: {
       type: dataTypes.STRING(100),
     },
     status: {
