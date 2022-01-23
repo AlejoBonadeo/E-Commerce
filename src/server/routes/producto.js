@@ -22,7 +22,6 @@ router.post("/crearpublicacion/:userId&:libroId", productoController.crearPublic
 /* POST - CREA PUBLICACION DESDE CERO */
 router.post("/crearpublicacionBis/:userId&:isbn", productoController.crearPublicacionBis);
 
-
 /* POST - BUSCA EDITORIAL */
 router.post("/editorial", productoController.buscarEditorial);
 
