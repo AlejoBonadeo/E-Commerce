@@ -31,7 +31,7 @@ const productoController = {
         db.Categoria.findAll()
         .then(categorias => {
           console.log(categorias);
-          res.render("./products/crearpublicacionBis" , {authUser: req.session.authUser , categorias: categorias})
+          res.render("./products/crearpublicacionBis" , {authUser: req.session.authUser , isbn: req.body.isbn, categorias: categorias})
         })
         .catch(e=>console.log(e))
       }
@@ -66,19 +66,8 @@ const productoController = {
   },
 
   crearPublicacionBis: (req ,res) => {
-    /* db.Libro.create({
-      titulo: req.body.libro_titulo,
-      isbn: 123,
-      edicion:req.body.libro_edicion,
-      fecha_edicion: req.body.libro_fechaEdicion,
-      id_editorial: 1,
-      id_categoria: req.body.categoria_id
-    }).then(libro => res.send(libro))
-    .catch(e=>console.log(e)) */
     let public_img = ""
-
     req.file?public_img=req.file.filename:public_img = "default.jpg"
-
 
     db.Autor.findOrCreate({
       where: {
@@ -93,7 +82,7 @@ const productoController = {
       }).then(([editorial]) => {
         db.Libro.findOrCreate({
           where : {
-            isbn: 12343333,
+            isbn: req.params.isbn,
           },
           defaults: {
             titulo: req.body.libro_titulo,

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MercadoLibros</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/nav-bar.css" />
+    <link rel="stylesheet" href="/css/userHome.css" />
+    <link rel="stylesheet" href="/css/footer.css" />
+  </head>
+
+  <body>
+    <%- include("../partials/nav-bar.ejs", {authUser:authUser}) %>
+    <main>
+      <section class="container-main">
+        <article class="container-vender">
+          <div class="container-img">
+            <i class="fas fa-shopping-bag"></i>
+          </div>
+          <div class="container-texto">
+            <p>Vender</p>
+          </div>
+          <div class="container-boton">
+            <a href="/producto/buscarISBN/"><button>Acceder</button></a>
+          </div>
+        </article>
+        <article class="container-detalle">
+          <div class="container-img">
+            <i class="fas fa-id-badge"></i>
+          </div>
+          <div class="container-texto">
+            <p>Informacion</p>
+          </div>
+          <div class="container-boton">
+            <a href="/user/edit/<%= authUser.id%>"><button>Acceder</button></a>
+          </div>
+        </article>
+        <article class="container-publicaciones">
+          <div class="container-img">
+            <i class="fas fa-store"></i>          </div>
+          <div class="container-texto">
+            <p>Publicaciones activas</p>
+          </div>
+          <div class="container-boton">
+            <a href=""><button>Acceder</button></a>
+          </div>
+        </article>
+      </section>
+    </main>
+    <%- include("../partials/footer.ejs") %>
+  </body>
+</html>

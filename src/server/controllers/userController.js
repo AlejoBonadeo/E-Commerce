@@ -31,7 +31,7 @@ const userController = {
 
     db.Usuario.findByPk(id)
       .then((usuario) => {
-        res.render("./user/editUser",{usuario:usuario})  
+        res.render("./user/editUser",{usuario:usuario , authUser: req.session.authUser})  
       })
       .catch(e => console.log(e)) 
     
@@ -152,7 +152,7 @@ const userController = {
             }
             req.session.authUser = usr;
 
-            res.render("./user/userDetails", { authUser: usr });
+            res.render("./user/userHome", { authUser: usr });
           }
         })
         .catch((e) => console.log(e));
@@ -166,7 +166,7 @@ const userController = {
     db.Usuario.findByPk(req.params.id)
       .then((usr) => {
         if (usr != null) {
-          res.render("./user/userDetails", { authUser: usr });
+          res.render("./user/userHome", { authUser: usr });
         }
       })
       .catch((e) => console.log(e));

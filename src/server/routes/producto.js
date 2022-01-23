@@ -20,7 +20,7 @@ router.post("/buscarISBN", productoController.infoISBN);
 router.post("/crearpublicacion/:userId&:libroId", productoController.crearPublicacion);
 
 /* POST - CREA PUBLICACION DESDE CERO */
-router.post("/crearpublicacionBis/:userId", productoController.crearPublicacionBis);
+router.post("/crearpublicacionBis/:userId&:isbn", productoController.crearPublicacionBis);
 
 
 /* POST - BUSCA EDITORIAL */

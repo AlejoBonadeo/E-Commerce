@@ -14,12 +14,11 @@
   <body>
     <%- include("../partials/nav-bar.ejs") %>
     <main>
-        <h2><i class="fas fa-info-circle"></i> Edita tus datos</h2>
         <form action="/user/update/<%= usuario.id %>?_method=PUT " method="POST" enctype="multipart/form-data" class="form-user-data">
           <div class="form-inputs">
             <div>
               <article class="avatar">
-                <img src="/img/user_img/<%=usuario.img_url%>" alt="img_user" class="user-img">
+                <img src="/img/user_img/<%=usuario.foto%>" alt="img_user" class="user-img">
                 <input type="file" name="user_img" id="user_img">
               </article>
             </div>

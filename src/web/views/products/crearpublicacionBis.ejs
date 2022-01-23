@@ -21,7 +21,7 @@
           <h2>Nadie vendio este libro antes!</h2>
           <p>Completa los datos de la publicacion y vende!</p>
         </div>
-        <form class="form-publicacion" action="/producto/crearpublicacionBis/<%= authUser.id %>" method="POST">
+        <form class="form-publicacion" action="/producto/crearpublicacionBis/<%= authUser.id %>&<%= isbn %>" method="POST">
           <div class="container-center">
             <h2><i class="fas fa-book"></i> Informacion del libro</h2>
             <section>

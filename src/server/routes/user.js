@@ -25,7 +25,7 @@ router.get("/register", guestUser, userController.register);
 router.get("/login", guestUser, userController.login);
 
 /* GET pagina detalle de Usuario */
-router.get("/userDetails/:id", authUser, userController.userDetails);
+router.get("/userHome/:id", authUser, userController.userDetails);
 
 /* GET pagina edicion de Usuario */
 router.get("/edit/:id", userController.editUser);
