@@ -1,6 +1,6 @@
 const multer = require("./multerPublicacionConfig")
 
-const upload = multer.single("user_img")
+const upload = multer.single("foto_publicacion")
 
 const multerError ={
     msg: "Solo se admiten archivos JPG, JPEG , PNG , GIF"
@@ -9,7 +9,7 @@ const multerError ={
 module.exports = (req, res , next) => {   
     upload(req, res, (err) => {
         if(err) {
-            res.render("./user/register", {multerError : multerError , oldBody: req.body});
+            res.render("./products/crearpublicacionBis", {multerError : multerError , oldBody: req.body});
         }
         next()
     })

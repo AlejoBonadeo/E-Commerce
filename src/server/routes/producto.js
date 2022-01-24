@@ -2,6 +2,9 @@ const express = require("express");
 const router = express.Router();
 const productoController = require("../controllers/productoController");
 
+/*MULTER MIDDLEWARE*/
+const uploadBookImage = require ("../middlewares/multerPublicacionMiddleware");
+
 /*VALIDADORES DE SESION*/
 const authUser = require("../middlewares/authUsersMiddleware");
 
@@ -20,7 +23,7 @@ router.post("/buscarISBN", productoController.infoISBN);
 router.post("/crearpublicacion/:userId&:libroId", productoController.crearPublicacion);
 
 /* POST - CREA PUBLICACION DESDE CERO */
-router.post("/crearpublicacionBis/:userId&:isbn", productoController.crearPublicacionBis);
+router.post("/crearpublicacionBis/:userId&:isbn",uploadBookImage, productoController.crearPublicacionBis);
 
 /* POST - BUSCA EDITORIAL */
 router.post("/editorial", productoController.buscarEditorial);
