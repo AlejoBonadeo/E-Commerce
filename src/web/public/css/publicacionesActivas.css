@@ -1,0 +1,134 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+* {
+  box-sizing: border-box;
+  font-family: "Roboto";
+  margin: 0px;
+  padding: 0px;
+}
+
+body,html {
+  height: 100vh;
+  width: 100vw;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  flex: 1;
+}
+
+main h2{
+  margin: 10px 0px;
+  text-align: center;
+}
+
+.publicaciones-container{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.publicacion{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 25%;
+  overflow: hidden;
+  box-shadow: 0px 0px 30px #c0abe6;
+  border-radius: 20px;
+  margin: 10px;
+}
+
+.img-container{
+  height: 60%;
+  padding: 5px;
+}
+
+.img-container img{
+  max-height: 100%;
+  max-width: 100%;
+}
+
+.detalle-container{
+  /* height: 30%; */
+  padding: 10px;
+}
+
+.botones-container{
+  display: flex;
+  justify-content: center;
+ /*  height: 10%; */
+  padding: 0px 10px;
+}
+
+
+@media (max-width: 414px) {
+  section {
+    background: rgb(59, 69, 116);
+    background: linear-gradient(
+      90deg,
+      rgba(59, 69, 116, 1) 0%,
+      rgba(113, 114, 166, 1) 100%
+    );
+    height: 700px;
+    width: 100%;
+  }
+
+  .sign-up h2 {
+    background: rgb(59, 69, 116);
+    background: linear-gradient(
+      90deg,
+      rgba(59, 69, 116, 1) 0%,
+      rgba(113, 114, 166, 1) 100%
+    );
+    color: white;
+    margin: 0 0 20px 0;
+    padding: 10px 10px;
+    width: 100%;
+  }
+
+  form {
+    padding: 0 10px;
+  }
+
+  .form-inputs div {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sign-in,
+  .trian,
+  img {
+    display: none;
+  }
+
+  .hero,
+  .sign-up,
+  .sign-up form {
+    width: inherit;
+    height: inherit;
+  }
+
+  .sign-up {
+    justify-content: space-between;
+  }
+
+  .form-inputs input {
+    width: 100%;
+  }
+
+  .sign-up button {
+    font-size: 30px;
+  }
+}

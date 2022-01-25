@@ -82,7 +82,7 @@ const productoController = {
     .catch((e) => console.log(e))
   },
 
-  crearPublicacionBis: (req ,res) => {
+  crearPublicacionBis: async (req ,res) => {
     let public_img = ""
     
     req.file?public_img=req.file.filename:public_img = "default.jpg"
@@ -96,46 +96,68 @@ const productoController = {
       })
       .catch(e=>console.log(e))
     }
+    
+    try {
+      let [autor] = await db.Autor.findOrCreate({where: {nombre: req.body.autor_nombre, apellido: req.body.autor_apellido}});
+      
+      let [editorial] = await db.Editorial.findOrCreate({where:{nombre: req.body.editorial_nombre}})
+      
+      let [libro] = await db.Libro.findOrCreate(
+        {where:{isbn: req.params.isbn},
+        defaults: {
+          titulo: req.body.libro_titulo,
+          edicion: req.body.libro_edicion,
+          fecha_edicion: req.body.libro_fechaEdicion,
+          id_editorial: editorial.id,
+          id_categoria: req.body.categoria_id
+        }})
+      
+      let libroAutor = await db.Libro_Autor.create({
+        id_libro: libro.id,
+        id_autor: autor.id
+      })
 
-    db.Autor.findOrCreate({
-      where: {
-        nombre: req.body.autor_nombre,
-        apellido: req.body.autor_apellido
-      }
-    }).then(([autor]) => {
-      db.Editorial.findOrCreate({
-        where: {
-          nombre: req.body.editorial_nombre
+      let publicacion = await db.Publicacion.create(
+        {
+          titulo: req.body.public_titulo,
+          detalle: req.body.public_detalle,
+          estado_libro: req.body.public_estado,
+          precio: req.body.public_precio,
+          foto: public_img,
+          id_libro: libro.id,
+          id_usuario: req.params.userId
         }
-      }).then(([editorial]) => {
-        db.Libro.findOrCreate({
-          where : {
-            isbn: req.params.isbn,
-          },
-          defaults: {
-            titulo: req.body.libro_titulo,
-            edicion: req.body.libro_edicion,
-            fecha_edicion: req.body.libro_fechaEdicion,
-            id_editorial: editorial.id,
-            id_categoria: req.body.categoria_id
-          }            
-        }).then(([libro]) => {
-          db.Publicacion.create(
-            {
-              titulo: req.body.public_titulo,
-              detalle: req.body.public_detalle,
-              estado_libro: req.body.public_estado,
-              precio: req.body.public_precio,
-              foto: public_img,
-              id_libro: libro.id,
-              id_usuario: req.params.userId
-            }
-          ).then(publicacion => res.send(publicacion))
-          .catch(e=>console.log(e))
-        }).catch(e=>console.log(e))
-      }).catch(e=>console.log(e))
-      .catch(e=>console.log(e))
-    }).catch(e=>console.log(e))
+      )
+
+      res.redirect(`/user/userHome/${req.session.authUser.id}`)
+
+
+    } catch (error) {
+      res.json({
+        ok: false,
+        msg: "Error del servidor",
+      })
+    }
+  },
+
+  listPublucacionesActivas: async (req , res) => {
+    try {
+      let userId = req.params.userId;
+      let listaPublicaciones = await db.Publicacion.findAll({
+        where: {
+         id_usuario: userId,
+        },
+        include: [{ association: "libro" }]
+       });
+
+      res.render("./products/publicacionesactivas", {authUser: req.session.authUser , publicaciones: listaPublicaciones})
+      
+    } catch (error) {
+      res.json({
+        ok: false,
+        msg: "Error del servidor",
+      }) 
+    }
   },
 
   buscarEditorial: (req , res) => {

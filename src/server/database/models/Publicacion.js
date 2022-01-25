@@ -13,9 +13,7 @@ module.exports = (sequelize, dataTypes) => {
     precio: {
       type: dataTypes.FLOAT,
     },
-   /*  fecha_publicacion: {
-      type: dataTypes.DATE,
-    }, */
+  
     status: {
       type: dataTypes.SMALLINT,
     },

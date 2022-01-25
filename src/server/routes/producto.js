@@ -19,6 +19,9 @@ const validateISBNForm = require("../middlewares/checkISBNFormMiddleware");
 /* GET - RENDERIZA PAGINA DE INICIO. */
 router.get("/all", productoController.listAll);
 
+/* GET - RENDERIZA LISTADO DE PUBLICACIONES ACTIVAS DE USUARIO. */
+router.get("/publicacionesactivas/:userId", productoController.listPublucacionesActivas);
+
 /* GET - RENDERIZA PAGINA BUSCAR POR ISBN */
 router.get("/buscarISBN", authUser, productoController.buscarISBN);
 
