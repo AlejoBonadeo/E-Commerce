@@ -1,6 +1,6 @@
 const db = require("../database/models");
 const {validationResult} = require("express-validator");
-const { Op } = require("sequelize");
+const { Op, where } = require("sequelize");
 const req = require("express/lib/request");
 
 
@@ -146,6 +146,7 @@ const productoController = {
       let listaPublicaciones = await db.Publicacion.findAll({
         where: {
          id_usuario: userId,
+         status: 1
         },
         include: [{ association: "libro" }]
        });
@@ -160,30 +161,56 @@ const productoController = {
     }
   },
 
-  buscarEditorial: (req , res) => {
-    db.Editorial.findOne (
-      {
-        where: {
-          nombre: {
-            [Op.substring]: req.body.editorial
-          }
-        }
-      }
-    ).then(editorial => res.render("./products/crearpublicacionAAA", {editorial : editorial , user: req.session.authUser} ))
-    .catch((e)=>console.log(e))
+  desactivarPublicacion: (req , res) => {
+    let publicacionId = req.params.publicacionId
+
+    db.Publicacion.update({
+      status: 0     
+    },
+    {where:{
+      id: publicacionId
+    }}).then(()=> res.redirect(`/producto/publicacionesactivas/${req.session.authUser.id}`))
+    .catch(e=>console.log(e))
   },
 
-  buscarAutor: (req , res) => {
-    db.Autor.findOne (
+  edicion: (req , res) => {
+    let idPublicacion = req.params.publicacionId
+
+    db.Publicacion.findByPk(idPublicacion)
+    .then(publicacion => {
+      res.render("./products/editarPublicacion" , {authUser: req.session.authUser, publicacion: publicacion})
+    })
+    .catch(e=>console.log(e))
+  },
+
+  editarPublicacion: (req , res) => {
+    let idPublicacion = req.params.publicacionId
+
+    let publicacionNueva = {
+      titulo: req.body.pulic_titulo,
+      detalle: req.body.pulic_detalle,
+      estado: req.body.pulic_estado,
+      precio: req.body.pulic_precio,        
+    }
+
+    if(req.file){
+      publicacionNueva.foto=req.file.filename;
+    }
+
+    db.Publicacion.update(
       {
-        where: {
-          nombre: {
-            [Op.substring]: req.body.nombre
-          }
+        ...publicacionNueva
+      },
+      {
+        where:{
+          id: idPublicacion
         }
       }
-    ).then(autor => res.render("./products/crearpublicacionAAA", {autor : autor , user: req.session.authUser} ))
-    .catch((e)=>console.log(e))
+    ).then(()=>{
+      res.redirect(`/producto/publicacionesactivas/${req.session.authUser.id}`)
+    })
+    .catch(e=>console.log(e))
+
   },
 };
 

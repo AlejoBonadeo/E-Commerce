@@ -31,8 +31,8 @@
                     <p>$<%= publicacion.precio %></p>
                 </div>
                 <div botones-container>
-                    <a href=""><button>Eliminar</button></a>
-                    <a href=""><button>Editar</button></a>
+                    <a href="/producto/eliminar/<%= publicacion.id %>"><button>Eliminar</button></a>
+                    <a href="/producto/editar/<%= publicacion.id %>"><button>Editar</button></a>
                 </div>  
             </article>
           <% }) %> 

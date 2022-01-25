@@ -13,8 +13,10 @@ const validatecrearPublicacionBisForm = require("../middlewares/checkPublicacion
 const validatecrearPublicacionForm = require("../middlewares/checkPublicacionFormMiddleware");
 const validateISBNForm = require("../middlewares/checkISBNFormMiddleware");
 
-
 /*-----------------------------------------------------------------------------*/
+
+/* GET - INACTIVA PUBLICACION. */
+router.get("/eliminar/:publicacionId", productoController.desactivarPublicacion);
 
 /* GET - RENDERIZA PAGINA DE INICIO. */
 router.get("/all", productoController.listAll);
@@ -29,16 +31,15 @@ router.get("/buscarISBN", authUser, productoController.buscarISBN);
 router.post("/buscarISBN", validateISBNForm, productoController.infoISBN);
 
 /* POST - CREA PUBLICACION CON LIBRO EXISTENTE */
-router.post("/crearpublicacion/:userId&:libroId", validatecrearPublicacionForm, productoController.crearPublicacion);
+router.post("/crearpublicacion/:userId&:libroId",uploadBookImage, validatecrearPublicacionForm, productoController.crearPublicacion);
 
 /* POST - CREA PUBLICACION DESDE CERO */
 router.post("/crearpublicacionBis/:userId&:isbn",uploadBookImage, validatecrearPublicacionBisForm, productoController.crearPublicacionBis);
 
-/* POST - BUSCA EDITORIAL */
-router.post("/editorial", productoController.buscarEditorial);
+/* GET - RENDERIZA FORMULARIO EDICION DE PUBLICACION. */
+router.get("/editar/:publicacionId", productoController.edicion);
 
-/* POST - BUSCA AUTOR */
-router.post("/autor", productoController.buscarAutor);
-
+/* PUT - RENDERIZA FORMULARIO EDICION DE PUBLICACION. */
+router.put("/editar/:publicacionId",uploadBookImage, validatecrearPublicacionForm, productoController.editarPublicacion);
 
 module.exports = router;

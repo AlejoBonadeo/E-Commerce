@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MercadoLibros</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/nav-bar.css" />
+    <link rel="stylesheet" href="/css/crearpublicacion.css" />
+    <link rel="stylesheet" href="/css/footer.css" />
+  </head>
+  <body>
+    <%- include("../partials/nav-bar.ejs", {authUser}) %> 
+    <main>
+      <section class="container-main">
+        <div class="container-left">
+          <h2>Encontramos tu libro!</h2>
+          <p>Verifica la informacion, completa los datos de la publicacion y publica!</p>
+        </div>
+        <div class="container-right">
+          <h2>Informacion de la publicacion</h2>
+          <form action="/producto/editar/<%= publicacion.id %>?_method=PUT" method="POST">
+            <article>
+              <label for="pulic_titulo">Titulo</label>
+              <input type="text" name="pulic_titulo" value="<%= publicacion.titulo %>">
+              <% if(locals.errors && errors.pulic_titulo) {%>
+                <div class="text-danger-validator">
+                  <p><%= errors.pulic_titulo.msg%></p>
+                </div>
+              <%}%>
+            </article>
+            <article>
+              <label for="pulic_detalle">Detalle</label>
+              <input type="text" name="pulic_detalle" value="<%= publicacion.detalle %>">
+              <% if(locals.errors && errors.pulic_detalle) {%>
+                <div class="text-danger-validator">
+                  <p><%= errors.pulic_detalle.msg%></p>
+                </div>
+              <%}%>
+            </article>
+            <article>
+              <label for="">Estado</label>
+              <div>
+                <input type="radio" name="pulic_estado" value="N"checked />
+                <label for="pulic_estado">Nuevo</label>
+                <input type="radio" name="pulic_estado" value="U"/>
+                <label for="pulic_estado">Usado</label>
+              </div>
+            </article>
+            <article>
+              <label for="pulic_precio">Precio</label>
+              <input type="number" name="pulic_precio" value="<%= publicacion.precio %>">
+              <% if(locals.errors && errors.pulic_precio) {%>
+                <div class="text-danger-validator">
+                  <p><%= errors.pulic_precio.msg%></p>
+                </div>
+              <%}%>
+            </article>
+            <article>
+              <label for="foto_publicacion">Subir foto</label>
+              <input type="file" name="foto_publicacion">
+            </article>
+            <div class="boton-container">
+              <button type="submit">Actualizar</button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+    <%- include("../partials/footer.ejs") %>
+  </body>
+</html>
