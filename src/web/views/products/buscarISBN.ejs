@@ -27,7 +27,12 @@
           <form action="/producto/buscarISBN" method="POST" class="form-buscar">
             <article>
               <label for="isbn">ISBN</label>
-              <input type="number" name="isbn" id="isbn" />        
+              <input type="number" name="isbn" id="isbn" />
+              <% if(locals.errors && errors.isbn) {%>
+                <div class="text-danger-validator">
+                  <p><%= errors.isbn.msg%></p>
+                </div>
+              <%}%>        
             </article>
             <button type="submit">Buscar</button>
           </form>    

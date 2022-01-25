@@ -141,6 +141,11 @@ main {
   font-weight: bold;
 }
 
+.text-danger-validator{
+  color: red;
+  font-size: 13px;
+}
+
 
 
 @media (max-width: 414px) {

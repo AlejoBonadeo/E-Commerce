@@ -18,6 +18,12 @@ const productoController = {
   },  
 
   infoISBN: (req , res) => {
+    let errors = validationResult(req);
+    
+    if(!errors.isEmpty()){
+      res.render("./products/buscarISBN" , {errors: errors.mapped() , authUser: req.session.authUser})
+    }
+
     db.Libro.findOne({
       where: {
         isbn: req.body.isbn
@@ -43,6 +49,17 @@ const productoController = {
     let userId = req.params.userId;
     let libroId = req.params.libroId;
     let libro_img = ""
+    let errors = validationResult(req);
+
+    if(!errors.isEmpty()){
+      db.Libro.findByPk(libroId,{
+        include: [{ association: "categoria" }, { association: "editorial" }, { association: "autores" }]
+      }).then(libro=>{
+  
+        res.render("./products/crearpublicacion" , {errors: errors.mapped(), authUser: req.session.authUser , libro: libro})
+      })
+      .catch(e=>console.log(e))
+    }
 
     req.file?libro_img=req.file.filename:libro_img = "default.jpg"
 
@@ -67,7 +84,18 @@ const productoController = {
 
   crearPublicacionBis: (req ,res) => {
     let public_img = ""
+    
     req.file?public_img=req.file.filename:public_img = "default.jpg"
+
+    let errors = validationResult(req)
+
+    if(!errors.isEmpty()){
+      db.Categoria.findAll()
+      .then(categorias=>{
+        res.render("./products/crearpublicacionBis" , {errors: errors.mapped(), authUser: req.session.authUser , isbn: req.params.isbn , categorias: categorias})
+      })
+      .catch(e=>console.log(e))
+    }
 
     db.Autor.findOrCreate({
       where: {

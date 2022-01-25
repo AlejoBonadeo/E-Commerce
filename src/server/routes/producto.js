@@ -8,6 +8,12 @@ const uploadBookImage = require ("../middlewares/multerPublicacionMiddleware");
 /*VALIDADORES DE SESION*/
 const authUser = require("../middlewares/authUsersMiddleware");
 
+/*VALIDADORES DE FORMULARIOS (EXPRESS-VALIDATOR)*/
+const validatecrearPublicacionBisForm = require("../middlewares/checkPublicacionBisFormMiddleware");
+const validatecrearPublicacionForm = require("../middlewares/checkPublicacionFormMiddleware");
+const validateISBNForm = require("../middlewares/checkISBNFormMiddleware");
+
+
 /*-----------------------------------------------------------------------------*/
 
 /* GET - RENDERIZA PAGINA DE INICIO. */
@@ -17,13 +23,13 @@ router.get("/all", productoController.listAll);
 router.get("/buscarISBN", authUser, productoController.buscarISBN);
 
 /* POST - BUSCA LIBRO POR CODIGO ISBN */
-router.post("/buscarISBN", productoController.infoISBN);
+router.post("/buscarISBN", validateISBNForm, productoController.infoISBN);
 
 /* POST - CREA PUBLICACION CON LIBRO EXISTENTE */
-router.post("/crearpublicacion/:userId&:libroId", productoController.crearPublicacion);
+router.post("/crearpublicacion/:userId&:libroId", validatecrearPublicacionForm, productoController.crearPublicacion);
 
 /* POST - CREA PUBLICACION DESDE CERO */
-router.post("/crearpublicacionBis/:userId&:isbn",uploadBookImage, productoController.crearPublicacionBis);
+router.post("/crearpublicacionBis/:userId&:isbn",uploadBookImage, validatecrearPublicacionBisForm, productoController.crearPublicacionBis);
 
 /* POST - BUSCA EDITORIAL */
 router.post("/editorial", productoController.buscarEditorial);

@@ -56,10 +56,20 @@
             <article>
               <label for="pulic_titulo">Titulo</label>
               <input type="text" name="pulic_titulo">
+              <% if(locals.errors && errors.pulic_titulo) {%>
+                <div class="text-danger-validator">
+                  <p><%= errors.pulic_titulo.msg%></p>
+                </div>
+              <%}%>
             </article>
             <article>
               <label for="pulic_detalle">Detalle</label>
               <input type="text" name="pulic_detalle">
+              <% if(locals.errors && errors.pulic_detalle) {%>
+                <div class="text-danger-validator">
+                  <p><%= errors.pulic_detalle.msg%></p>
+                </div>
+              <%}%>
             </article>
             <article>
               <label for="">Estado</label>
@@ -71,8 +81,13 @@
               </div>
             </article>
             <article>
-              <label for="pulic_precio">PRECIO</label>
+              <label for="pulic_precio">Precio</label>
               <input type="number" name="pulic_precio">
+              <% if(locals.errors && errors.pulic_precio) {%>
+                <div class="text-danger-validator">
+                  <p><%= errors.pulic_precio.msg%></p>
+                </div>
+              <%}%>
             </article>
             <article>
               <label for="foto_publicacion">Subir foto</label>

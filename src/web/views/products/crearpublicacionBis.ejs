@@ -28,23 +28,53 @@
               <article>
                 <label for="libro_titulo">Titulo</label>
                 <input type="text" name="libro_titulo">
+                <% if(locals.errors && errors.libro_titulo) {%>
+                  <div class="text-danger-validator">
+                    <p><%= errors.libro_titulo.msg%></p>
+                  </div>
+                <%}%>
               </article>
               <article>
                 <label for="libro_edicion">Edicion</label>
                 <input type="number" name="libro_edicion">
+                <% if(locals.errors && errors.libro_edicion) {%>
+                  <div class="text-danger-validator">
+                    <p><%= errors.libro_edicion.msg%></p>
+                  </div>
+                <%}%>
               </article>
               <article>
                 <label for="libro_fechaEdicion">Fecha Edicion</label>
                 <input type="date" name="libro_fechaEdicion">
+                <% if(locals.errors && errors.libro_fechaEdicion) {%>
+                  <div class="text-danger-validator">
+                    <p><%= errors.libro_fechaEdicion.msg%></p>
+                  </div>
+                <%}%>
               </article>
               <article>
                 <label for="editorial_nombre">Editorial</label>
                 <input type="text" name="editorial_nombre" placeholder="Nombre...">
+                <% if(locals.errors && errors.editorial_nombre) {%>
+                  <div class="text-danger-validator">
+                    <p><%= errors.editorial_nombre.msg%></p>
+                  </div>
+                <%}%>
               </article>
               <article>
                 <label for="autor_nombre">Autor</label>
                 <input type="text" name="autor_nombre" placeholder="Nombre...">
                 <input type="text" name="autor_apellido" placeholder="Apellido...">
+                <% if(locals.errors && errors.autor_nombre) {%>
+                  <div class="text-danger-validator">
+                    <p><%= errors.autor_nombre.msg%></p>
+                  </div>
+                <%}%>
+                <% if(locals.errors && errors.autor_apellido) {%>
+                  <div class="text-danger-validator">
+                    <p><%= errors.autor_apellido.msg%></p>
+                  </div>
+                <%}%>
               </article>
               <article>
                 <label for="categoria_id">Categoria</label>
@@ -62,10 +92,20 @@
               <article>
                 <label for="public_titulo">Titulo</label>
                 <input type="text" name="public_titulo">
+                <% if(locals.errors && errors.public_titulo) {%>
+                  <div class="text-danger-validator">
+                    <p><%= errors.public_titulo.msg%></p>
+                  </div>
+                <%}%>
               </article>
               <article>
                 <label for="public_detalle">Detalle</label>
                 <input type="text" name="public_detalle">
+                <% if(locals.errors && errors.public_detalle) {%>
+                  <div class="text-danger-validator">
+                    <p><%= errors.public_detalle.msg%></p>
+                  </div>
+                <%}%>
               </article>
               <article>
                 <label for="">Estado</label>
@@ -77,8 +117,13 @@
                 </div>
               </article>
               <article>
-                <label for="public_precio">PRECIO</label>
+                <label for="public_precio">Precio</label>
                 <input type="number" name="public_precio">
+                <% if(locals.errors && errors.public_precio) {%>
+                  <div class="text-danger-validator">
+                    <p><%= errors.public_precio.msg%></p>
+                  </div>
+                <%}%>
               </article>
               <article>
                 <label for="foto_publicacion">Subir foto</label>

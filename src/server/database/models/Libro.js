@@ -49,22 +49,5 @@ module.exports = (sequelize, dataTypes) => {
     });
   };
 
-  /* Libro.associate = function (models) {
-    Libro.hasMany(models.Autores, {
-      as: "Autores",
-      foreignKey: "id_autor",
-    });
-  };
-  
-     Libro.associate = function(models){
-        Libro.belongsToMany(models.Libros_Autores, {
-            as:'autores',
-            through:'libros_utores',
-            foreignKey:'id_libro',
-            otherKey:'id_autor',
-            timeStamps: false
-        })
-    }; */
-
   return Libro;
 };
