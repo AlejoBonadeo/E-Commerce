@@ -42,4 +42,8 @@ router.get("/editar/:publicacionId", productoController.edicion);
 /* PUT - RENDERIZA FORMULARIO EDICION DE PUBLICACION. */
 router.put("/editar/:publicacionId",uploadBookImage, validatecrearPublicacionForm, productoController.editarPublicacion);
 
+/* GET - RENDERIZA DETALLE DE PUBLICACION. */
+router.get("/detalle/:publicacionId", productoController.detallePublicacion);
+
+
 module.exports = router;

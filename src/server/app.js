@@ -33,7 +33,6 @@ app.use(userSession);
 app.use("/", require("./routes/index"));
 app.use("/producto", require("./routes/producto"));
 app.use("/user", require("./routes/user"));
-app.use("/test", require("./routes/test")); //RUTA PARA REALIZAR TEST VARIOS
 app.use("/api", require("./routes/api/api"));
 
 //ERROR

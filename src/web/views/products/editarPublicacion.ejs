@@ -64,6 +64,11 @@
               <label for="foto_publicacion">Subir foto</label>
               <input type="file" name="foto_publicacion">
             </article>
+            <% if(locals.multerError) {%>
+              <div class="text-danger-validator">
+                <p><%= multerError.msg%></p>
+              </div>
+            <%}%>
             <div class="boton-container">
               <button type="submit">Actualizar</button>
             </div>

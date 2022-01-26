@@ -22,8 +22,6 @@
     <link rel="stylesheet" href="/css/nav-bar.css" />
   </head>
   <body>
-    <% const { id, name, author, category, img, description, price, idseller} =
-    libro[0] %>
 
     <!-- Nav-bar & Categories -->
     <%- include("../partials/nav-bar.ejs") %>
@@ -32,25 +30,58 @@
     <main>
       <section>
         <div class="details">
-          <h1><%= name %></h1>
-          <div class="description">
-            <p>Descripcion:</p>
-            <p><%= description %></p>
-          </div>
-          <img src="<%= img %>" alt="<%= name %>" class="mobile-img" />
-          <div class="price">
-            <h4>$<%= price %></h4>
-            <p class="quantity">1</p>
-          </div>
-          <div class="buttons">
-            <button class="add-to-cart">Agregar Al Carrito</button>
-            <button class="comprar">Comprar</button>
-          </div>
+          <article class="detalle-publicacion">
+            <div class="info-publicacion">
+              <div>
+                <h3>Publicacion # </h3>
+                <p><%= publicacion.id %></p>
+              </div>
+              <div>
+                <h3>Titulo:</h3>
+                <p><%= libro.titulo %></p>
+              </div>
+              <div>
+                <h3>Estado:</h3>
+                <p><%= publicacion.estado_libro=="N"?"Nuevo":"Usado" %></p>
+              </div>
+            </div>
+            <div class="info-libro">
+              <div>
+                <h3>Detalle:</h3>
+                <p><%= publicacion.detalle %></p>
+              </div>
+              <div>
+                <h3>Editorial:</h3>
+                <p><%= libro.editorial.nombre %></p>
+              </div>
+              <div>
+                <h3>Edicion:</h3>
+                <p><%= libro.edicion %></p>
+              </div>
+              <div>
+                <h3>ISBN:</h3>
+                <p><%= libro.isbn %></p>
+              </div>
+              <div>
+                <h3>Autor:</h3>
+                <p><%= libro.autores[0].apellido %>, <%= libro.autores[0].nombre %></p>
+              </div>  
+            </div>
+            <div class="info-vendedor">
+              <div>
+                <h3>Ubicacion:</h3>
+                <p><%= usuario.localidad %> | <%= usuario.provincia %></p>
+              </div> 
+            </div>
+          </article> 
+          <article class="buttons">
+            <a href=""><button>Comprar</button></a>
+            <a href=""><button>Agregar al Carrito</button></a>
+          </article>
         </div>
         <div class="hero">
-          <div class="trian"></div>
           <div class="product-img">
-            <img src="<%= img %>" alt="<%= name %>" />
+            <img src="/img/publicacion_img/<%= publicacion.foto %>" alt="" />
           </div>
         </div>
       </section>

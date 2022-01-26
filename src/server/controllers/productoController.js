@@ -183,34 +183,74 @@ const productoController = {
     .catch(e=>console.log(e))
   },
 
-  editarPublicacion: (req , res) => {
-    let idPublicacion = req.params.publicacionId
+  editarPublicacion: async (req , res) => {
+    try {
+      let idPublicacion = req.params.publicacionId
 
-    let publicacionNueva = {
-      titulo: req.body.pulic_titulo,
-      detalle: req.body.pulic_detalle,
-      estado: req.body.pulic_estado,
-      precio: req.body.pulic_precio,        
-    }
+      let errors = validationResult(req)
 
-    if(req.file){
-      publicacionNueva.foto=req.file.filename;
-    }
-
-    db.Publicacion.update(
-      {
-        ...publicacionNueva
-      },
-      {
-        where:{
-          id: idPublicacion
+      if(!errors.isEmpty()){
+        let categorias = await db.Categoria.findAll()
+        let publicacion = await db.Publicacion.findByPk(idPublicacion)
+        
+        res.render("./products/editarPublicacion" , {errors: errors.mapped(), authUser: req.session.authUser , publicacion: publicacion , categorias: categorias})
+      }else{
+        let publicacionNueva = {
+          titulo: req.body.pulic_titulo,
+          detalle: req.body.pulic_detalle,
+          estado: req.body.pulic_estado,
+          precio: req.body.pulic_precio,        
         }
-      }
-    ).then(()=>{
-      res.redirect(`/producto/publicacionesactivas/${req.session.authUser.id}`)
-    })
-    .catch(e=>console.log(e))
+  
+        if(req.file){
+          publicacionNueva.foto=req.file.filename;
+        }
+  
+        await db.Publicacion.update(
+          {
+            ...publicacionNueva
+          },
+          {
+            where:{
+              id: idPublicacion
+            }
+          })
+      
+        res.redirect(`/producto/publicacionesactivas/${req.session.authUser.id}`)
 
+      } 
+    } catch (error) {
+      res.json({
+        ok: false,
+        msg: "Error!"
+      }) 
+    }
+  },
+
+  detallePublicacion: async (req , res) => {
+    try {
+      let publicacion = await db.Publicacion.findByPk(req.params.publicacionId);
+
+      let libro = await db.Libro.findByPk(publicacion.id_libro,{include: [{ association: "categoria" }, { association: "editorial" }, { association: "autores" }]})
+
+      let usuario = await db.Usuario.findByPk(publicacion.id_usuario)
+
+      if(publicacion){
+        res.render("./products/producto" , {authUser: req.session.authUser , publicacion: publicacion , libro: libro , usuario: usuario})
+      }
+      else{
+        res.json({
+          ok: false,
+          msg: "Error! No se encontro la publicacion buscada."
+        })
+      }
+    } catch (error) {
+      res.json({
+        ok: false,
+        msg: "Error Servidor!"
+      })
+      
+    }
   },
 };
 
