@@ -4,6 +4,7 @@ const productoController = require("../controllers/productoController");
 
 /*MULTER MIDDLEWARE*/
 const uploadBookImage = require ("../middlewares/multerPublicacionMiddleware");
+const uploadBookImageBis = require ("../middlewares/multerPublicacionBisMiddleware");
 
 /*VALIDADORES DE SESION*/
 const authUser = require("../middlewares/authUsersMiddleware");
@@ -34,7 +35,7 @@ router.post("/buscarISBN", validateISBNForm, productoController.infoISBN);
 router.post("/crearpublicacion/:userId&:libroId",uploadBookImage, validatecrearPublicacionForm, productoController.crearPublicacion);
 
 /* POST - CREA PUBLICACION DESDE CERO */
-router.post("/crearpublicacionBis/:userId&:isbn",uploadBookImage, validatecrearPublicacionBisForm, productoController.crearPublicacionBis);
+router.post("/crearpublicacionBis/:userId&:isbn",uploadBookImageBis, validatecrearPublicacionBisForm, productoController.crearPublicacionBis);
 
 /* GET - RENDERIZA FORMULARIO EDICION DE PUBLICACION. */
 router.get("/editar/:publicacionId", productoController.edicion);

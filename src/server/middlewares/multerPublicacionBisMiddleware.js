@@ -11,11 +11,10 @@ const multerError ={
 module.exports =  async (req, res , next) => {
     try {
         let listaCategorias = await db.Categoria.findAll()
-        let libro = await db.Libro.findByPk(req.params.libroId,{include: [{ association: "categoria" }, { association: "editorial" }, { association: "autores" }]})
         upload(req, res, (err) => {
             if(err) {
-
-                res.render("./products/crearpublicacion", {multerError : multerError , oldBody: req.body, authUser: req.session.authUser , libro: libro , categorias: listaCategorias });
+                
+                res.render("./products/crearpublicacionBis", {multerError : multerError , oldBody: req.body, authUser: req.session.authUser , isbn: req.params.isbn , categorias: listaCategorias });
             }
             next()
         })

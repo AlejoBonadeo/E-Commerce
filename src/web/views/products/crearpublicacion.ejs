@@ -52,7 +52,7 @@
         </div>
         <div class="container-right">
           <h2>Informacion de la publicacion</h2>
-          <form action="/producto/crearpublicacion/<%= authUser.id %>&<%= libro.id %>" method="POST">
+          <form action="/producto/crearpublicacion/<%= authUser.id %>&<%= libro.id %>" enctype="multipart/form-data" method="POST">
             <article>
               <label for="pulic_titulo">Titulo</label>
               <input type="text" name="pulic_titulo">
@@ -93,6 +93,11 @@
               <label for="foto_publicacion">Subir foto</label>
               <input type="file" name="foto_publicacion">
             </article>
+            <% if(locals.multerError) {%>
+              <div class="text-danger-validator">
+                <p><%= multerError.msg%></p>
+              </div>
+            <%}%>
             <div class="boton-container">
               <button type="submit">Publicar</button>
             </div>
