@@ -111,6 +111,10 @@ label:not(:last-child) {
   transition-duration: 0.5s;
 }
 
+.text-danger-validator{
+  color: black;
+  background-color: red;
+}
 
 @media (max-width: 414px) {
   section {

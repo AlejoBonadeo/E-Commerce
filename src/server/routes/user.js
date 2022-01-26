@@ -4,6 +4,7 @@ const router = express.Router();
 
 /*MULTER MIDDLEWARE*/
 const uploadUserImage = require ("../middlewares/multerRegisterMiddleware");
+const uploadEditedUserImage = require ("../middlewares/multerEditUserMiddleware");
 
 /*CONTROLADORES */
 const userController = require("../controllers/userController");
@@ -31,7 +32,7 @@ router.get("/userHome/:id", authUser, userController.userDetails);
 router.get("/edit/:id", userController.editUser);
 
 /* PUT pagina edicion de Usuario */
-router.put("/update/:id" , userController.updateUser);
+router.put("/update/:id" , uploadEditedUserImage, userController.updateUser);
 
 /* GET Eliminar un Usuario */
 router.get("/delete/:id", userController.deleteUser);

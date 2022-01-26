@@ -22,6 +22,11 @@
                 <input type="file" name="user_img" id="user_img">
               </article>
             </div>
+            <% if(locals.multerError) {%>
+              <div class="text-danger-validator">
+                <p><%= multerError.msg%></p>
+              </div>
+            <%}%>
             <div>
               <article>
                 <label for="nombreDeUsuario">Nombre</label>
