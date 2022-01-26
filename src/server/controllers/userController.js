@@ -13,7 +13,7 @@ const sequelize = db.sequelize;
 const userController = {
   /* RENDERIZA LISTADO DE USUARIOS */
   list: (req, res) => {
-    db.Usuario.findAll()
+    db.Usuario.findAll({where:{status:1}})
       .then((usuarios) => {
         res.render("./user/allUsers", { usuarios: usuarios });
       })
@@ -69,11 +69,16 @@ const userController = {
 
   /* ELIMINA USUARIO EN DATA BASE */
   deleteUser: (req, res) => {
+
     let userId = req.params.id;
-    db.Usuario.destroy(
-      {where: {id: userId}, force: true})
-    .then(()=>{
-        return res.redirect('/user/list')})
+    db.Usuario.update({
+      status: 0
+    },
+    {
+     where:{
+      id: userId
+    } 
+    }).then(()=>res.redirect('/user/list'))
     .catch(e => console.log(e));
   },
 
