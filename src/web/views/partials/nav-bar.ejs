@@ -26,8 +26,15 @@
       </div>
 
       <form class="nav-form" action="">
-        <input class="input-buscar" type="text" placeholder=" Buscá un libro..." />
-        <button class="btn-buscar">Buscar</button>
+
+        <form action="/libros/buscar" method="POST">
+          <input class="input-buscar" type="text" name="titulo" id="titulo" placeholder=" Buscá un libro..."> </>
+          <a href="/products/producto">Buscar</a>
+
+          <!-- <button class="btn-buscar" type="submit">Buscar</button> -->
+
+        </form>        
+
       </form>
 
       <ul class="nav-menu">

@@ -46,5 +46,7 @@ router.put("/editar/:publicacionId",uploadBookImage, validatecrearPublicacionFor
 /* GET - RENDERIZA DETALLE DE PUBLICACION. */
 router.get("/detalle/:publicacionId", productoController.detallePublicacion);
 
+/* POST - BUESQUEDA DESDE NAV BAR */
+router.post("/buscarLibro", productoController.buscarLibro);
 
 module.exports = router;

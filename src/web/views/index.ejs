@@ -1,47 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-      rel="stylesheet"
-    />
-    <title>MercadoLibros</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <title>MLibros (con DB)</title>
     <link rel="stylesheet" href="/css/nav-bar.css" />
     <link rel="stylesheet" href="/css/home.css" />
+    <link rel="stylesheet" href="/css/publicacionesactivas.css" />
     <link rel="stylesheet" href="/css/footer.css" />
   </head>
+  
   <body>
     <!-- Nav-bar & Categories -->
     <%- include("./partials/nav-bar.ejs", {authUser}) %>
 
     <!-- Books -->
+      <main>
+        <h2>Explorá las novedades</h2>
+        <section class="publicaciones-container">
+          
+            <% publicaciones.forEach(publicacion => { %> 
+              <article class="publicacion">
 
-    <main>
-      <div class="productos">
-        <h2>Explorá</h2>
+                  <div class="libro">
+                      <a href=""><img src="/img/publicacion_img/<%= publicacion.foto %>" alt="imagen-publicacion"></a>
+                  </div>
 
-        <% const categories = ['Destacados', ...(new
-        Set(libros.map(libro=>libro.category)))] %> <%
-        categories.map(category=>{ %>
-        <section>
-          <div class="productos-texto-container">
-            <h3 class="productos-texto"><%= category %></h3>
-            <a href="#" class="ver-mas">Ver más</a>
-          </div>
-          <div class="libros">
-            <% if(category !== 'Destacados'){ %> <% libros.filter(libro =>
-            libro.category === category).map( libro => { %> <%-
-            include("./partials/libro.ejs", {libro}) %> <% })} else { %> <%
-            libros.filter(libro => libro.id < 7 && libro.id > 1).map(libro =>{
-            %> <%- include("./partials/libro.ejs", {libro}) %> <% })} %>
-          </div>
+                  <div class="detalle-container">
+                      <h3>ISBN</h3>
+                      <p><%= publicacion.libro.isbn %></p>
+                      <h3>Titulo</h3>
+                      <p><%= publicacion.libro.titulo %></p>
+                      <br>
+                      <h3>Precio:</h3> 
+                      <p>$<%= publicacion.precio %></p>
+                  </div>
+
+              </article>
+            <% }) %> 
         </section>
-        <% }) %>
-      </div>
     </main>
+  
     <%- include("./partials/footer.ejs") %>
   </body>
 </html>

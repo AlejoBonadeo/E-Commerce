@@ -238,12 +238,15 @@ const productoController = {
       if(publicacion){
         res.render("./products/producto" , {authUser: req.session.authUser , publicacion: publicacion , libro: libro , usuario: usuario})
       }
+
       else{
+
         res.json({
           ok: false,
           msg: "Error! No se encontro la publicacion buscada."
         })
       }
+
     } catch (error) {
       res.json({
         ok: false,
@@ -252,6 +255,30 @@ const productoController = {
       
     }
   },
-};
+
+
+  /* buscar desde la NavBar  */
+  buscarLibro: async (req , res) => {
+    
+      let publicacion = await db.Publicacion.findAll({
+        
+        where: {titulo: {[Op.like]: '%'+req.params.titulo+'%'}
+                }
+
+        }).then(publicacion => {
+
+            console.log(publicacion)
+            
+            if(publicacion){
+              res.render("./products/producto" , {authUser: req.session.authUser , publicacion: publicacion })
+            }else{
+              res.json({
+                ok: false,
+                msg: "Error! No se encontro ninguna publicacion con ese nombre."
+              })
+            } 
+        })
+  }
+}
 
 module.exports = productoController;

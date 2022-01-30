@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MLibros (DB)</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/nav-bar.css" />
+    <link rel="stylesheet" href="/css/publicacionesactivas.css" />
+    <link rel="stylesheet" href="/css/footer.css" />
+  </head>
+
+  <body>
+    <%- include("../partials/nav-bar.ejs") %>
+
+    <main>
+        <h2>Explorá la lista de novedades</h2>
+      <section class="publicaciones-container">
+        
+          <% publicaciones.forEach(publicacion => { %> 
+            <article class="publicacion">
+
+                <div class="libro">
+                    <a href=""><img src="/img/publicacion_img/<%= publicacion.foto %>" alt="imagen-publicacion"></a>
+                </div>
+
+                <div class="detalle-container">
+                    <h3>ISBN</h3>
+                    <p><%= publicacion.libro.isbn %></p>
+                    <h3>Titulo</h3>
+                    <p><%= publicacion.libro.titulo %></p>
+                    <br>
+                    <h3>Precio:</h3> 
+                    <p>$<%= publicacion.precio %></p>
+                </div>
+                <div botones-container>
+                    <a href="/producto/eliminar/<%= publicacion.id %>"><button>Eliminar</button></a>
+                    <a href="/producto/editar/<%= publicacion.id %>"><button>Editar</button></a>
+                </div>
+
+            </article>
+          <% }) %> 
+      </section>
+    </main>
+
+
+
+    <%- include("../partials/footer.ejs") %>
+  </body>
+
+
+
+</html>
