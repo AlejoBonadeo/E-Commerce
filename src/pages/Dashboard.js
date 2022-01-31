@@ -6,10 +6,20 @@ import 'fontsource-roboto';
 import '../assets/css/Dashboard.css'
 import CardsHeader from '../components/CardsHeader';
 import Cards from '../components/Cards'
+import UltimoProducto from '../components/UltimoProducto';
 
 const useStyles = makeStyles (() =>({
     root:{
         flexGrow: 1
+    },
+    iconos:{
+        color: 'white'
+    },
+    container:{
+        paddingTop:'20px'
+    },
+    container2:{
+        paddingTop:'20px'
     }
 }))
 
@@ -28,16 +38,26 @@ function Dashboard (props){
                 <CardsHeader titulo='hello world' texto='numero del total*' color='blue'/>
                 </Grid>
                 <Grid item xs={12} sm={4} md={4} lg={4} xl={4}>
-                <CardsHeader titulo='Total de categorias' texto='numero del total*' color='blue'/>
+                <CardsHeader titulo='Total de categorias' texto='numero del total*' color='blue' />
                 </Grid>
-
+                </Grid>
+                <Grid container spacing={1} className={classes.container} >
+                <Grid item xs={12} sm={6} md={6} lg={6} xl={6}>
+                <Cards titulo='hola'></Cards>
+                </Grid>
+                <Grid item xs={12} sm={6} md={6} lg={6} xl={6}>
+                <Cards titulo='hola'></Cards>
+                </Grid>
+                </Grid>
+                <Grid container spacing={1} className={classes.container2}>
+                <Grid item xs={12} sm={6} md={6} lg={6} xl={6}>
+                <UltimoProducto titulo='hola'className={classes.container2} color='red'  />
+                </Grid>
+                <Grid item xs={12} sm={6} md={6} lg={6} xl={6}>
+                <UltimoProducto texto='Soy el texto'className={classes.container2} color='red'/>
+                </Grid>
             </Grid>
 
-            <Grid container spacing={1} className={classes.container} xs={12} sm={12} md={6} lg={6} xl={6}>
-            <Grid item xs={12} sm={6} md={6} lg={6} xl={6}>
-                <Cards ></Cards>
-            </Grid>
-            </Grid>
         </div>
     );
 }

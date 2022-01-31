@@ -1,42 +1,46 @@
 import React from 'react';
-import {makeStyles} from '@material-ui/core/styles'
-import {AppBar, Toolbar, IconButton, Typography} from '@material-ui/core/'
-import MenuIcon from '@material-ui/icons/Menu';
+import * as FaIcons from 'react-icons/fa';
+import * as AiIcons from 'react-icons/ai';
+import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import SidebarData from './SidebarData';
+import '../assets/css/Navbar.css'
+import {IconContext} from 'react-icons'
 
-const useStyles = makeStyles (() =>({
-    root:{
-        flexGrow: 1
-    },
-    menuButton:{
-        marginRight:'16px'
-    },
-    title:{
-        flexGrow: 1
-    },
-    imagen:{
-        borderRadius:'50%'
-    }
-}))
+function Navbar (){
+    const [sidebar, setSidebar] = useState(false);
+    const showSidebar = () => setSidebar(!sidebar);
 
-
-function Navbar (props){
-    const classes = useStyles();
     return(
-        <div className={classes.root}>
-            <AppBar position='static'>
-                <Toolbar>
-                    <IconButton edge='start' className={classes.menuButton} color='inherit'>
-                        <MenuIcon />
-                    </IconButton>
-                    <Typography variant='h6' className={classes.title}>
-                        MercadoLibros
-                    </Typography>
-                    <IconButton color = 'inherit'>
-                        <img src={require('../assets/img/Logo_MercadoLibros.jpg')} width='40px'className={classes.imagen}/>
-                    </IconButton>
-                </Toolbar>
-            </AppBar>
-        </div>
+        <>
+        <IconContext.Provider value={{color: '#fff'}} > 
+
+            <div className='navbar' >
+            <Link to='#' className='menu-bars'>
+                <FaIcons.FaBars onClick={showSidebar}/>
+            </Link>
+            </div>
+            <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
+            <ul className='nav-menu-items' onClick={showSidebar}>
+                <li className='navbar-toggle'>
+                    <Link to='#' className='menu-bars'>
+                        <AiIcons.AiOutlineClose/>
+                    </Link>
+                </li>
+                {SidebarData.map((item, index) =>{
+                    return (
+                        <li key={index} className={item.cName}>
+                             <Link to={item.path}>
+                                 {item.icon}
+                                 <span>{item.title}</span>
+                             </Link>
+                        </li>
+                    );
+                })}
+            </ul>
+            </nav>
+        </IconContext.Provider>
+        </>
     );
 }
 export default Navbar

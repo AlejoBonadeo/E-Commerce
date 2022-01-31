@@ -1,12 +1,15 @@
 import React from 'react';
-import {BrowserRouter, Switch, Route} from 'react-router-dom';
+import {Switch, Route, BrowserRouter} from 'react-router-dom';
 import Dashboard from '../pages/Dashboard';
+import ListProducts from '../components/ListProducts'
+
 
 function App() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path="/" component={Dashboard}/>
+        <Route exact path="/" component={Dashboard}/>
+        <Route path="/Products" component={ListProducts}/>
       </Switch>    
     </BrowserRouter>
   );
