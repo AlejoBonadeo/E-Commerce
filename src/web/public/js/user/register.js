@@ -25,7 +25,7 @@ window.onload = function () {
             errors.push("PASSWORD debe tener al menos 8 caracteres");
         if (inputRepeatPassword.value != inputPassword.value)
             errors.push("Ambras PASSWORDS deben ser iguales");
-        if (inputImagen.files.length>0 && (inputImagen.files [0].type != "image/png" || inputImagen.files [0].type != "image/jpg" || inputImagen.files [0].type != "image/jpeg" || inputImagen.files [0].type != "image/gif"))
+        if (inputImagen.files.length>0 && (inputImagen.files[0].type != "image/png" && inputImagen.files[0].type != "image/jpg" && inputImagen.files[0].type != "image/jpeg" && inputImagen.files[0].type != "image/gif"))
             errors.push("La imagen debe ser un formato valido (JPG, JPEG, PNG, GIF).");
 
         console.log(errors);
