@@ -59,9 +59,8 @@ const productoController = {
         res.render("./products/crearpublicacion" , {errors: errors.mapped(), authUser: req.session.authUser , libro: libro})
       })
       .catch(e=>console.log(e))
-    }
-
-    req.file?libro_img=req.file.filename:libro_img = "default.jpg"
+    }else{
+      req.file?libro_img=req.file.filename:libro_img = "default.jpg"
 
     let publicacion = {
       titulo: req.body.pulic_titulo,
@@ -80,6 +79,9 @@ const productoController = {
       }
     ).then(() => res.send("Publicacion creada!!"))
     .catch((e) => console.log(e))
+    }
+
+    
   },
 
   crearPublicacionBis: async (req ,res) => {
@@ -95,9 +97,8 @@ const productoController = {
         res.render("./products/crearpublicacionBis" , {errors: errors.mapped(), authUser: req.session.authUser , isbn: req.params.isbn , categorias: categorias})
       })
       .catch(e=>console.log(e))
-    }
-    
-    try {
+    }else{
+      try {
       let [autor] = await db.Autor.findOrCreate({where: {nombre: req.body.autor_nombre, apellido: req.body.autor_apellido}});
       
       let [editorial] = await db.Editorial.findOrCreate({where:{nombre: req.body.editorial_nombre}})
@@ -138,6 +139,9 @@ const productoController = {
         msg: "Error del servidor",
       })
     }
+    }
+    
+    
   },
 
   listPublucacionesActivas: async (req , res) => {

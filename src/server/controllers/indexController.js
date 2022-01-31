@@ -15,6 +15,30 @@ const indexController = {
     })
      res.render("index", { publicaciones: listaPublicaciones, authUser: req.session.authUser })
 
+  },
+
+  buscar: async (req , res)=>{
+    try {
+      let listaPublicaciones = await db.Publicacion.findAll({
+        where:{
+          titulo: {
+            [Op.like]: `%${req.body.titulo}%`
+          },
+          status: 1
+        },
+        include: [{ association: "libro" }]
+      })
+
+      /* res.send(listaPublicaciones)      */   
+      
+      res.render("searchResult", {authUser: req.session.authUser , publicaciones: listaPublicaciones})
+      
+    } catch (error) {
+      res.json({
+        ok: false,
+        msg: "Ocurrio un error en la busqueda (Index.js)"
+      })
+    }
   }
 }
 

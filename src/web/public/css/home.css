@@ -89,8 +89,8 @@ section:not(:last-child) {
 }
 
 .libro:not(:last-child) {
-  border-right: solid 1px #676294;
-  padding-right: 30px;
+  /* border-right: solid 1px #676294; */
+  /* padding-right: 30px; */
 }
 .libro:not(:first-child) {
   padding-left: 30px;

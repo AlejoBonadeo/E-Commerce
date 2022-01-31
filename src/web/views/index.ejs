@@ -20,28 +20,31 @@
     <!-- Books -->
       <main>
         <h2>Explorá las novedades</h2>
-        <section class="publicaciones-container">
-          
-            <% publicaciones.forEach(publicacion => { %> 
-              <article class="publicacion">
+        <section class="main-container">
+          <section class="publicaciones-container">
+                    
+                      <% publicaciones.forEach(publicacion => { %> 
+                        <article class="publicacion">
 
-                  <div class="libro">
-                      <a href="/producto/detalle/<%= publicacion.id %>"><img src="/img/publicacion_img/<%= publicacion.foto %>" alt="imagen-publicacion"></a>
-                  </div>
+                            <div class="libro">
+                                <a href="/producto/detalle/<%= publicacion.id %>"><img src="/img/publicacion_img/<%= publicacion.foto %>" alt="imagen-publicacion"></a>
+                            </div>
 
-                  <div class="detalle-container">
-                      <h3>ISBN</h3>
-                      <p><%= publicacion.libro.isbn %></p>
-                      <h3>Titulo</h3>
-                      <p><%= publicacion.libro.titulo %></p>
-                      <br>
-                      <h3>Precio:</h3> 
-                      <p>$<%= publicacion.precio %></p>
-                  </div>
+                            <div class="detalle-container">
+                                <h3>ISBN</h3>
+                                <p><%= publicacion.libro.isbn %></p>
+                                <h3>Titulo</h3>
+                                <p><%= publicacion.libro.titulo %></p>
+                                <br>
+                                <h3>Precio:</h3> 
+                                <p>$<%= publicacion.precio %></p>
+                            </div>
 
-              </article>
-            <% }) %> 
+                        </article>
+                      <% }) %> 
+                  </section>
         </section>
+        
     </main>
   
     <%- include("./partials/footer.ejs") %>

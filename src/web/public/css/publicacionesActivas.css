@@ -63,6 +63,7 @@ main h2{
 .detalle-container{
   /* height: 30%; */
   padding: 10px;
+  width: 100%;
 }
 
 .botones-container{
