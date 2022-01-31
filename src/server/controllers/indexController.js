@@ -10,10 +10,9 @@ const indexController = {
   index: async (req, res) => {
 
     /*res.render("index", { libros: data, authUser: req.session.authUser }); */
-    let listaPublicaciones = await db.Publicacion.findAll({
+    let listaPublicaciones = await db.Publicacion.findAll({where:{status: 1},
           include: [{ association: "libro" }]
-     })
-
+    })
      res.render("index", { publicaciones: listaPublicaciones, authUser: req.session.authUser })
 
   }

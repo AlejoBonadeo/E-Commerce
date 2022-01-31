@@ -8,8 +8,8 @@ module.exports = {
     dialect: "mysql"
    */
    
-    username: process.env.DB_USER || "difermo_grupo11Admin",
-    password: process.env.DB_PASSWORD || "Grupo11Admin2022",
+    username: /* process.env.DB_USER ||  */"difermo_grupo11Admin",
+    password: /* process.env.DB_PASSWORD || */ "Grupo11Admin2022",
     database: "difermo_mercado_libros2",
     host: "difermo.com.ar",
     dialect: "mysql"
