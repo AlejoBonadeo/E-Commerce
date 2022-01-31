@@ -7,9 +7,11 @@ module.exports = function (req, res, next) {
     db.Usuario.findOne({
       where: {
         email: req.cookies.savedUserCookie.email,
+        status: 1
       },
     })
       .then((usr) => {
+        console.log(usr);
         if (usr != null && usr.password == req.cookies.savedUserCookie.password) {
           req.session.authUser = usr;
           next();
