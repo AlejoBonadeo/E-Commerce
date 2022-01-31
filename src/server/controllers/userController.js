@@ -68,9 +68,23 @@ const userController = {
   },
 
   /* ELIMINA USUARIO EN DATA BASE */
-  deleteUser: (req, res) => {
+  deleteUser: async (req, res) => {
+    try {
+      let userId = req.params.id
 
-    let userId = req.params.id;
+      await db.Publicacion.update({status: 0},{where:{id_usuario: userId}})
+      await db.Usuario.update({status: 0},{where:{id: userId}})
+      res.redirect('/user/list')
+      
+    } catch (error) {
+      res.json({
+        ok: false,
+        msg: "Error con la baja de usuario (userController.js)"
+      })
+      
+    }
+
+   /*  let userId = req.params.id;
     db.Usuario.update({
       status: 0
     },
@@ -79,7 +93,7 @@ const userController = {
       id: userId
     } 
     }).then(()=>res.redirect('/user/list'))
-    .catch(e => console.log(e));
+    .catch(e => console.log(e)); */
   },
 
   /* RENDERIZA FORMULARIO DE LOGIN DE USUARIO */
@@ -102,6 +116,7 @@ const userController = {
       db.Usuario.findAll({
         where: {
           email: newUser.emailUsuario,
+          status: 1
         },
       })
         .then((usuario) => {
@@ -146,6 +161,7 @@ const userController = {
       db.Usuario.findOne({
         where: {
           email: req.body.emailUsuario,
+          status: 1
         },
       })
         .then((usr) => {

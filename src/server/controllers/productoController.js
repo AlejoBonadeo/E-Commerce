@@ -77,7 +77,7 @@ const productoController = {
       {
         ...publicacion
       }
-    ).then(() => res.send("Publicacion creada!!"))
+    ).then(() => res.redirect(`/producto/publicacionesactivas/${req.session.authUser.id}`))
     .catch((e) => console.log(e))
     }
 
@@ -130,7 +130,7 @@ const productoController = {
         }
       )
 
-      res.redirect(`/user/userHome/${req.session.authUser.id}`)
+      res.redirect(`/producto/publicacionesactivas/${req.session.authUser.id}`)
 
 
     } catch (error) {
