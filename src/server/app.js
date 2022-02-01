@@ -18,6 +18,9 @@ app.set("views", path.join(__dirname, "../web/views"));
 //SESSION
 const userSession = require("./middlewares/sessionMiddleware");
 
+//CORS
+const cors = require('cors')
+
 //COOKIE PARSER
 const cookie = require("cookie-parser");
 
@@ -28,6 +31,9 @@ app.use(methodOverride("_method"));
 app.use(session({ secret: "238y7wrhqwre58q2", resave: false, saveUninitialized: true }));
 app.use(cookie());
 app.use(userSession);
+
+//CORS
+app.use(cors())
 
 //ROUTES
 app.use("/", require("./routes/index"));

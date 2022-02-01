@@ -19,6 +19,23 @@ const userController = {
       .catch((e) => console.log(e));
   },
 
+  getUser: (req, res) =>{
+    db.Usuario.findAll()
+      .then((usuarios) => {
+        let usuario =usuarios.filter( usuario => usuario.id === req.params.id)
+        res.json(usuario);
+      })
+      .catch((e) => console.log(e));
+  },
+
+  allPublicaciones: (req, res) => {
+    db.Publicacion.findAll()
+      .then((publicacion) => {
+        res.json(publicacion);
+      })
+      .catch((e) => console.log(e));
+  },
+
   allCategories: (req, res) => {
     db.Categoria.findAll()
       .then((categoria) => {
@@ -26,6 +43,6 @@ const userController = {
       })
       .catch((e) => console.log(e));
   },
-}
+} 
 
 module.exports = userController;
