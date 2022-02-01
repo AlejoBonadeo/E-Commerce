@@ -13,13 +13,13 @@ const Sidebardata = [
     },
     {
         title: 'Producto',
-        path:'/products',
+        path:'/Productos',
         icon: <FaIcons.FaCartPlus/>,
         cName:'nav-text'
     },
     {
-        title: 'Reportes',
-        path:'/reports',
+        title: 'Usuarios',
+        path:'/Usuarios',
         icon: <IoIcons.IoIosPaper/>,
         cName:'nav-text'
     }

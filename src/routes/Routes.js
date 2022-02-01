@@ -1,7 +1,10 @@
 import React from 'react';
 import {Switch, Route, BrowserRouter} from 'react-router-dom';
 import Dashboard from '../pages/Dashboard';
-import ListProducts from '../components/ListProducts'
+import ListaUsuarios from '../components/ListaUsuarios'
+import UsuarioDetalle from '../components/UsuarioDetalle';
+import ListaProductos from '../components/ListaProductos';
+import ProductoDetalle from '../components/ProductoDetalle';
 
 
 function App() {
@@ -9,7 +12,10 @@ function App() {
     <BrowserRouter>
       <Switch>
         <Route exact path="/" component={Dashboard}/>
-        <Route path="/Products" component={ListProducts}/>
+        <Route exact path="/Usuarios" component={ListaUsuarios}/>
+        <Route exact path="/UsuariosDetalle/:id" component={UsuarioDetalle}/>
+        <Route exact path="/Productos" component={ListaProductos}/>
+        <Route exact path="/ProductosDetalle/:id" component={ProductoDetalle}/>
       </Switch>    
     </BrowserRouter>
   );
